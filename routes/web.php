@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//return views
+//return views/page for posting liquor
 Route::get('/index' , [ProductController::class, 'index']);
 Route::get('/create', [ProductController::class,'returnCreateDataView']);
 
-//post methods for forms
+//return views/page for login admin
+Route::get('/admin' , [AdminController::class,'returnAdminLoginView']);
+
+//post methods for Liquor Adding forms
 Route::post('/post' , [ProductController::class, 'storeData'])->name('post');
+
+//post method for admin auth
+Route::post('/admin', [AdminController::class, 'loginAdmin'])->name('login.admin');

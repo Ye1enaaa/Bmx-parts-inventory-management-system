@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//return views
+Route::get('/index' , [ProductController::class, 'index']);
+Route::get('/create', [ProductController::class,'returnCreateDataView']);
+
+//post methods for forms
+Route::post('/post' , [ProductController::class, 'storeData'])->name('post');

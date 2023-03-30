@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         Product::create($request->all());
 
-        return redirect('/');
+        return redirect('/index');
     }
 
     public function productCodeExists($number){

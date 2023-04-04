@@ -28,6 +28,8 @@
                       <th scope="col" class="px-4 py-2 border border-gray-500">ID</th>
                       <th scope="col" class="px-4 py-2 border border-gray-500">Title</th>
                       <th scope="col" class="px-4 py-2 border border-gray-500">Price</th>
+                      <th scope="col" class="px-4 py-2 border border-gray-500">Quantity</th>
+                      <th scope="col" class="px-4 py-2 border border-gray-500">Inventory Value</th>
                       <th scope="col" class="px-4 py-2 border border-gray-500">Qr Code</th>
                       <th scope="col" class="px-4 py-2 border border-gray-500">Description</th>
                     </tr>
@@ -39,7 +41,9 @@
                     <tr>
                         <th class="px-4 py-2 border border-gray-500">{{$product->id}}</th>
                         <td class="px-4 py-2 border border-gray-500">{{$product->name}}</td>
-                        <td class="px-4 py-2 border border-gray-500">{{$product->unit_price}}</td>
+                        <td class="px-4 py-2 border border-gray-500">${{$product->unit_price}}.00</td>
+                        <td class="px-4 py-2 border border-gray-500">{{$product->quantity}}</td>
+                        <td class="px-4 py-2 border border-gray-500">${{$product->inventory_value}}.00</td>
                         <td class="px-4 py-2 border border-gray-500"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}">
                         </td>
                         <td class="px-4 py-2 border border-gray-500">{{$product->description}}</td>
@@ -52,8 +56,5 @@
         </div>
       </div>
     </div>
-
-
-
   </body>
 </html>

@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+}
+
+:root{
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.contents{
+    position: relative;
+    width: 100%;
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 200%;
+    list-style: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.navigation ul li:hover{
+    background: var(--white);
+}
+.navigation ul li:nth-child(1){
+    margin-top: 10px;
+    margin-bottom: 30px;
+    pointer-events: none;
+    /*border-bottom: 1px solid var(--black1);*/
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a{
+    color: var(--blue);
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 30px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.product-field {
+    position: fixed;
+    top: 50px;
+    left: 350px;
+    height: 130px;
+    width: 250px;
+    border: 1px solid black;
+}
+.product-field .title{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 3px;
+}
+.product-field .data{
+    position: relative;
+    top: 5px;
+    left: 20px;
+    font-size: 70px;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.total-quantity {
+    position: fixed;
+    top: 50px;
+    left: 650px;
+    height: 130px;
+    width: 250px;
+    border: 1px solid black;
+}
+
+.total-quantity .title{
+    display: flex;
+    align-items: center;
+}
+
+.total-quantity .data{
+    font-size: 70px;
+}
+
+.total-inventory-value {
+    position: fixed;
+    top: 50px;
+    left: 950px;
+    height: 130px;
+    width: 250px;
+    border: 1px solid black;
+}
+
+.total-inventory-value .title{
+    display: flex;
+    align-items: center;
+}
+
+.total-inventory-value .data{
+    position: relative;
+    left: 20px;
+    font-size: 70px;
+}
+
+.total-admin{
+    position: fixed;
+    top: 210px;
+    left: 350px;
+    height: 130px;
+    width: 250px;
+    border: 1px solid black;
+}
+
+
+

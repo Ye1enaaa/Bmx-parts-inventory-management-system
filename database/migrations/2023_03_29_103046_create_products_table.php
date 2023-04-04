@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('product_code');
             $table->string('unit_price');
             $table->string('quantity');
+            $table->string('inventory_value');
             $table->timestamps();
         });
     }

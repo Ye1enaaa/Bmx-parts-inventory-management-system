@@ -26,9 +26,14 @@ class ProductController extends Controller
             $number = mt_rand(1000000000,9999999999);
         }
 
+        $unit_price = $request['unit_price'];
+        $quantity = $request['quantity'];
+
+        $request['inventory_value'] = $unit_price * $quantity; 
+
         Product::create($request->all());
 
-        return redirect('/');
+        return redirect('/index');
     }
 
     public function productCodeExists($number){

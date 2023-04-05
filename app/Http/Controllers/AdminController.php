@@ -6,13 +6,28 @@ use Illuminate\Http\Request;
 use  App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Validator;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
     //views
     public function returnAdminLoginView(){
         return view('auth-admin.login-admin');
+    }
+
+    public function returnAdminDashboardView(){
+        $count = DB::table('products')->count();
+        $total_quantity = DB::table('products')->sum('quantity');
+        $total_inventory = DB::table('products')->sum('inventory_value');
+        $total_admin = DB::table('admins')->count();
+        return view('dashboard.data-table',[
+            'count' => $count,
+            'total_quantity'=> $total_quantity,
+            'total_inventory'=> $total_inventory,
+            'total_admin'=> $total_admin
+        ]);
     }
 
     //auth

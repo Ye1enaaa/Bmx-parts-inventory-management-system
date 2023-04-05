@@ -15,5 +15,6 @@ class Product extends Model
         'product_code',
         'unit_price',
         'quantity',
+        'inventory_value'
     ];
 }

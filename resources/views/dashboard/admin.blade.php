@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Fredoka">
+
     <title>Dashboard</title>
 </head>
 <body>
@@ -16,7 +20,7 @@
                 <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
-                        <span class="title">Liquor Inventory</span>
+                        <span class="title">Liquor Inventory Management</span>
                     </a>
                 </li>
                 <li>
@@ -25,12 +29,14 @@
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="/index">
                         <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
                         <span class="title">Product</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
@@ -49,23 +55,41 @@
 
     
     <!--Main-->
-    <div class="product-field">
-        @yield('content')
-    </div>
+
+
+
+        <div class="product-field">
+
+         @yield('content')
+         </div>
+
+
+
+
+    
 
     <div class="total-quantity">
         @yield('total-quantity')
     </div>
 
+
+
     <div class="total-inventory-value">
         @yield('total-inventory-value')
     </div>
+
+
 
     <div class="total-admin"><!--same class name as the child class-->
         @yield('admin-table')
     </div>
 
+
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
 </body>
 </html>

@@ -8,10 +8,14 @@
     <title>Add Product</title>
 </head>
 
-<body class="bg-gray-100 " action="{{route('post')}}" method="post">
-    <form class="px-4 my-32 max-w-3xl mx-auto space-y-6">
+<body class="bg-gray-100 ">
+
+    <form action="{{route('post')}}" method="post" class="px-4 my-32 max-w-3xl mx-auto space-y-6">
+        @csrf
+
+   
         <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Products</b></h1>
-        
+
          
     <div class= "h-900px w-950px bg-blue-400 px-10 space-y-10 mx-auto p-11 rounded-md">
         
@@ -52,7 +56,7 @@
                             class="border border-gray-400 block py-2 px-4 w-full rounded-r focus:outline-none focus:border-blue-500" 
                             type="number" 
                             min="0"
-                            name="price" required>
+                            name="unit_price" required>
                 
        
                </div> 
@@ -77,14 +81,13 @@
 
 
     </div>
+    
 
     </form>
 
 
     </div>
 
-
-    
 
 </body>
 

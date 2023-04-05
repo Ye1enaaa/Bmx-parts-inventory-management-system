@@ -8,10 +8,10 @@
     <title>Add Product</title>
 </head>
 
-<body class="p-2 h-screen bg-gray-500 ">
+<body class="p-2 h-screen bg-gray-300 ">
 
 
-    <h1 class="flex text-4xl font-bold mb-10 text-white"><b>Add Products</b></h1>
+    <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Products</b></h1>
 
 
     

@@ -13,12 +13,15 @@
   </head>
 
 
-  <body class="p-5 h-screen bg-gray-500">
+  <body class="p-5 h-screen bg-gray-100">
     <h1 class="text-3xl font-bold mb-5 text-white"><b>List of Products</b></h1>
 
     <div class="pb-8 ">
+      
 
-      <a href="/create" class="bg-cyan-900 text-white font-bold py-2 px-4 rounded hover: cyan-700">New Post</a>
+
+      <a href="/create" class="bg-cyan-100 text-white font-bold py-2 px-4 rounded hover: cyan-700">New Post</a>
+      
 
       </div>
     

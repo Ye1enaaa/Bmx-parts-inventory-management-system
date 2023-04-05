@@ -42,6 +42,8 @@
                       <th class="px-4 py-2">Title</th>
                       <th class="px-4 py-2 ">Price</th>
                       <th class="px-4 py-2 ">Quantity</th>
+                      <th class="px-4 py-2 ">inventory_value</th>
+
                       <th class="px-4 py-2 ">Qr Code</th>
                       <th class="px-4 py-2">Description</th>
                       
@@ -59,7 +61,7 @@
                         <td class="border px-6  py-4">{{$product->name}}</td>
                         <td class="border px-6  py-4">{{$product->unit_price}}</td>
                         <td class="border px-6  py-4">{{$product->quantity}}</td>
-                          
+                        <td class="border px-6  py-4">{{$product->inventory_value}}</td>                  
                         <td class="border px-6  py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                         <td class="border px-6  py-4">{{$product->description}}</td>
 
@@ -74,29 +76,6 @@
                 </table>   
                 
         
-        <div class="grid grid-cols1 gap-4 md:hidden">
-          <div class="bg-white space-y-4 p-4 rounded-lg shadow">
-          <div class=flex items-center space-x-2 text-sm>
-            <div>
-              <div>
-                <a href="#"class="text-blue-500 font-bold hover:underline">{{$product->id}}</a>
-              </div>
-
-              <div class="text-gray-500">{{$product->name}}</div>
-              
-              <div class="text-gray-500">{{$product->unit_price}}</div>
-               
-              <div class="text-gray-500">img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}</div>
-           
-
-              <div classtext-sm text-gray-700="">{{$product->description}}</div>
-            </div>
-
-          </div>
-          </div>
-
-
-        </div>
 
       </div>
 

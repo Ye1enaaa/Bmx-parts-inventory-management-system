@@ -8,6 +8,12 @@
     <title>Admin Login</title>
 </head>
 <body>
+
+    <div
+         class="w-full h-full bg-cover bg-blend-saturation"
+            style="background-image: url('https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_960_720.jpg');">
+    </div>
+    
     <form action="{{route('login.admin')}}" method="post">
         @csrf
         <div class="flex justify-center items-center h-screen bg-blue-500">

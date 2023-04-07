@@ -163,5 +163,25 @@ body{
     border: 1px solid black;
 }
 
+.bar{
+    background: var(--blue);
+    top: 0px;
+    position: fixed;
+    left: 300px;
+    height: 35px;
+    width: 1200px;
+}
 
+.bar ul li{
+    list-style-type: none;
+}
 
+.dropdown-item{
+    color: #222;
+    text-decoration:underline;
+    display: flex;
+    position: relative;
+    top: 5px;
+    bottom: 0px;
+    left: 970px;
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Fredoka">
+    <!--@vite(['resources/sass/app.scss', 'resources/js/app.js'])-->
     <title>Dashboard</title>
 </head>
 <body>
@@ -26,13 +27,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/index">
-                        <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
-                        <span class="title">Product</span>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                        <span class="title">Purchase</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
+                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                        <span class="title">Sales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index">
+                        <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                        <span class="title">Inventory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/supplier">
                         <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
                         <span class="title">Supplier</span>
                     </a>
@@ -63,6 +76,10 @@
 
     <div class="total-admin"><!--same class name as the child class-->
         @yield('admin-table')
+    </div>
+
+    <div class="bar">
+        @yield('top-bar')
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

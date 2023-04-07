@@ -30,7 +30,7 @@
 @endsection
 
 @section('total-quantity')
-<div class="quantity-field">
+<div class="total-quantity">
     <div class="title">
         <p class="quantity-title">Liquor Quantity</p>
     </div>

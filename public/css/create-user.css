@@ -5,15 +5,15 @@
     position: fixed;
     top: 80px;
     width: 350px;
-    border: 1px solid #ccc;
+    border: 1px solid #170c7f;
     border-radius: 4px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 10px;
+    margin: 20px;
   }
   
   .card-header {
-    background-color: #333;
+    background-color: #0040e3;
     padding: 16px;
     text-align: center;
   }
@@ -35,7 +35,7 @@
   .form-group label {
     display: block;
     font-size: 14px;
-    color: #333;
+    color: #070612;
     font-weight: bold;
     margin-bottom: 1px;
   }
@@ -46,7 +46,7 @@
     width: 90%;
     padding: 8px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid #070514;
     border-radius: 4px;
   }
   
@@ -56,16 +56,16 @@
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    background-color: #333;
-    color: #fff;
+    background-color: #000000;
+    color: #1600a8;
     text-transform: uppercase;
     transition: background-color 0.2s ease-in-out;
     cursor: pointer
   }
   
   .btn:hover {
-    background-color: #ccc;
-    color: #333;
+    background-color: #094aef;
+    color: #30126c;
   }
 
 .list-users{

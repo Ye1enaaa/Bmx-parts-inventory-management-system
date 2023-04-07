@@ -75,7 +75,7 @@
 
 
     <div class="total-inventory-value bg-red-600 hover:bg-red-500">
-        <div class="icon"><ion-icon name="stats-chart-outline"></ion-icon> </div>
+        <div class="icon"><ion-icon name="trending-up-sharp"></ion-icon> </div>
         @yield('total-inventory-value')
     </div>
 

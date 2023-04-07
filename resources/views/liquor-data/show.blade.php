@@ -38,13 +38,15 @@
                   <thead class="text-white bg-gray-900 border-gray-900 " >
                     
                     <tr class="text-center font bold">
-                      <th class="border px-10  py-5 ">Product Code</th>
-                      <th class="border px-6  py-4 ">Title</th>
-                      <th class="border px-10  py-5 ">Price</th>
-                      <th class="border px-10  py-5 ">Quantity</th>
-                      <th class="border px-10  py-5 ">Inventory Value</th>
-                      <th class="border px-6  py-4 ">Qr Code</th>
-                      <th class="border px-6  py-4 ">Description</th>
+                      <th class="px-4 py-2">Product Code</th>
+                      <th class="px-4 py-2">Title</th>
+                      <th class="px-4 py-2 ">Price</th>
+                      <th class="px-4 py-2 ">Quantity</th>
+                      <th class="px-4 py-2 ">inventory_value</th>
+
+                      <th class="px-4 py-2 ">Qr Code</th>
+                      <th class="px-4 py-2">Description</th>
+                      
                     </tr>
                   </thead>
 
@@ -59,7 +61,7 @@
                         <td class="border px-6  py-4">{{$product->name}}</td>
                         <td class="border px-6  py-4">{{$product->unit_price}}</td>
                         <td class="border px-6  py-4">{{$product->quantity}}</td>
-                        <td class="border px-6  py-4">{{$product->inventory_value}}</td>
+                        <td class="border px-6  py-4">{{$product->inventory_value}}</td>                  
                         <td class="border px-6  py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                         <td class="border px-6  py-4">{{$product->description}}</td>
 

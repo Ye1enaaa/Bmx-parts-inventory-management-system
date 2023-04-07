@@ -2,6 +2,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=105">
+    <link rel="stylesheet" href="{{ asset('css/create-user.css') }}">
+
     <title>Liquor Inventory management</title>    
    <!-- Fonts -->
    <!--<link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">-->
@@ -12,11 +14,51 @@
 
   </head>
     <body>
-        <div
-            class="w-full h-full bg-cover bg-center blur-sm"
-                 style="background-image: url('https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_960_720.jpg');">
+      <div class="w-full h-full bg-cover bg-center blur-ms">
+        <div style="background-image: url('https://cdn.pixabay.com/photo/2016/11/21/13/04/alcoholic-beverages-1845295_960_720.jpg');"> 
+            <div class="w-full h-full flex  justify-center items-center backdrop-blur-md">
+                <span class="card w-96 p-6 shadow-lg bg-white rounded-md ">
+                  <div class="card-header">
+                    <div class="text-header">Register</div>
 
+                  </div>
+                  
+                  <div class="card-body">
+                    <form action="{{route('create.user')}}" method="post">
+                      @csrf
+                      <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input required="" class="form-control" name="name" id="name" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input required="" class="form-control" name="email" id="email" type="email">
+                      </div>
+                      
+                      
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input required="" class="form-control" name="password" id="password" type="password">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input required="" class="form-control" name="confirm-password" id="confirm-password" type="password">
+                      </div>
+
+                        <input type="submit" class="btn" value="submit">
+                      </form>
+                </div>
+          </div>
+
+
+
+              </span>
+        
+            </div>
         </div>
+      </div>
+
         
     </body>
 </html> 

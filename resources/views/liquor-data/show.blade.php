@@ -25,7 +25,7 @@
    <div class="mt-4">
 
 
-      <a href="/create" class="inline-flex items-center justify-center py-2 px-4  text-white font-bold  bg-green-700 hover:bg-green-500 rounded-md">Add Products</a>
+      <a href="/create" class="inline-flex items-center justify-center py-2 px-4  text-white font-bold  bg-blue-700 hover:bg-blue-500 rounded-md">Add Products</a>
     
         <div class="overflow-auto rounded-lg shadow hidden md:block">
 
@@ -51,11 +51,11 @@
                   </thead>
 
 
-                  <tbody class="text-black text-center divide-y divide-gray-100">
+                  <tbody class="text-black text-center divide-y divide-blue-100">
                     
                     @foreach($product as $product)
 
-                    <tr class="bg-gray-200 hover:underline ">
+                    <tr class="bg-blue-300 hover:underline ">
 
                         <td class="border px-6  py-4">{{$product->product_code}}</td>
                         <td class="border px-6  py-4">{{$product->name}}</td>

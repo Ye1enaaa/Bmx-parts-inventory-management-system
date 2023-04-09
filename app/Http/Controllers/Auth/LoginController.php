@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Validator;
+use App\Models\User;
 class LoginController extends Controller
 {
     /*
@@ -73,4 +76,38 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
+
+    public function loginMobile(Request $request)
+    {
+        $input = $request->all();
+
+        
+        $validate = Validator::make($input, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if ($validate->fails()) {
+            return response([
+                'message' => $validate->errors()->first(),
+            ], 400);
+        }
+
+        $user = User::where('email', $input['email'])->first();
+
+        if (!$user || !Hash::check($input['password'], $user->password)) {
+            return response([
+                'message' => "Your email or password is incorrect. Please try again."
+            ], 401);
+        }
+
+        $token = $user->createToken('secret')->plainTextToken;
+
+
+        return response([
+            'user' => $user,
+            'token' => $token,
+        ], 200);
+    }
 }
+

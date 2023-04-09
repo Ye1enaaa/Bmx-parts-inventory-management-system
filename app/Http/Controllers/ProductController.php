@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 class ProductController extends Controller
 {
     //views
@@ -16,6 +18,11 @@ class ProductController extends Controller
         return view('liquor-data.create');
     }
 
+    public function getPrice(Request $request, $selectedValue)
+    {
+        $price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
+        return response()->json(['unit_price' => $price]);
+    }
     //post Liquor Data
 
     public function storeData(Request $request){

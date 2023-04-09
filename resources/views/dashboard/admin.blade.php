@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/purchase">
                         <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
                         <span class="title">Purchase</span>
                     </a>

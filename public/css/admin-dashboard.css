@@ -16,6 +16,7 @@
 body {
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .contents {
@@ -227,4 +228,15 @@ body {
     top: 5px;
     bottom: 0px;
     left: 970px;
+}
+
+.recent-order{
+    position:fixed;
+    overflow-y: scroll;
+    top: 350px;
+    left: 950px;
+    height: 200px;
+    width: 300px;
+    border: 1px solid black;
+    display:flex;
 }

@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +65,24 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 //Customer
 Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer');
-
+Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
 //supplier
 Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
 Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
+
+Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
+
+//Purchase
+Route::get('/purchase', [AdminController::class,'returnPurchaseView']);
+
+//Route::get('/get-price/{selectedValue}', function ($selectedValue) {
+  //  $price = DB::table('products')->where('name', $selectedValue)->pluck('unit_price')->first();
+   // return response()->json(['unit_price' => $price]);
+//});
+
+//Route::get('/get-price/{selectedValue}', function ($selectedValue) {
+ //   $unit_price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
+  //  return response()->json(['unit_price' => $unit_price]);
+//});
+
+Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);

@@ -29,6 +29,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="/purchase">
+                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                        <span class="title">Purchase</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                        <span class="title">Sales</span>
+                    </a>
+                </li>
+                <li>
                     <a href="/index">
                         <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
                         <span class="title">Inventory</span>

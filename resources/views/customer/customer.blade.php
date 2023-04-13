@@ -14,6 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -73,8 +74,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('add-form')
         </main>
     </div>
+    <script src="{{asset('js/customer.js')}}"></script>
 </body>
 </html>

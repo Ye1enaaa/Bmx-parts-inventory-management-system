@@ -8,6 +8,7 @@
     <title>Admin Login</title>
 </head>
 <body>
+    
     <form action="{{route('login.admin')}}" method="post">
         @csrf
         <div class="flex justify-center items-center h-screen bg-blue-500">

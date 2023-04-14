@@ -109,5 +109,12 @@ class LoginController extends Controller
             'token' => $token,
         ], 200);
     }
+
+    public function user(Request $request)
+    {
+        return response([
+            'user' => auth()->user()
+        ], 200);
+    }
 }
 

@@ -32,6 +32,9 @@ class UserController extends Controller
         return redirect('/createuser');
     }
 
+    //EDIT
+
+
     public function softDelete($id){
         $user = User::findOrFail($id);
         $user -> delete();
@@ -45,5 +48,18 @@ class UserController extends Controller
         $user -> save();
 
         return redirect('/createuser')->with('Success', 'User has been disabled');
+    }
+
+    public function userAllMobile(){
+        $user = User::all();
+        return response([
+            'user' => $user
+        ]);
+    }
+
+    public function user(){
+        return response([
+            'user' => auth()->user()
+        ]);
     }
 }

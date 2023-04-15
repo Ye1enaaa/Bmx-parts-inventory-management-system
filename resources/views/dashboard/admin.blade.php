@@ -66,7 +66,9 @@
     
     <!--Main-->
 
-
+    <div class="bar">
+        @yield('top-bar')  
+    </div>
 
     <div class="product-field bg-cyan-600 hover:bg-cyan-500">
         <div class="icon"><ion-icon name="pricetags-outline"></ion-icon> </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\CustomerOrder;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 class CustomerController extends Controller
 {
     //return view page
@@ -27,6 +28,18 @@ class CustomerController extends Controller
         $order -> quantity = $quantity;
         $order->total_value = $total_value;
         $order->save();
+
+        $product = Product::where('name', $name_value)->first();
+        if($product -> quantity - $quantity <= 0){
+            $product->delete();
+        }else{
+            $product->quantity -= $quantity;
+            $product->inventory_value -= $quantity * $product->unit_price;
+            $product->save();
+        }
+        //$product -> quantity -= $quantity;
+        //$product -> inventory_value -= $quantity * $product->unit_price;
+        //$product ->save();
         //DB::table('customer_orders')->insert(['name' => $name_value, 'quantity'=>$quantity]);
         return redirect()->back();
     }

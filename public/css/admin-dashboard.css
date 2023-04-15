@@ -216,8 +216,17 @@ body {
     padding-left: 0.5cqmax;
 }
 
+.bar{
+    background-color: #287bff;
+    height: 35px;
+}
 .bar ul li {
     list-style-type: none;
+}
+
+.bar ul .logout{
+    position: fixed;
+    left: 285px;
 }
 
 .dropdown-item {

@@ -10,11 +10,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Fredoka">
+
     <title>Dashboard</title>
 </head>
 <body>
     <div class="contents">
         <div class="navigation">
+            <div class="row">
+            <div class="col-md-3">
             <ul>
                 <li>
                     <a href="#">
@@ -76,7 +79,6 @@
         
     </div>
     
-
 
     <div class="total-quantity bg-green-600 hover:bg-green-500 ">
         <div class="icon"><ion-icon name="wine"></ion-icon> </div>

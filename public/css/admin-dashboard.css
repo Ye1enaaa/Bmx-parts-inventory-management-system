@@ -103,6 +103,7 @@ body {
 
 .product-field ion-icon {
     font-size: 3.7em;
+    color: black;
 }
 
 .product-field {
@@ -119,6 +120,7 @@ body {
     align-items: center;
     font-size: larger;
     font-weight: bold;
+    color: black;
     padding-top: 0.8cqmax;
     padding-left: 1.5cqmax;
 }
@@ -129,6 +131,7 @@ body {
     left: 50px;
     font-size: 50px;
     font-family: "Fredoka", sans-serif;
+    color: black;
 }
 
 .total-quantity .icon {
@@ -239,13 +242,13 @@ body {
     left: 970px;
 }
 
-.recent-order{
-    position:fixed;
+.recent-order {
+    position: fixed;
     overflow-y: scroll;
     top: 350px;
     left: 950px;
     height: 200px;
     width: 300px;
     border: 1px solid black;
-    display:flex;
+    display: flex;
 }

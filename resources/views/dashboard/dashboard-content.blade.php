@@ -29,3 +29,8 @@
         <div class="icon"><ion-icon name="people-circle-outline"></ion-icon> </div>
         @yield('admin-table')
     </div>
+
+    <div class="sales bg-violet-500 hover:bg-orange-400">
+        <div class="icon"><ion-icon name="storefront-outline"></ion-icon> </div>
+        @yield('total_sales')
+    </div>

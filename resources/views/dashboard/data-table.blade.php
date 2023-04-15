@@ -2,6 +2,32 @@
 
 @section('content')
 
+
+@section('top-bar')
+<div class="bar">
+<ul class = "bg-blue-500">
+   <!-- <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+        </a> -->
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <div class="logout" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+        </div>
+<!--</li>-->
+</ul>
+</div>
+@endsection
+
+
 <!--<h3 class="number">{{$count}} products</h3>-->
 
 <div class="product-field">
@@ -18,7 +44,7 @@
     </div>
     <div class="data">
         <p>
-            {{$count}}
+            {{$count}} 
         </p>
         
         <!--<div class="range">
@@ -37,7 +63,7 @@
     </div>
     <div class="data">
         <p>
-            {{$total_quantity}}
+            {{$total_quantity}} pcs.
         </p>
     </div>
 </div>
@@ -50,17 +76,17 @@
     </div>
     <div class="data">
         <p>
-            {{$total_inventory}}
+            ₱ {{$total_inventory}}
         </p>
     </div>
 </div>
 @endsection
 
-@section('admin-table')
+@section('customer-table')
 <div class="total-admin"> <!--ug unsa naa diri nga class name mao dapat naa didto sa parent class-->
     <div class="title">
         <p class="title-text">
-            Administrators
+            Customers
         </p>
     </div>
     <div class="data">
@@ -71,42 +97,20 @@
 </div>
 @endsection
 
-@section('total_sales')
+@section('total-sales')
 <div class="sales">
     <div class="title">
     <p class="sales-title">
         Sales
     </p>
     </div>
-    <div class="data-sales">
+    <div class="data">
         <p>
-            {{$total_value}}
+            ₱ {{$total_value}}
         </p>
     </div>
 </div>
 @endsection
 
-@section('top-bar')
-<div class="bar">
-<ul>
-   <!-- <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }}
-        </a> -->
-    <!--<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">-->
-    <div class="logout" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-        </div>
-<!--</li>-->
-</ul>
-</div>
-@endsection
+
 

@@ -6,22 +6,21 @@
 
 
 
-<div class="add-form">
-    <form action="/post-customer" method="post" id="add-form" class="px-4">
+<div class="add-form" >
+
+<div class="half-page">
+    <form action="/post-customer" method="post" id="add-form" class="rounded-md form-container">
     <!--<form method="post" id="add-form">-->
         @csrf
 
         
-        <h1 class="flex text-2xl font-bold mb-10 text-black"><b>Order Products</b></h1>
+    
+            <h1 class="flex text-2xl font-bold mb-10 text-black"><b>Order Products</b> <br> </br></h1>
 
+    
+                <label for="Select Data" >Select Data:</label>
 
-        <div class= "w-5/12 bg-blue-400 px-10 space-y-5 p-11 rounded-md">
-
-            
-
-                <label for="Select Data" class="block mb-2 text-lg font-bold dark:text-white">Select Data:</label>
-
-                    <select name="name_value" id="name_value" class="border border-gray-400 block py-2 px-4 w-6/12 rounded focus:outline-none focus:border-blue-500" >
+                    <select name="name_value" id="name_value" >
 
                         @foreach($names as $value)
                         <option value="{{ $value }}">{{ $value }}</option>
@@ -30,8 +29,8 @@
                     </select>
             
                     
-                <label for="Quantity" class="block mb-2 text-lg font-bold dark:text-white">Quantity:</label>
-                    <input class="border border-gray-400 block py-2 px-4 w-6/12 rounded focus:outline-none focus:border-blue-500"
+                <label for="Quantity" >Quantity:</label>
+                    <input 
                         type="number" 
                         name="quantity" 
                         id="quantity">
@@ -40,13 +39,14 @@
                     <div id="price"></div>
                     <div id="total" name="total_value"></div>
 
+                    <br></br>
+                     <br></br>
 
 
-            <button type="submit" class="font-medium h-14 w-1/5 text-white bg-gray-900 hover:bg-blue-700 rounded-lg dark:bg-blue-600"
-                
-                    id="submit">Place Order </button>
 
+            <button type="submit" id="submit">Place Order </button>
 
+        </div>
         </div>
 
     </form>
@@ -61,11 +61,12 @@
 @section('my-orders')
 
 
-<div class="my-orders">
+
+<div class="my-orders half-page">
 
     <h1 class="p-8 text-center flex text-2xl font-bold mb-10 text-black"><b>My Order</b></h1>
 
-    <table class="table-auto w-9/12" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+    <table class="table-auto w-9/12" style="border:1px solid black;margin-left:auto;margin-right:auto; " >
 
         <thead class="text-white bg-blue-900 border-blue-900 " >
                     

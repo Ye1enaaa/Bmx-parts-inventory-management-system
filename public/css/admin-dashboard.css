@@ -252,3 +252,12 @@ body {
     border: 1px solid black;
     display: flex;
 }
+
+.sales{
+    position: fixed;
+    border: 1px solid black;
+    top: 210px;
+    left: 650px;
+    height: 130px;
+    width: 250px;
+}

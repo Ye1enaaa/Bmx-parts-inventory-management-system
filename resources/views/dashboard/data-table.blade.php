@@ -71,6 +71,21 @@
 </div>
 @endsection
 
+@section('total_sales')
+<div class="sales">
+    <div class="title">
+    <p class="sales-title">
+        Sales
+    </p>
+    </div>
+    <div class="data-sales">
+        <p>
+            {{$total_value}}
+        </p>
+    </div>
+</div>
+@endsection
+
 @section('top-bar')
 <div class="bar">
 <ul>

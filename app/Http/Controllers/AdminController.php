@@ -41,12 +41,14 @@ class AdminController extends Controller
 
         $total_quantity = DB::table('products')->sum('quantity');
         $total_inventory = DB::table('products')->sum('inventory_value');
+        $total_value = DB::table('customer_orders')->sum('total_value');
         $total_admin = DB::table('admins')->count();
         return view('dashboard.data-table',[
             'count' => $count,
             'customerOrders' => $customerOrders,
             'total_quantity'=> $total_quantity,
             'total_inventory'=> $total_inventory,
+            'total_value' => $total_value,
             'total_admin'=> $total_admin
         ]);
     }

@@ -18,7 +18,6 @@
     <title>Dashboard</title>
 </head>
 
-
 <body class="wrapper">
 
 <div class="body-overlay">
@@ -125,8 +124,6 @@
 
 
 </body>
-
-
 
 
 </html>

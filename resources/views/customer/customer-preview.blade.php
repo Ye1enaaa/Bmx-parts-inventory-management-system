@@ -9,6 +9,7 @@
 <div class="add-form" >
 
 <div class="half-page">
+    
     <form action="/post-customer" method="post" id="add-form" class="rounded-md form-container">
     <!--<form method="post" id="add-form">-->
         @csrf

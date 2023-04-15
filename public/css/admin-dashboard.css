@@ -309,9 +309,6 @@ label #cancel {
     background-color: #1b58bb;
     height: 40px;
 }
-.bar ul li {
-    list-style-type: none;
-}
 
 .bar ul .logout {
     position: fixed;

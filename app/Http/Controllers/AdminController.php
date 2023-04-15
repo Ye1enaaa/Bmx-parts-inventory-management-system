@@ -14,6 +14,13 @@ use App\Models\CustomerOrder;
 
 class AdminController extends Controller
 {
+
+        public function index()
+    {
+        return view('dashboard.dashboard');
+    }
+
+
     //views
     public function returnAdminLoginView(){
         return view('auth-admin.login-admin');

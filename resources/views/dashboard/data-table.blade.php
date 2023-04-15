@@ -1,6 +1,7 @@
 @extends('dashboard.admin')
 
 @section('content')
+
 <!--<h3 class="number">{{$count}} products</h3>-->
 
 <div class="product-field">

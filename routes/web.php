@@ -37,6 +37,7 @@ Route::post('/admin', [AdminController::class, 'loginAdmin'])->name('login.admin
 
 Auth::routes();
 
+//you are
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //return views/page for login admin

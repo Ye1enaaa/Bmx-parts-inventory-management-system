@@ -34,7 +34,7 @@
                 <li>
                     <a href="/purchase">
                         <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
-                        <span class="title">Purchase</span>
+                        <span class="title">Customer Orders</span>
                     </a>
                 </li>
                 <li>
@@ -110,7 +110,6 @@
 
 
 </body>
-
 
 
 </html>

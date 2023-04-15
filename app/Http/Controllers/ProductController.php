@@ -43,6 +43,15 @@ class ProductController extends Controller
         return redirect('/index');
     }
 
+    //edit
+    public function editData(Request $request,$id){
+        $product = Product::findOrFail($id);
+        $unit_price = $request['unit_price'];
+        $quantity = $request['quantity'];
+        $request['inventory_value'] = $unit_price * $quantity; 
+        $product->update($request->all());
+    }
+
     public function productCodeExists($number){
         return Product::whereProductCode($number)->exists();
     }

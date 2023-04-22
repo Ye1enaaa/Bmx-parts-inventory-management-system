@@ -4,20 +4,23 @@
     text-decoration: none;
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-    overflow: auto;
+body {
+    font-family: "Lato", sans-serif;
 }
 
 .sidebar {
-    position: fixed;
-    width: 300px;
-    left: -240px;
     height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background: #1b58bb;
-    transition: all 0.5s ease;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
+
 .sidebar header {
     font-size: 30px;
     padding-top: 25px;
@@ -27,73 +30,56 @@
     background: #1b58bb;
     font-family: "Open Sans", sans-serif;
 }
-.sidebar a {
-    display: block;
-    height: 65px;
-    width: 100%;
-    color: white;
-    line-height: 65px;
-    padding-left: 30px;
-    border-left: 5px solid transparent;
-    font-family: "Open Sans", sans-serif;
-    transition: all 0.5s ease;
-}
 
-.active a {
-    color: cyan;
-    background: #1e1e1e;
-    border-left-color: cyan;
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
 }
 
 a:hover {
     background: #3975d6;
     font-size: 140%;
 }
-.sidebar a i {
-    font-size: 20px;
-    margin-right: 10px;
-}
 
-.sidebar a span {
-    letter-spacing: 1px;
-}
-
-#check {
-    display: none;
-}
-
-label #btn,
-label #cancel {
+.sidebar .closebtn {
     position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
     cursor: pointer;
+    background-color: #111;
     color: white;
-    border-radius: 5px;
-    border: 1px solid #111f36;
-    margin: 20px 70px;
-    font-size: 29px;
-    background: #1b58bb;
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    line-height: 45px;
-    transition: all 0.5s ease;
+    padding: 10px 15px;
+    border: none;
 }
-label #cancel {
-    visibility: collapse;
+
+.openbtn:hover {
+    background-color: #444;
 }
-#check:checked ~ .sidebar {
-    left: 0;
+
+#main {
+    transition: margin-left 0.5s;
+    padding: 16px;
 }
-#check:checked ~ label #btn {
-    margin-left: 310px;
-    opacity: 0;
-    visibility: hidden;
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
 }
-#check:checked ~ label #cancel {
-    margin-left: 310px;
-    opacity: 1;
-    visibility: visible;
-}
+
 @media (max-width: 860px) {
     .sidebar {
         height: auto;
@@ -106,6 +92,7 @@ label #cancel {
     #cancel {
         display: none;
     }
+
     span {
         position: absolute;
         margin-left: 23px;
@@ -150,164 +137,13 @@ label #cancel {
     width: 40px;
     display: block;
     margin: 0 5px;
-    font-size: 25px;
+    font-size: 20px;
     color: #f2f2f2;
-}
-
-.product-field .icon {
-    display: grid;
-    padding-left: 11.5cqmax;
-    line-height: 20;
-}
-
-.product-field ion-icon {
-    font-size: 3.7em;
-    color: black;
-}
-
-.product-field {
-    position: fixed;
-    top: 50px;
-    left: 350px;
-    height: 130px;
-    width: 250px;
-    border-radius: 25px;
-}
-
-.product-field .title {
-    display: flex;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    color: black;
-    padding-top: 0.8cqmax;
-    padding-left: 1.5cqmax;
-}
-
-.product-field .data {
-    position: relative;
-    top: 1px;
-    left: 50px;
-    font-size: 50px;
-    font-family: "Fredoka", sans-serif;
-    color: black;
-}
-
-.total-quantity .icon {
-    display: flex;
-    padding-left: 11.5cqmax;
-    line-height: 200px;
-}
-
-.total-quantity ion-icon {
-    font-size: 3.75em;
-}
-
-.total-quantity {
-    position: fixed;
-    top: 50px;
-    left: 650px;
-    height: 130px;
-    width: 250px;
-    border-radius: 25px;
-}
-
-.total-quantity .title {
-    display: flex;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    padding-top: 0.5cqmax;
-    padding-left: 0.5cqmax;
-}
-
-.total-quantity .data {
-    position: relative;
-    left: 20px;
-    font-size: 45px;
-}
-
-.total-inventory-value .icon {
-    display: flex;
-    padding-left: 11.5cqmax;
-    line-height: 180px;
-}
-
-.total-inventory-value ion-icon {
-    font-size: 3.75em;
-}
-
-.total-inventory-value {
-    position: fixed;
-    top: 50px;
-    left: 950px;
-    height: 130px;
-    width: 250px;
-    border-radius: 25px;
-}
-
-.total-inventory-value .title {
-    display: flex;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    padding-top: 0.5cqmax;
-    padding-left: 0.5cqmax;
-}
-
-.total-inventory-value .data {
-    position: relative;
-    left: 10px;
-    font-size: 45px;
-}
-
-.total-admin {
-    position: fixed;
-    top: 210px;
-    left: 350px;
-    height: 130px;
-    width: 250px;
-    border-radius: 25px;
-}
-.total-admin .title {
-    display: flex;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    padding-top: 0.5cqmax;
-    padding-left: 0.5cqmax;
-}
-
-.sales {
-    position: fixed;
-    top: 210px;
-    left: 650px;
-    height: 130px;
-    width: 250px;
-    border-radius: 25px;
-}
-
-.sales .title {
-    display: flex;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    padding-top: 0.5cqmax;
-    padding-left: 0.5cqmax;
-}
-
-.sales .data {
-    position: relative;
-    top: 1px;
-    left: 10px;
-    font-size: 45px;
-    font-family: "Fredoka", sans-serif;
-    color: black;
 }
 
 .bar {
     background-color: #1b58bb;
-    height: 40px;
+    height: 60px;
 }
 
 .bar ul .logout {
@@ -317,21 +153,9 @@ label #cancel {
 
 .dropdown-item {
     color: #222;
-    text-decoration: underline;
     display: flex;
     position: relative;
-    top: 5px;
+    top: 15px;
     bottom: 0px;
     left: 970px;
-}
-
-.recent-order {
-    position: fixed;
-    overflow-y: scroll;
-    top: 350px;
-    left: 950px;
-    height: 200px;
-    width: 300px;
-    border: 1px solid black;
-    display: flex;
 }

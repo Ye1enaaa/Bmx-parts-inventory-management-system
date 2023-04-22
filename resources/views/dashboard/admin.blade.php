@@ -16,114 +16,150 @@
     href="https://fonts.googleapis.com/css?family=Fredoka">
 
     <title>Dashboard</title>
+
+</style>
 </head>
-
-<body class="wrapper">
-
-<div class="body-overlay">
-
-    <input type="checkbox" id="check">
-
-    <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>Liquor Inventory Management</header>
+<body class="flex h-screen">
+  <!-- Sidebar -->
+ <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  
+  <header>Liquor Inventory Management</header>
 
         <br></br>
+    <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon mr-2"><ion-icon name="stats-chart-outline"></ion-icon></i>
+        <span>Dashboard</span>
+    </a>
 
 
-        <a href="/dashboard" class="active">
-            <i class="icon"><ion-icon name="stats-chart-outline"></ion-icon></i>
-            <span>Dashboard</span>
-        </a>
-
-
-        <a href="/purchase">
-            <i class="icon"><ion-icon name="storefront-outline"></i>
+    <a href="/purchase" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon mr-2"><ion-icon name="storefront-outline"></ion-icon></i>
             <span>Purchase</span>
-        </a>
+    </a>
 
 
-
-        <a href="#">
-            <i class="icon"><ion-icon name="stats-chart-sharp"></i>
+    <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon"><ion-icon name="stats-chart-sharp"></i>
             <span>Sales</span>
-        </a>
+    </a>
 
 
-
-        <a href="/index">
-            <i class="icon"><ion-icon name="pricetags-outline"></i>
+    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon"><ion-icon name="pricetags-outline"></i>
             <span>Products</span>
-        </a>
+    </a>
 
 
-
-        <a href="/supplier">
-            <i class="icon"><ion-icon name="business-outline"></i>
+    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon"><ion-icon name="business-outline"></i>
             <span>Supplier</span>
-        </a>
+    </a>
 
 
 
-        <a href="/createuser">
-            <i class="icon"><ion-icon name="settings-outline"></i>
+    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon"><ion-icon name="settings-outline"></i>
             <span>System Users</span>
-        </a>
+    </a>
 
+        <div class="icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
 
-         <div class="icons">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-github"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-</div>
-</div>
 
+  </div>
 
+  <!-- Main Content -->
+  <div class="flex flex-col flex-1">
+    <!-- Top Bar -->
+        <div>
+          @yield('top-bar')  
+        </div>
 
- <div class="bar bg-blue-500">
-        @yield('top-bar')  
+        <!-- Hamburger Menu -->
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰ Liquor Inventory Management</button>      
+        <!-- Main Content -->
+        <main class="flex-1 p-4">
+          
+
+<div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+  <div class="total-quantity bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+    <div class="icon text-white mb-2" style="float: right;">
+      <ion-icon name="wine" class="text-6xl"></ion-icon>
     </div>
+    @yield('total-quantity')
+  </div>
 
-    <div class="product-field bg-cyan-600 hover:bg-cyan-500">
-        <div class="icon"><ion-icon name="pricetags-sharp"></ion-icon> </div>
-        @yield('content')
+  <div class="total-inventory-value bg-cyan-600 hover:bg-cyan-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+    <div class="icon text-white mb-2" style="float: right;">
+      <ion-icon name="trending-up-sharp" class="text-6xl"></ion-icon>
+    </div>
+    @yield('total-inventory-value')
+  </div>
+
+  <div class="total-admin bg-orange-500 hover:bg-orange-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+    <div class="icon text-white mb-2" style="float: right;">
+      <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
+    </div>
+    @yield('customer-table')
+  </div>
+</div>
+
+
+<div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+
+  <div class="sales bg-cyan-500 hover:bg-cyan-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+    <div class="icon text-white mb-2" style="float: right;">
+      <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
+    </div>
+    @yield('total-sales')
+  </div>
+
+
+
+  <div class="product-field bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+    <div class="icon text-white mb-2" style="float: right;">
+      <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
+    </div>
+    @yield('product-field')        
+  </div>
+
+</div>
         
-    </div>
-    
-
-    <div class="total-quantity bg-green-600 hover:bg-green-500 ">
-        <div class="icon"><ion-icon name="wine"></ion-icon> </div>
-        @yield('total-quantity')
-
-    </div>
-
-
-    <div class="total-inventory-value bg-red-600 hover:bg-red-500">
-        <div class="icon"><ion-icon name="trending-up-sharp"></ion-icon> </div>
-        @yield('total-inventory-value')
-    </div>
+       
 
 
 
-    <div class="total-admin bg-orange-500 hover:bg-orange-400">
-        <div class="icon"><ion-icon name="people-circle-outline"></ion-icon> </div>
-        @yield('customer-table')
-    </div>
 
-    <div class="sales bg-violet-500 hover:bg-violet-400">
-        <div class="icon"><ion-icon name="stats-chart-sharp"></ion-icon> </div>
-        @yield('total-sales')
-    </div>
+
+  
+  
+  
+  </main>
+  </div>
 
 
 
-</body>
 
 
-</html>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").classList.add("w-64");
+      document.getElementById("mySidebar").classList.remove("w-0");
+      document.getElementById("main").classList.add("ml-64");
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").classList.remove("w-64");
+      document.getElementById("mySidebar").classList.add("w-0");
+      document.getElementById("main").classList.remove("ml-64");
+    }
+  </script>
+</body

@@ -5,7 +5,7 @@
 
     <div class="product-field bg-cyan-600 hover:bg-cyan-500">
         <div class="icon"><ion-icon name="pricetags-outline"></ion-icon> </div>
-        @yield('content')
+        @yield('product-field')
         
     </div>
     

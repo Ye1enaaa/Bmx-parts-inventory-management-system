@@ -19,13 +19,15 @@ class UserController extends Controller
         $dataValidation = $request->validate([
             'name'=>'required|string',
             'email'=>'required|string|unique:users,email',
-            'password'=>'required|min:8'
+            'password'=>'required|min:8',
+            'role' => 'required'
         ]);
 
         $user = User::create([
             'name'=> $dataValidation['name'],
             'email'=> $dataValidation['email'],
-            'password'=> Hash::make($dataValidation['password'])
+            'password'=> Hash::make($dataValidation['password']),
+            'role' => $dataValidation['role'],
         ]);
 
         $user->save();

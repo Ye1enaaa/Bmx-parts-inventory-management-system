@@ -10,7 +10,7 @@
     <title>System User</title>
 </head>
 <body>
-    <div class="card">
+    <!--<div class="card">
         <div class="card-header">
             <div class="text-header">Register</div>
         </div>
@@ -29,10 +29,10 @@
             <label for="password">Password:</label>
             <input required="" class="form-control" name="password" id="password" type="password">
         </div>
-        <!--<div class="form-group">
+        <div class="form-group">
             <label for="confirm-password">Confirm Password:</label>
             <input required="" class="form-control" name="confirm-password" id="confirm-password" type="password">
-        </div>-->
+        </div>naa diri end comment
         <input type="submit" class="btn" value="submit">
     </form>
     </div>
@@ -74,6 +74,116 @@
                 </tbody>
             </table>
         </div>
+    </div>-->
+
+    <div class="sidebar">
+        <div class="title">
+            <h2>Super Admin</h2>
+        </div>
+        <div class = "menus">
+            <ul>
+                <li onclick = "acctClick()">Accounts</li>
+                <li onclick="addAccount()">Add accounts</li>
+            </ul>
+        </div>
     </div>
+    <!--Main-->
+    <div id ="trys">
+        <h1 class ="acc-title">Accounts</h1>
+        <table class="table-styles">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                    <th>Disable</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($users as $user)
+                <tr>
+                    <td>
+                        @if($user->role ==1)
+                        Super Administrator
+                        @elseif($user->role ==2)
+                        Administrator
+                        @elseif($user->role ==3)
+                        Customer
+                        @endif
+                    </td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>********</td>
+                    <td @if($user->disabled== 0) style="color:green;" @elseif($user->disabled == 1) style="color:red;" @endif>
+                        @if($user->disabled== 0)
+                        Active
+                        @elseif($user->disabled== 1)
+                        Disabled
+                        @endif
+                    </td>
+                    <td>
+                        <form action="{{ route('softdel.user', $user->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ route('disable.user', $user->id) }}" method="post">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit">DISABLE</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div id ="add">
+    <div class="card">
+        <div class="card-header">
+            <div class="text-header">Register</div>
+        </div>
+    <div class="card-body">
+        <form action="{{route('create.user')}}" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input required="" class="form-control" name="name" id="name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input required="" class="form-control" name="email" id="email" type="email">
+        </div>
+       <div class="form-group">
+            <label for="password">Password:</label>
+            <input required="" class="form-control" name="password" id="password" type="password">
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+                <select class="form-control"name="role" id="role" required>
+                    <option value="">Select a role</option>
+                    <option value="2">Administrator</option>
+                    <option value="3">Customer</option>
+                </select>
+        </div>
+        <!--<div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input required="" class="form-control" name="confirm-password" id="confirm-password" type="password">
+        </div>naa diri end comment-->
+        <input type="submit" class="btn" value="submit">
+    </form>
+    </div>
+    </div>
+    </div>
+    <div class="screen" id="acct">
+        
+    </div>
+
+    <script src="{{asset('js/create-user.js')}}"></script>
 </body>
 </html>

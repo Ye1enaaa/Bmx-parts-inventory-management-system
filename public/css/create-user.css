@@ -1,9 +1,11 @@
 *{
     font-family: 'Fredoka', sans-serif;
+    overflow-x: hidden;
 }
 .card {
-    position: fixed;
+    position: static;
     top: 80px;
+    left: 200px;
     width: 350px;
     border: 1px solid #170c7f;
     border-radius: 4px;
@@ -68,7 +70,7 @@
     color: #30126c;
   }
 
-.list-users{
+.screen .list-users{
     top: 0px;
     border-left: 1px solid black;
     width: 850px;
@@ -77,14 +79,14 @@
     left: 500px;
 }
 
-.list-users .list-user-table .table-style{
+.screen .list-users .list-user-table .table-style{
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
     position: fixed;
-    right: 300px;
+    left: 600px;
 }
 
 .list-users .list-user-table .table-style thead tr{
@@ -113,6 +115,84 @@
 .list-users .list-user-table .table-style tbody tr.active-row{
     font-weight: bold;
     color: #009879;
+}
+
+.sidebar {
+  position: fixed;
+  width: 300px;
+  top: 0px;
+  left: -15px;
+  height: 100%;
+  background: #1b58bb;
+  transition: all 0.5s ease;
+}
+
+.sidebar .title{
+  border-bottom: 1px solid black;
+}
+.sidebar .title h2{
+  position: relative;
+  left: 50px;
+}
+
+.sidebar .menus a{
+  text-decoration: none;
+}
+.sidebar .menus ul{
+  margin: 1px;
+  padding: 20px;
+  position: relative;
+  list-style-type: none;
+}
+
+.sidebar .menus ul li{
+  line-height: 50px;
+  color: white;
+  height: 65px;
+  width: 100%;
+}
+
+.sidebar .menus ul li:hover{
+  background-color: white;
+  color: #000000;
+  border-radius: 20px;
+}
+
+.screen {
+  background-color: white;
+  top: 0px;
+  position: fixed;
+  width: 1200px;
+  height: 800px;
+  left: 285px;
+}
+
+.table-styles{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    position: fixed;
+    left: 400px;
+}
+
+.table-styles th, .table-styles td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.acc-title{
+  position: relative;
+  left: 450px;
+}
+
+.card-reg{
+  position: relative;
+  left: 450px;
+  border-collapse: collapse;
+  border: 1px solid black;
 }
 
 

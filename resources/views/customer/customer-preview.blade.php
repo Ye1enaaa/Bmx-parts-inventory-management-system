@@ -4,57 +4,57 @@
 
 @section('add-form')
 
-
-
-<div class="add-form" >
-
-<div class="half-page">
+<body class="flex">
     
-    <form action="/post-customer" method="post" id="add-form" class="rounded-md form-container">
-    <!--<form method="post" id="add-form">-->
-        @csrf
+
+
+<div class="add-form" style="margin-left: 20px;">
+
+    <div class="half-page ">
+        
+        <form action="/post-customer" method="post" id="add-form" class="rounded-md form-container">
+        <!--<form method="post" id="add-form">-->
+            @csrf
 
         
-    
-            <h1 class="flex text-2xl font-bold mb-10 text-black"><b>Order Products</b> <br> </br></h1>
+                <h1 class="flex text-2xl font-bold mb-10 text-black"><b>Order Products</b> <br> </br></h1>
 
-    
-                <label for="Select Data" >Select Data:</label>
+        
+                    <label for="Select Data" >Select Data:</label>
 
-                    <select name="name_value" id="name_value" >
+                        <select name="name_value" id="name_value" >
 
-                        @foreach($names as $value)
-                        <option value="{{ $value }}">{{ $value }}</option>
-                        @endforeach
+                            @foreach($names as $value)
+                            <option value="{{ $value }}">{{ $value }}</option>
+                            @endforeach
 
-                    </select>
-            
-                    
-                <label for="Quantity" >Quantity:</label>
-                    <input 
-                        type="number" 
-                        name="quantity" 
-                        id="quantity">
-
-
-                    <div id="price"></div>
-                    <div id="total" name="total_value"></div>
-
-                    <br></br>
-                     <br></br>
+                        </select>
+                
+                        
+                    <label for="Quantity" >Quantity:</label>
+                        <input 
+                            type="number" 
+                            name="quantity" 
+                            id="quantity">
 
 
+                        <div id="price"></div>
+                        <div id="total" name="total_value"></div>
 
-            <button type="submit" id="submit">Place Order </button>
+                        <br></br>
+                        <br></br>
 
-        </div>
-        </div>
 
-    </form>
 
-<div class="mt-4">
+                <button type="submit" id="submit">Place Order </button>
 
-</div>
+            </div>
+            </div>
+
+        </form>
+
+    </div>
+
 @endsection
 
 
@@ -63,7 +63,7 @@
 
 
 
-<div class="my-orders half-page">
+<div class="my-orders half-page" style="margin-left: 20px;">
 
     <h1 class="p-8 text-center flex text-2xl font-bold mb-10 text-black"><b>My Order</b></h1>
 
@@ -71,30 +71,33 @@
 
         <thead class="text-white bg-blue-900 border-blue-900 " >
                     
-                    <tr class="text-center font bold">
-                      <th class="px-3 py-2">Order Date</th>
-                      <th class="px-3 py-2">Name</th>
-                      <th class="px-3 py-2 ">Quantity</th>
+            <tr class="text-center font bold">
+              <th class="px-3 py-2">Order Date</th>
+              <th class="px-3 py-2">Name</th>
+              <th class="px-3 py-2 ">Quantity</th>
+            </tr>
+                  
+        </thead>
 
-                    </tr>
-                  </thead>
+        <tbody class="text-black text-center divide-y divide-blue-100">
 
-    <tbody class="text-black text-center divide-y divide-blue-100">
+            @foreach($orders as $order)
 
-        @foreach($orders as $order)
+            <tr class="bg-white hover:underline ">
+                <td class="border px-1  py-2">{{ $order->created_at }}</td>
+                <td class="border px-1  py-2">{{$order->name}}</td>
+                <td class="border px-1  py-2">{{$order->quantity}} pcs.</td>
+            </tr>
 
-        <tr class="bg-white hover:underline ">
+            @endforeach
 
-                        <td class="border px-1  py-2">{{ $order->created_at }}</td>
-                        <td class="border px-1  py-2">{{$order->name}}</td>
-                        <td class="border px-1  py-2">{{$order->quantity}} pcs.</td>
-                 
-                    </tr>
-
-
-    @endforeach
-
-    </tbody>
+        </tbody>
+    </table>
 </div>
+
+
+</body>
+
+
 @endsection
 

@@ -5,22 +5,28 @@
 
 @section('top-bar')
 <div class="bar">
-<ul class="bg-blue-500">
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <div class="logout" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                <i class="fas fa-sign-out-alt "></i>  Logout
-            </a>
-            
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-        </div>
-    </div>
-</ul>
+    <ul class="">
 
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+        
+            <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
+            <div class="flex items-center justify-center mr-6 text-white">
+                <span class="ml-60 text-2xl font-bold font-serif sm:text-3xl">Liquor Inventory System</span>
+            </div>
+
+            <div class="flex items-center">
+                <a class="hidden text-white sm:inline-block hover:text-gray-200 mx-16" href="{{ route('logout') }}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+                
+            </div>
+        </div>
+        
+    </ul>
+
+</div>
 
 
 @endsection
@@ -84,7 +90,7 @@
 @endsection
 
 @section('total-sales')
-<div class="sales">
+<div class="total-sales">
     <div class="title">
     <p class="sales-title">
         Sales
@@ -97,6 +103,9 @@
     </div>
 </div>
 @endsection
+
+
+
 
 
 

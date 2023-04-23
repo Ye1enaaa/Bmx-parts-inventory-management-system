@@ -22,11 +22,12 @@
   </head>
 
 
-  <body class="bg-white rounded-lg shadow-md p-6">
+  <body>
 
 
    <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold mb-5 text-black">List of Products</h1>
+    
+   <h1 class="text-3xl font-bold mb-5 text-black">List of Products</h1>
           
    </div>
       

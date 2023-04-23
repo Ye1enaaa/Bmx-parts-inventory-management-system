@@ -1,5 +1,5 @@
-*{
-    font-family: 'Fredoka', sans-serif;
+* {
+    font-family: "Fredoka", sans-serif;
     overflow-x: hidden;
 }
 .card {
@@ -12,47 +12,47 @@
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 20px;
-  }
-  
-  .card-header {
+}
+
+.card-header {
     background-color: #0040e3;
     padding: 16px;
     text-align: center;
-  }
-  
-  .card-header .text-header {
+}
+
+.card-header .text-header {
     margin: 0;
     font-size: 18px;
     color: rgb(255, 255, 255);
-  }
-  
-  .card-body {
+}
+
+.card-body {
     padding: 14px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 10px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     font-size: 14px;
     color: #070612;
     font-weight: bold;
     margin-bottom: 1px;
-  }
-  
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
     width: 90%;
     padding: 8px;
     font-size: 14px;
     border: 1px solid #070514;
     border-radius: 4px;
-  }
-  
-  .btn {
+}
+
+.btn {
     padding: 12px 24px;
     margin-left: 13px;
     font-size: 16px;
@@ -62,15 +62,15 @@
     color: #1600a8;
     text-transform: uppercase;
     transition: background-color 0.2s ease-in-out;
-    cursor: pointer
-  }
-  
-  .btn:hover {
+    cursor: pointer;
+}
+
+.btn:hover {
     background-color: #094aef;
     color: #30126c;
-  }
+}
 
-.screen .list-users{
+.screen .list-users {
     top: 0px;
     border-left: 1px solid black;
     width: 850px;
@@ -79,121 +79,130 @@
     left: 500px;
 }
 
-.screen .list-users .list-user-table .table-style{
+.screen .list-users .list-user-table .table-style {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     position: fixed;
     left: 600px;
 }
 
-.list-users .list-user-table .table-style thead tr{
+.list-users .list-user-table .table-style thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: left;
 }
 
 .list-users .list-user-table .table-style th,
-.list-users .list-user-table .table-style td{
+.list-users .list-user-table .table-style td {
     padding: 12px 15px;
 }
 
-.list-users .list-user-table .table-style tbody{
+.list-users .list-user-table .table-style tbody {
     border-bottom: 1px solid #dddddd;
 }
 
-.list-users .list-user-table .table-style tbody tr:nth-of-type(even){
+.list-users .list-user-table .table-style tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.list-users .list-user-table .table-style tbody tr:last-of-type{
+.list-users .list-user-table .table-style tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
 
-.list-users .list-user-table .table-style tbody tr.active-row{
+.list-users .list-user-table .table-style tbody tr.active-row {
     font-weight: bold;
     color: #009879;
 }
 
 .sidebar {
-  position: fixed;
-  width: 300px;
-  top: 0px;
-  left: -15px;
-  height: 100%;
-  background: #1b58bb;
-  transition: all 0.5s ease;
+    position: fixed;
+    width: 300px;
+    top: 0px;
+    left: -15px;
+    height: 100%;
+    background: #1b58bb;
+    transition: all 0.5s ease;
 }
 
-.sidebar .title{
-  border-bottom: 1px solid black;
+.sidebar .title {
+    border-bottom: 1px solid black;
 }
-.sidebar .title h2{
-  position: relative;
-  left: 50px;
-}
-
-.sidebar .menus a{
-  text-decoration: none;
-}
-.sidebar .menus ul{
-  margin: 1px;
-  padding: 20px;
-  position: relative;
-  list-style-type: none;
+.sidebar .title h2 {
+    position: relative;
+    left: 50px;
 }
 
-.sidebar .menus ul li{
-  line-height: 50px;
-  color: white;
-  height: 65px;
-  width: 100%;
+.sidebar .menus a {
+    text-decoration: none;
+}
+.sidebar .menus ul {
+    margin: 1px;
+    padding: 20px;
+    position: relative;
+    list-style-type: none;
 }
 
-.sidebar .menus ul li:hover{
-  background-color: white;
-  color: #000000;
-  border-radius: 20px;
+.sidebar .menus ul li {
+    line-height: 50px;
+    color: white;
+    height: 65px;
+    width: 100%;
+}
+
+.sidebar .menus ul li:hover {
+    background-color: white;
+    color: #000000;
+    border-radius: 20px;
 }
 
 .screen {
-  background-color: white;
-  top: 0px;
-  position: fixed;
-  width: 1200px;
-  height: 800px;
-  left: 285px;
+    transition: margin-left 0.5s;
+    padding: 16px;
+    background-color: white;
+    top: 0px;
+    position: fixed;
+    width: 1200px;
+    height: 800px;
+    left: 285px;
 }
 
-.table-styles{
+.table-styles {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     position: fixed;
     left: 400px;
 }
 
-.table-styles th, .table-styles td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
+.table-styles th,
+.table-styles td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
 }
 
-.acc-title{
-  position: relative;
-  left: 450px;
+.acc-title {
+    position: relative;
+    left: 450px;
 }
 
-.card-reg{
-  position: relative;
-  left: 450px;
-  border-collapse: collapse;
-  border: 1px solid black;
+.card-reg {
+    position: relative;
+    left: 450px;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
 
-
-
+.bar {
+    background-color: #1b58bb;
+    height: 60px;
+}
+.bar ul .logout-link {
+    position: fixed;
+    left: 285px;
+}

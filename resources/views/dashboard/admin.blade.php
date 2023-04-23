@@ -22,47 +22,59 @@
 <body class="flex h-screen">
   <!-- Sidebar -->
  <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+    <div class="title">
+        <a class="d-flex align-items-center ms-1">
+          <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x text-white"></i>
+            <i class="fas fa-user fa-stack-1x fa-inverse text-black"></i>
+          </span>
+
+          <div class=" text-sm mt-3">
+            <div>{{ Auth::user()->name }}</div>
+            <div>{{ Auth::user()->email }}</div>
+          </div>
+        </a>
+      </div>
+
+
+
+        <br>
+
   
-  <header>Liquor Inventory Management</header>
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+          <i class="icon mr-2"><ion-icon name="stats-chart-outline"></ion-icon></i>
+          <span>Dashboard</span>
+        </a>
 
-        <br></br>
-    <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon mr-2"><ion-icon name="stats-chart-outline"></ion-icon></i>
-        <span>Dashboard</span>
-    </a>
-
-
-    <a href="/purchase" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon mr-2"><ion-icon name="storefront-outline"></ion-icon></i>
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
+            <i class="icon"><ion-icon name="storefront-outline"></ion-icon></i>
             <span>Purchase</span>
-    </a>
+        </a>
 
-
-    <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon"><ion-icon name="stats-chart-sharp"></i>
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
+            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
             <span>Sales</span>
-    </a>
+        </a>
 
-
-    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon"><ion-icon name="pricetags-outline"></i>
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
+            <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
             <span>Products</span>
-    </a>
+        </a>
 
-
-    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon"><ion-icon name="business-outline"></i>
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
+            <i class="icon"><ion-icon name="business-outline"></ion-icon></i>
             <span>Supplier</span>
-    </a>
+        </a>
 
-
-
-    <a href="/index" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon"><ion-icon name="settings-outline"></i>
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSystemUsers()">
+            <i class="icon"><ion-icon name="settings-outline"></ion-icon></i>
             <span>System Users</span>
-    </a>
+        </a>
 
+
+<br></br>
         <div class="icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -82,84 +94,59 @@
 
         <!-- Hamburger Menu -->
     <div id="main">
-      <button class="openbtn" onclick="openNav()">☰ Liquor Inventory Management</button>      
+
+      <button class="openbtn" onclick="openNav()">☰ </button>      
         <!-- Main Content -->
-        <main class="flex-1 p-4">
-          
+        <main class="main-content ">
 
-<div class="flex flex-wrap sm:flex-nowrap justify-center">
-
-  <div class="total-quantity bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
-    <div class="icon text-white mb-2" style="float: right;">
-      <ion-icon name="wine" class="text-6xl"></ion-icon>
-    </div>
-    @yield('total-quantity')
-  </div>
-
-  <div class="total-inventory-value bg-cyan-600 hover:bg-cyan-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
-    <div class="icon text-white mb-2" style="float: right;">
-      <ion-icon name="trending-up-sharp" class="text-6xl"></ion-icon>
-    </div>
-    @yield('total-inventory-value')
-  </div>
-
-  <div class="total-admin bg-orange-500 hover:bg-orange-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
-    <div class="icon text-white mb-2" style="float: right;">
-      <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
-    </div>
-    @yield('customer-table')
-  </div>
-</div>
-
-
-<div class="flex flex-wrap sm:flex-nowrap justify-center">
-
-
-  <div class="sales bg-cyan-500 hover:bg-cyan-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
-    <div class="icon text-white mb-2" style="float: right;">
-      <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
-    </div>
-    @yield('total-sales')
-  </div>
-
-
-
-  <div class="product-field bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
-    <div class="icon text-white mb-2" style="float: right;">
-      <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
-    </div>
-    @yield('product-field')        
-  </div>
-
-</div>
         
-       
+            <div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+              <div class="total-quantity bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="wine" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-quantity')
+              </div>
+
+              <div class="total-inventory-value bg-cyan-600 hover:bg-cyan-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="trending-up-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-inventory-value')
+              </div>
+
+              <div class="total-admin bg-orange-500 hover:bg-orange-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
+                </div>
+                @yield('customer-table')
+              </div>
+            </div>
+
+            <div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+              <div class="sales bg-cyan-500 hover:bg-cyan-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-sales')
+              </div>
 
 
 
+              <div class="product-field bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('product-field')        
+              </div>
 
+            </div>
 
-  
-  
-  
   </main>
   </div>
 
+<script src="{{asset('js/admin-dashboard.js')}}"></script>
 
-
-
-
-  <script>
-    function openNav() {
-      document.getElementById("mySidebar").classList.add("w-64");
-      document.getElementById("mySidebar").classList.remove("w-0");
-      document.getElementById("main").classList.add("ml-64");
-    }
-
-    function closeNav() {
-      document.getElementById("mySidebar").classList.remove("w-64");
-      document.getElementById("mySidebar").classList.add("w-0");
-      document.getElementById("main").classList.remove("ml-64");
-    }
-  </script>
 </body

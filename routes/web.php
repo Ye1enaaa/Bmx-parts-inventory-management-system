@@ -50,7 +50,8 @@ Route::get('/dashboard' , [AdminController::class, 'returnAdminDashboardView'])-
 Route::get('/createuser', [UserController::class,'returnCreateAndShowUserView'])->middleware('superadmin');
 //post method for creating user
 Route::post('/createuser' , [UserController::class, 'registerUser'])->name('create.user')->middleware('superadmin');
-
+//edit method for user
+Route::patch('/edituser/{id}', [UserController::class,'editUser'])->name('edit.user')->middleware('superadmin');
 //delete method for user
 Route::delete('/createuser/{id}',[UserController::class, 'softDelete'])->name('softdel.user')->middleware('superadmin');
 

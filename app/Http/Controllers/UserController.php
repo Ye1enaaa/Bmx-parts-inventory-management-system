@@ -35,6 +35,22 @@ class UserController extends Controller
     }
 
     //EDIT
+    public function editUser(Request $request, $id){
+        $userFind = User::find($id);
+        $userFind->name = $request->input('name');
+        $userFind->password = Hash::make($request->input('password'));
+        $userFind->save();
+
+        return redirect('/createuser');
+    }
+
+    //Check if active or not??
+
+    public function isActive($id){
+        $user = User::find($id);
+
+        
+    }
 
 
     public function softDelete($id){

@@ -27,4 +27,7 @@ Route::get('/get-user-mobile', [UserController::class, 'userAllMobile']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
     //User
     Route::get('/user',[UserController::class, 'user']);
+    Route::post('/logoutMobile', [LoginController::class, 'logoutMobile']);
 });
+
+Route::get('/dashboard-datas', [AdminController::class, 'returnDashboardMobileView']);

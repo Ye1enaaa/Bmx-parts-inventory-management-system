@@ -101,4 +101,22 @@ class AdminController extends Controller
             'token' => $token
         ]);
     }
+    
+    //For mobile
+    public function returnDashboardMobileView(){
+        $count = DB::table('products')->count();
+        $total_quantity = DB::table('products')->sum('quantity');
+        $total_inventory = DB::table('products')->sum('inventory_value');
+        $total_value = DB::table('customer_orders')->sum('total_value');
+        $total_admin = DB::table('admins')->count();
+
+        return response([
+            'product_count' => $count,
+            'products_quantity' => $total_quantity,
+            'inventory_value' => $total_inventory,
+            'orders_value' => $total_value,
+            'admin_count' => $total_admin
+        ]);
+    }
 }
+

@@ -198,6 +198,7 @@
     border: 1px solid black;
 }
 
+<<<<<<< HEAD
 .bar {
     background-color: #1b58bb;
     height: 60px;
@@ -206,3 +207,19 @@
     position: fixed;
     left: 285px;
 }
+=======
+.popup-form{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+
+
+>>>>>>> 71d47e31208a1830b209790966df912e4fcb1e3a

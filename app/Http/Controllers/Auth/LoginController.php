@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+//use Auth;
+use Validator;
 class LoginController extends Controller
 {
     /*
@@ -73,7 +77,7 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
-
+//mobile
     public function loginMobile(Request $request)
     {
         $input = $request->all();
@@ -112,5 +116,12 @@ class LoginController extends Controller
         return response([
             'user' => auth()->user()
         ], 200);
+    }
+
+    public function logoutMobile(Request $request){
+        Auth::logout();
+        return response([
+            'msg' => 'Logout'
+        ]);
     }
 }

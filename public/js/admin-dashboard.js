@@ -24,8 +24,14 @@ function showSales() {
 
 function showProducts() {
     var mainContent = document.querySelector(".main-content");
-    mainContent.innerHTML =
-        "<h1>Products</h1><p>This is the Products content.</p>";
+    fetch("/index")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 }
 
 function showSuppliers() {

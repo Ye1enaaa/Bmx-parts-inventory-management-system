@@ -1,29 +1,15 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=105">
-    <title>Generate Barcode In Laravel</title>       
-   <!-- Fonts -->
-   <!--<link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">-->
-   <!-- Bootstrap -->
-   <!--<link rel="stylesheet" href="https://cdn.tailwindcss.com">-->
-   <script src="https://cdn.tailwindcss.com"></script>
-   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+@extends('layouts.dashboard')
+
+@section('content')
+
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+  </div>
 
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
-
-
-  </head>
-
-
-  <body>
-
+  <div class="main">
 
    <div class="flex items-center justify-between">
     
@@ -31,7 +17,6 @@
           
    </div>
       
-
    <div class="mt-4">
 
 
@@ -114,8 +99,4 @@
 
     </div>
 
-
-
-  </body>
-
-</html>
+@endsection

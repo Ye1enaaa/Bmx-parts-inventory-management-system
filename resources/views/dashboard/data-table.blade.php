@@ -1,8 +1,5 @@
 @extends('dashboard.admin')
 
-@section('content')
-
-
 @section('top-bar')
 <div class="bar">
     <ul class="">
@@ -110,6 +107,50 @@
 
 
 
+@section('content-dashboard')
+
+            <div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+              <div class="total-quantity bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="wine" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-quantity')
+              </div>
+
+              <div class="total-inventory-value bg-cyan-600 hover:bg-cyan-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="trending-up-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-inventory-value')
+              </div>
+
+              <div class="total-admin bg-orange-500 hover:bg-orange-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
+                </div>
+                @yield('customer-table')
+              </div>
+            </div>
+
+            <div class="flex flex-wrap sm:flex-nowrap justify-center">
+
+              <div class="sales bg-cyan-500 hover:bg-cyan-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('total-sales')
+              </div>
+
+              <div class="product-field bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+                <div class="icon text-white mb-2" style="float: right;">
+                  <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
+                </div>
+                @yield('product-field')        
+              </div>
+
+            </div>
+@endsection
 
 
 

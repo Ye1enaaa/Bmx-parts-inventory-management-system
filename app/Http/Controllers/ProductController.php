@@ -14,6 +14,12 @@ class ProductController extends Controller
         return view('liquor-data.show', compact('product'));
     }
 
+    public function showAdminDashboard()
+    {
+        return view('dashboard.admin');
+    }
+
+
     public function returnCreateDataView(){
         return view('liquor-data.create');
     }

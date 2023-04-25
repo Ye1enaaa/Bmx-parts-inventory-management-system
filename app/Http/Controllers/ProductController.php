@@ -20,7 +20,6 @@ class ProductController extends Controller
     }
 
 
-
     public function returnCreateDataView(){
         return view('liquor-data.create');
     }

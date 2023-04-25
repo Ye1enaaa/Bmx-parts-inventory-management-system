@@ -11,6 +11,10 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
+
+        <script src="{{asset('js/admin-dashboard.js')}}"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Fredoka">
@@ -98,12 +102,11 @@
         <!-- Main Content -->
         <main class="main-content ">
 
-        <div>
-          @yield('content')  
-        </div>
-    
-            
+          <div>
+            @yield('content-dashboard')  
+          </div>
 
+          
         </main>
     </div>
 

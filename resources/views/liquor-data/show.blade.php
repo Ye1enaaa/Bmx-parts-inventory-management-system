@@ -1,26 +1,15 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=105">
-    <title>Generate Barcode In Laravel</title>       
+@extends('layouts.dashboard')
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{asset('js/admin-dashboard.js')}}"></script>
+@section('content')
 
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
+  </div>
 
 
-  </head>
-
-
-  <body>
-
+  <div class="main">
 
    <div class="flex items-center justify-between">
     
@@ -28,7 +17,6 @@
           
    </div>
       
-
    <div class="mt-4">
 
 
@@ -111,8 +99,4 @@
 
     </div>
 
-
-
-  </body>
-
-</html>
+@endsection

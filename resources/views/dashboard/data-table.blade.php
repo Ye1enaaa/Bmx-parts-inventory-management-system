@@ -107,7 +107,7 @@
 
 
 
-@section('content')
+@section('content-dashboard')
 
             <div class="flex flex-wrap sm:flex-nowrap justify-center">
 

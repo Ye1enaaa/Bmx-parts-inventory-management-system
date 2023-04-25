@@ -51,6 +51,10 @@ class AdminController extends Controller
             'total_value' => $total_value,
             'total_admin'=> $total_admin
         ]);
+
+
+        $product = Product::all();
+        return view('liquor-data.show', compact('product'));
     }
 
     //auth

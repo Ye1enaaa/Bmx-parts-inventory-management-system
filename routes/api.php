@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\StaffController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,3 +36,6 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 Route::get('/dashboard-datas', [AdminController::class, 'returnDashboardMobileView']);
 Route::get('/purchase-order' , [AdminController::class, 'returnPurchases']);
 Route::get('/show-stocks' , [ProductController::class, 'showStocksMobile']);
+
+//Staff
+Route::get('/product-id/{product_code}' , [StaffController::class, 'returnBarcodeData']);

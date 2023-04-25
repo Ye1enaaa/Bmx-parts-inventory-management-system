@@ -1,3 +1,3 @@
-Liquor Inventory System - Integration
+Motor parts Inventory Management System - Integration
 
 

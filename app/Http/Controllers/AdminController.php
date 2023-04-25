@@ -118,5 +118,13 @@ class AdminController extends Controller
             'admin_count' => $total_admin
         ]);
     }
+
+    public function returnPurchases(){
+        $customerOrders = CustomerOrder::with('user')->get();
+        
+        return response([
+            'purchaseOrder' => $customerOrders
+        ]);
+    }
 }
 

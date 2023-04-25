@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/logoutMobile', [LoginController::class, 'logoutMobile']);
 });
 
+//admin
 Route::get('/dashboard-datas', [AdminController::class, 'returnDashboardMobileView']);
+Route::get('/purchase-order' , [AdminController::class, 'returnPurchases']);
+Route::get('/show-stocks' , [ProductController::class, 'showStocksMobile']);

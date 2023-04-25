@@ -55,4 +55,13 @@ class ProductController extends Controller
     public function productCodeExists($number){
         return Product::whereProductCode($number)->exists();
     }
+
+    //For mobile
+    public function showStocksMobile(){
+        $product = Product::all();
+
+        return response([
+            'products' => $product
+        ]);
+    }
 }

@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 //return views/page for posting liquor
-Route::get('/dashboard/index', [ProductController::class, 'index'])->middleware('admin');
+Route::get('/index', [ProductController::class, 'index'])->middleware('admin');
 Route::get('/create', [ProductController::class,'returnCreateDataView']);
 
 //post methods for Liquor Adding forms

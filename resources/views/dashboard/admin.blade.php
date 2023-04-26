@@ -50,6 +50,7 @@
           <span>Dashboard</span>
         </a>
 
+
         <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
             <i class="icon"><ion-icon name="storefront-outline"></ion-icon></i>
             <span>Purchase</span>
@@ -60,20 +61,19 @@
             <span>Sales</span>
         </a>
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
+        <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
             <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
             <span>Products</span>
         </a>
-
 
         <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
             <i class="icon"><ion-icon name="business-outline"></ion-icon></i>
             <span>Supplier</span>
         </a>
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSystemUsers()">
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showCustomers()">
             <i class="icon"><ion-icon name="settings-outline"></ion-icon></i>
-            <span>System Users</span>
+            <span>Customers</span>
         </a>
 
 

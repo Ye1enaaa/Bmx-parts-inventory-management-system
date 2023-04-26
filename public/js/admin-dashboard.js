@@ -14,17 +14,7 @@ function closeNav() {
 
 function showPurchase() {
     var mainContent = document.querySelector(".main-content");
-    mainContent.innerHTML =
-        "<h1>Purchase</h1><p>This is the purchase content.</p>";
-}
-function showSales() {
-    var mainContent = document.querySelector(".main-content");
-    mainContent.innerHTML = "<h1>Sale</h1><p>This is the Sale content.</p>";
-}
-
-function showProducts() {
-    var mainContent = document.querySelector(".main-content");
-    fetch("/index")
+    fetch("/purchase")
         .then((response) => response.text())
         .then((data) => {
             mainContent.innerHTML = data;
@@ -34,13 +24,60 @@ function showProducts() {
         });
 }
 
-function showSuppliers() {
+function showSales() {
     var mainContent = document.querySelector(".main-content");
-    mainContent.innerHTML =
-        "<h1>Suppliers</h1><p>This is the Suppliers content.</p>";
+    mainContent.innerHTML = "<h1>Sale</h1><p>This is the Sale content.</p>";
 }
 
-function showSystemUsers() {
+function showProducts() {
+    var mainContent = document.querySelector(".main-content");
+    fetch("/dashboard/index")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+// function showProducts() {
+//     var mainContent = document.querySelector(".main-content");
+//     fetch("/dashboard/index")
+//         .then((response) => response.text())
+//         .then((data) => {
+//             mainContent.innerHTML = data;
+//             // Add event listener to the button that will redirect to create URL
+//             var createBtn = document.querySelector("#create-btn");
+//             createBtn.addEventListener("click", () => {
+//                 fetch("/create")
+//                     .then((response) => response.text())
+//                     .then((data) => {
+//                         mainContent.innerHTML = data;
+//                     })
+//                     .catch((error) => {
+//                         console.error("Error:", error);
+//                     });
+//             });
+//         })
+//         .catch((error) => {
+//             console.error("Error:", error);
+//         });
+// }
+
+function showSuppliers() {
+    var mainContent = document.querySelector(".main-content");
+    fetch("/supplier")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+function showCustomers() {
     var mainContent = document.querySelector(".main-content");
     mainContent.innerHTML =
         "<h1>SystemUsers</h1><p>This is the SystemUsers content.</p>";

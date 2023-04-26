@@ -1,15 +1,9 @@
 @extends('layouts.dashboard')
 
-@section('content')
 
-<div id="mySidebar" class="sidebar">
-    <!-- Sidebar content -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+@section('content-liquor-data-show')
 
-  </div>
-
-
-  <div class="main">
+  <div class="main-liquor-data-show">
 
    <div class="flex items-center justify-between">
     
@@ -94,9 +88,16 @@
 
 
         </div>
+        
 
       </div>
+      
+
 
     </div>
 
+
+
 @endsection
+
+

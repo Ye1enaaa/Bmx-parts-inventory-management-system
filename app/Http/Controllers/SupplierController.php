@@ -9,6 +9,11 @@ class SupplierController extends Controller
     public function returnSupplierViewPage(){
         return view('supplier.supplier');
     }
+    
+    public function showAdminDashboard()
+    {
+        return view('dashboard.admin');
+    }
 
     public function addSupplier(Request $request){
         $validateData = $request->validate([

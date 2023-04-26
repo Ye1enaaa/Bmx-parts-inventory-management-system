@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supplier</title>
-</head>
+@extends('layouts.dashboard')
+
+@section('content-supplier')
 
 
-<body class="bg-gray-100">
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
+  </div>
+
+
+  <div class="main-supplier">
 
 
     <div class="add-supplier">
-        <form action="{{route('supplier.add')}}" method="post" class="px-4 my-32 max-w-3xl mx-auto space-y-6>
+        <form action="{{route('supplier.add')}}" method="post" class="px-1 max-w-3xl mx-auto space-y-6>
             @csrf
 
              <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
@@ -72,5 +72,6 @@
         </form>
     </div>  
     
-</body>
-</html>
+    </div>
+
+@endsection

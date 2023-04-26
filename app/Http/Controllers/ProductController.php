@@ -19,9 +19,13 @@ class ProductController extends Controller
         return view('dashboard.admin');
     }
 
-
     public function returnCreateDataView(){
         return view('liquor-data.create');
+    }
+
+    public function showCreateViewInDashboard()
+    {
+        return view('dashboard.create');
     }
 
     public function getPrice(Request $request, $selectedValue)

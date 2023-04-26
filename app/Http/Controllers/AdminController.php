@@ -23,7 +23,7 @@ class AdminController extends Controller
 
     //views
     public function returnAdminLoginView(){
-        return view('auth-admin.login-admin');
+        return view('auth-admin.login-admin');          
     }
     public function returnPurchaseView(){
         $customerOrders = CustomerOrder::with('user')->get();
@@ -55,6 +55,12 @@ class AdminController extends Controller
 
         $product = Product::all();
         return view('liquor-data.show', compact('product'));
+
+        $suppliers = Supplier::all();
+
+        return view('dashboard.dashboard', [
+            'suppliers' => $suppliers
+        ]);
     }
 
     //auth
@@ -131,4 +137,3 @@ class AdminController extends Controller
         ]);
     }
 }
-

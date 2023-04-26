@@ -29,6 +29,11 @@ Route::get('/', function () {
 Route::get('/index', [ProductController::class, 'index'])->middleware('admin');
 Route::get('/create', [ProductController::class,'returnCreateDataView']);
 
+Route::get('/dashboard/admin', [ProductController::class, 'showAdminDashboard'])->middleware('admin');
+Route::get('/dashboard/create', [ProductController::class, 'showCreateViewInDashboard'])->middleware('admin');
+
+
+
 //post methods for Liquor Adding forms
 Route::post('/post' , [ProductController::class, 'storeData'])->name('post');
 
@@ -69,6 +74,9 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer');
 Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
 //supplier
+
+//Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
+
 Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
 Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
 

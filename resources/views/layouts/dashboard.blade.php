@@ -7,21 +7,41 @@
 </head>
 <body>
 
-  <div class="main">
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+</div>
+
+  <div class="main-liquor-data-show">
    
-    @yield('content')
+    @yield('content-liquor-data-show')
+
+    <!-- @include('liquor-data.create') -->
 
   </div>
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
+   <div class="main-liquor-data-create">
+   
+    @yield('content-liquor-data-create')
 
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
-  </script>
+  </div>
+
+  <div class="main-supplier">
+   
+    @yield('content-supplier')
+
+  </div>
+
+
+  <div class="main-purchase-order">
+   
+    @yield('content-purchase-order')
+
+  </div>
+
+
+  <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
 </body>
 </html>

@@ -1,30 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/purchase-order.css')}}">
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Fredoka">
-    <script src="https://cdn.tailwindcss.com"></script>
+@extends('layouts.dashboard')
+
+@section('content-purchase-order')
 
 
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
+  </div>
 
 
-    <title>Customer Order</title>
-</head>
-
-
-<body class="bg-white-700 ">
-
+  <div class="main-purchase-order">
 
     <div class="mt-4">
 
@@ -51,7 +37,7 @@
                 @foreach ($customerOrders as $order)
                 <tr>
                     <td class="border px-3  py-2">{{ $order->created_at }}</td>
-                    <td class="border px-3  py-2">{{ $order->user->name }}</td>
+                    <td class="border px-3  py-2">{{ $order->user->name ?? 'No User' }}</td>
                     <td class="border px-3  py-2">{{ $order->name }}</td>
                     <td class="border px-3  py-2">{{$order->quantity }} pcs.</td>
                     <td class="border px-3  py-2">₱ {{ $order->total_value }}</td>
@@ -60,5 +46,5 @@
             </tbody>
         </table>
         </div>
-</body>
-</html>
+
+@endsection

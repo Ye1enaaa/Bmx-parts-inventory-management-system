@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     //User
     Route::get('/user',[UserController::class, 'user']);
     Route::post('/logoutMobile', [LoginController::class, 'logoutMobile']);
+    Route::post('/addproduct' , [StaffController::class, 'addData']);
 });
 
 //admin

@@ -9,7 +9,7 @@
         
             <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
             <div class="flex items-center justify-center mr-6 text-white">
-                <span class="ml-60 text-2xl font-bold font-serif sm:text-3xl">Liquor Inventory System</span>
+                <span class="text-2xl font-bold font-serif sm:text-3xl">Liquor Inventory System</span>
             </div>
 
             <div class="flex items-center">

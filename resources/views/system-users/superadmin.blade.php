@@ -102,11 +102,9 @@
   </div>
 </div>
 
-        <!-- Hamburger Menu -->
     <div id="main">
 
       <button class="openbtn" onclick="openNav()">☰ </button>      
-        <!-- Main Content --> 
 
         <div id="content-accounts">
           <div class="flex items-center justify-between">

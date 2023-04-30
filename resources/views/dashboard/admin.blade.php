@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
 
-        <script src="{{asset('js/admin-dashboard.js')}}"></script>
+    <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
@@ -88,7 +88,7 @@
   </div>
 
   <!-- Main Content -->
-  <div class="flex flex-col flex-1">
+  <div class="flex flex-col flex-1 main-content">
     <!-- Top Bar -->
         <div>
           @yield('top-bar')  
@@ -99,7 +99,7 @@
 
       <button class="openbtn" onclick="openNav()">☰ </button>      
         <!-- Main Content -->
-        <main class="main-content ">
+        <main class="main-content1">
 
           <div>
             @yield('content-dashboard')  
@@ -110,6 +110,8 @@
           
         </main>
     </div>
+
+  </div>
 
   <script src="{{asset('js/admin-dashboard.js')}}"></script>
 

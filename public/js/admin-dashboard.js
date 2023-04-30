@@ -1,19 +1,15 @@
 function openNav() {
-    document.getElementById("mySidebar").classList.add("w-64");
-    document.getElementById("mySidebar").classList.remove("w-0");
-    document.getElementById("main").classList.add("ml-64");
-    document.getElementById("mySidenav").classList.toggle("hidden");
-    document.getElementById("top-bar").classList.toggle("shifted");
+    document.getElementById("mySidebar").classList.add("open");
+    document.querySelector(".main-content").classList.add("open");
 }
 
 function closeNav() {
-    document.getElementById("mySidebar").classList.remove("w-64");
-    document.getElementById("mySidebar").classList.add("w-0");
-    document.getElementById("main").classList.remove("ml-64");
+    document.getElementById("mySidebar").classList.remove("open");
+    document.querySelector(".main-content").classList.remove("open");
 }
 
 function showPurchase() {
-    var mainContent = document.querySelector(".main-content");
+    var mainContent = document.querySelector(".main-content1");
     fetch("/purchase")
         .then((response) => response.text())
         .then((data) => {
@@ -25,48 +21,48 @@ function showPurchase() {
 }
 
 function showSales() {
-    var mainContent = document.querySelector(".main-content");
+    var mainContent = document.querySelector(".main-content1");
     mainContent.innerHTML = "<h1>Sale</h1><p>This is the Sale content.</p>";
 }
 
-// function showProducts() {
-//     var mainContent = document.querySelector(".main-content");
-//     fetch("/dashboard/index")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
-
 function showProducts() {
-    var mainContent = document.querySelector(".main-content");
-    fetch("/index")
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/dashboard/index")
         .then((response) => response.text())
         .then((data) => {
             mainContent.innerHTML = data;
-            // Add event listener to the button that will redirect to create URL
-            var createBtn = document.querySelector("#create-btn");
-            createBtn.addEventListener("click", () => {
-                fetch("/create")
-                    .then((response) => response.text())
-                    .then((data) => {
-                        mainContent.innerHTML = data;
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                    });
-            });
         })
         .catch((error) => {
             console.error("Error:", error);
         });
 }
 
+// function showProducts() {
+//     var mainContent = document.querySelector(".main-content1");
+//     fetch("/index")
+//         .then((response) => response.text())
+//         .then((data) => {
+//             mainContent.innerHTML = data;
+//             // Add event listener to the button that will redirect to create URL
+//             var createBtn = document.querySelector("#create-btn");
+//             createBtn.addEventListener("click", () => {
+//                 fetch("/create")
+//                     .then((response) => response.text())
+//                     .then((data) => {
+//                         mainContent.innerHTML = data;
+//                     })
+//                     .catch((error) => {
+//                         console.error("Error:", error);
+//                     });
+//             });
+//         })
+//         .catch((error) => {
+//             console.error("Error:", error);
+//         });
+// }
+
 function showSuppliers() {
-    var mainContent = document.querySelector(".main-content");
+    var mainContent = document.querySelector(".main-content1");
     fetch("/supplier")
         .then((response) => response.text())
         .then((data) => {
@@ -78,7 +74,7 @@ function showSuppliers() {
 }
 
 function showCustomers() {
-    var mainContent = document.querySelector(".main-content");
+    var mainContent = document.querySelector(".main-content1");
     mainContent.innerHTML =
         "<h1>SystemUsers</h1><p>This is the SystemUsers content.</p>";
 }
@@ -263,5 +259,23 @@ var options = {
     },
 };
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-chart.render();
+// function showPopupForm() {
+//     var form = document.getElementById("popup-form");
+//     form.style.display = "block";
+// }
+
+// function hidePopupForm() {
+//     var form = document.getElementById("popup-form");
+//     form.style.display = "none";
+// }
+
+function showPopupForm() {
+    document.getElementById("popup-form").classList.remove("hidden");
+    var form = document.getElementById("popup-form");
+    form.style.display = "block";
+}
+
+function hidePopupForm() {
+    var form = document.getElementById("popup-form");
+    form.style.display = "none";
+}

@@ -12,7 +12,7 @@ class UserController extends Controller
     //return views
     public function returnCreateAndShowUserView(){
         $users = User::all();
-        return view('system-users.create-user',['users'=>$users]);
+        return view('system-users.superadmin',['users'=>$users]);
     }
 
     public function registerUser(Request $request){
@@ -43,6 +43,25 @@ class UserController extends Controller
 
         return redirect('/createuser');
     }
+
+
+
+    // public function editUser(Request $request){
+    //     $userId = $request->input('user_id');
+    //     $userFind = User::find($userId);
+    //     $userFind->name = $request->input('name');
+    //     $userFind->password = Hash::make($request->input('password'));
+    //     $userFind->save();
+
+    //     return redirect('/createuser');
+    // }
+
+
+
+
+
+
+
 
     //Check if active or not??
 

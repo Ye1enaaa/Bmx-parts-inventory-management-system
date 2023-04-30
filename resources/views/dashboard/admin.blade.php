@@ -11,7 +11,6 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
 
         <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
@@ -77,14 +76,14 @@
         </a>
 
 
-<br></br>
-        <div class="icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+    <br></br>
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
 
-        </div>
+            </div>
 
   </div>
 

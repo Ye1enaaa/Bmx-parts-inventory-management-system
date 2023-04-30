@@ -29,41 +29,41 @@ function showSales() {
     mainContent.innerHTML = "<h1>Sale</h1><p>This is the Sale content.</p>";
 }
 
-function showProducts() {
-    var mainContent = document.querySelector(".main-content");
-    fetch("/dashboard/index")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
-
 // function showProducts() {
 //     var mainContent = document.querySelector(".main-content");
 //     fetch("/dashboard/index")
 //         .then((response) => response.text())
 //         .then((data) => {
 //             mainContent.innerHTML = data;
-//             // Add event listener to the button that will redirect to create URL
-//             var createBtn = document.querySelector("#create-btn");
-//             createBtn.addEventListener("click", () => {
-//                 fetch("/create")
-//                     .then((response) => response.text())
-//                     .then((data) => {
-//                         mainContent.innerHTML = data;
-//                     })
-//                     .catch((error) => {
-//                         console.error("Error:", error);
-//                     });
-//             });
 //         })
 //         .catch((error) => {
 //             console.error("Error:", error);
 //         });
 // }
+
+function showProducts() {
+    var mainContent = document.querySelector(".main-content");
+    fetch("/index")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+            // Add event listener to the button that will redirect to create URL
+            var createBtn = document.querySelector("#create-btn");
+            createBtn.addEventListener("click", () => {
+                fetch("/create")
+                    .then((response) => response.text())
+                    .then((data) => {
+                        mainContent.innerHTML = data;
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            });
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
 
 function showSuppliers() {
     var mainContent = document.querySelector(".main-content");

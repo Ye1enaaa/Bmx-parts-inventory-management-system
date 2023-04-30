@@ -46,7 +46,8 @@
 
 
 
-                <button type="submit" id="submit">Place Order </button>
+                <button type="submit" id="submit" class="mx-auto">Place Order</button>
+
 
             </div>
             </div>

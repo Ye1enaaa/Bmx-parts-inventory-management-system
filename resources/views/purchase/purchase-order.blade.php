@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <tbody class="text-black text-center divide-y divide-blue-100">
-                @foreach ($customerOrders as $order)
+                @foreach ($customerOrders->sortByDesc('created_at') as $order)
                 <tr>
                     <td class="border px-3  py-2">{{ $order->created_at }}</td>
                     <td class="border px-3  py-2">{{ $order->user->name ?? 'No User' }}</td>

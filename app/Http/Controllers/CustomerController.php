@@ -14,7 +14,7 @@ class CustomerController extends Controller
     public function returnCustomerViewPage(){
         $names = DB::table('products')->pluck('name');
         $user_id = Auth::user()->id;
-        $orders = CustomerOrder::where('user_id', $user_id)->get();
+        $orders = CustomerOrder::where('user_id', $user_id)->orderBy('created_at','desc')->get(); // Edited
         return view('customer.customer-preview', compact('names', 'orders'));
     }
 

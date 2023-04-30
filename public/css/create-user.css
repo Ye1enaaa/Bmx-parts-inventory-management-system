@@ -1,222 +1,199 @@
 * {
-    font-family: "Fredoka", sans-serif;
-    overflow-x: hidden;
-}
-.card {
-    position: static;
-    top: 80px;
-    left: 200px;
-    width: 350px;
-    border: 1px solid #170c7f;
-    border-radius: 4px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 20px;
+    margin: 10;
+    padding: 10;
+    text-decoration: none;
 }
 
-.card-header {
-    background-color: #0040e3;
-    padding: 16px;
-    text-align: center;
-}
-
-.card-header .text-header {
-    margin: 0;
-    font-size: 18px;
-    color: rgb(255, 255, 255);
-}
-
-.card-body {
-    padding: 14px;
-}
-
-.form-group {
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 14px;
-    color: #070612;
-    font-weight: bold;
-    margin-bottom: 1px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"] {
-    width: 90%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #070514;
-    border-radius: 4px;
-}
-
-.btn {
-    padding: 12px 24px;
-    margin-left: 13px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #000000;
-    color: #1600a8;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #094aef;
-    color: #30126c;
-}
-
-.screen .list-users {
-    top: 0px;
-    border-left: 1px solid black;
-    width: 850px;
-    height: 630px;
-    position: fixed;
-    left: 500px;
-}
-
-.screen .list-users .list-user-table .table-style {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    position: fixed;
-    left: 600px;
-}
-
-.list-users .list-user-table .table-style thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-}
-
-.list-users .list-user-table .table-style th,
-.list-users .list-user-table .table-style td {
-    padding: 12px 15px;
-}
-
-.list-users .list-user-table .table-style tbody {
-    border-bottom: 1px solid #dddddd;
-}
-
-.list-users .list-user-table .table-style tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.list-users .list-user-table .table-style tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.list-users .list-user-table .table-style tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+body {
+    font-family: "Open Sans", sans-serif;
 }
 
 .sidebar {
-    position: fixed;
-    width: 300px;
-    top: 0px;
-    left: -15px;
     height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background: #1b58bb;
-    transition: all 0.5s ease;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
 }
 
 .sidebar .title {
-    border-bottom: 1px solid black;
-}
-.sidebar .title h2 {
-    position: relative;
-    left: 50px;
-}
-
-.sidebar .menus a {
-    text-decoration: none;
-}
-.sidebar .menus ul {
-    margin: 1px;
-    padding: 20px;
-    position: relative;
-    list-style-type: none;
-}
-
-.sidebar .menus ul li {
-    line-height: 50px;
+    border-bottom: 2px solid black;
+    font-weight: bold;
     color: white;
-    height: 65px;
-    width: 100%;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
 }
 
-.sidebar .menus ul li:hover {
-    background-color: white;
-    color: #000000;
-    border-radius: 20px;
+.sidebar .title a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.screen {
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    transition: 0.3s;
+    justify-content: center;
+}
+
+.sidebar a:not(.logout-link):not(.title):hover {
+    background: #3975d6;
+    font-size: 120%;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.closebtn:hover {
+    background-color: transparent;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
     transition: margin-left 0.5s;
     padding: 16px;
-    background-color: white;
-    top: 0px;
-    position: fixed;
-    width: 1200px;
-    height: 800px;
-    left: 285px;
 }
 
-.table-styles {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    position: fixed;
-    left: 400px;
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media (max-height: 650px) {
+    .sidebar {
+        padding-top: 25px;
+    }
+
+    .sidebar .title {
+        font-size: 4px;
+        line-height: 27px;
+    }
+
+    .sidebar .title a {
+        flex-direction: row;
+    }
+
+    .sidebar a {
+        padding: 8px 0 8px 20px;
+        font-size: 16px;
+    }
+
+    .sidebar a:not(.logout-link):not(.title):hover {
+        background: #3975d6;
+        font-size: 110%;
+    }
+
+    .sidebar .closebtn {
+        right: 15px;
+        font-size: 28px;
+        margin-left: 0;
+    }
+
+    .openbtn {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    #main {
+        margin-left: 70px;
+        padding: 8px;
+    }
+
+    .bar ul .logout {
+        left: 215px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
+
+    .icons a {
+        margin: 0 5px;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
 }
 
-.table-styles th,
-.table-styles td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-.acc-title {
-    position: relative;
-    left: 450px;
-}
-
-.card-reg {
-    position: relative;
-    left: 450px;
-    border-collapse: collapse;
-    border: 1px solid black;
+.icons a {
+    height: fit-content;
+    margin: 0 5px;
+    color: white;
 }
 
 .bar {
     background-color: #1b58bb;
-    height: 60px;
+    width: 100%;
+    z-index: 1;
 }
-.bar ul .logout-link {
+
+.bar ul .logout {
     position: fixed;
     left: 285px;
 }
-.popup-form{
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4)
+
+.dropdown-item {
+    color: #222;
+    display: flex;
+    position: relative;
+    top: 30px;
+    bottom: 0px;
+    left: 1050px;
+    font-weight: 700;
 }
 
+.nav-link {
+    font-size: 24px;
+}
 
+.sidebar.open {
+    width: 250px;
+}
 
+.main-content.open {
+    margin-left: 250px;
+}
+
+.popup-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}

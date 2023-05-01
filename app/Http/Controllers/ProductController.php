@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         Product::create($request->all());
 
-        return redirect('/index');
+        return redirect('/dashboard');
     }
 
     //edit

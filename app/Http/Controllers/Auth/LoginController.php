@@ -50,21 +50,26 @@ class LoginController extends Controller
         ]);
         if(Auth::attempt($credentials)){
             $user_role = Auth::user()->role;
-
-            switch($user_role){
-                case 1:
-                    return redirect('/createuser');
-                    break;
-                case 2:
-                    return redirect('/dashboard');
-                    break;
-                case 3:
-                    return redirect('/customer');
-                    break;
-                default:
-                    Auth::logout();
-                    return redirect('/login')-with('error','something went wrong');
-            }
+            $disabled = Auth::user()->disabled;
+            if($disabled == 0) {
+                switch($user_role){
+                    case 1:
+                        return redirect('/createuser');
+                        break;
+                    case 2:
+                        return redirect('/dashboard');
+                        break;
+                    case 3:
+                        return redirect('/customer');
+                        break;
+                    default:
+                        Auth::logout();
+                        return redirect('/login')-with('error','something went wrong');
+                }
+            }else if($disabled == 1){
+                Auth::logout();
+                return redirect('/login');
+            }    
         }else{
             return redirect('/login');
         }

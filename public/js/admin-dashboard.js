@@ -27,7 +27,7 @@ function showSales() {
 
 function showProducts() {
     var mainContent = document.querySelector(".main-content1");
-    fetch("/dashboard/index")
+    fetch("/index")
         .then((response) => response.text())
         .then((data) => {
             mainContent.innerHTML = data;

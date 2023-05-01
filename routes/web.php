@@ -96,3 +96,7 @@ Route::get('/purchase', [AdminController::class,'returnPurchaseView']);
 //});
 
 Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
+
+
+//Graphs
+Route::get('/graphs' , [CustomerController::class, 'returnSalesByData']);

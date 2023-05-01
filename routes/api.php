@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,3 +41,5 @@ Route::get('/show-stocks' , [ProductController::class, 'showStocksMobile']);
 
 //Staff
 Route::get('/product-id/{product_code}' , [StaffController::class, 'returnBarcodeData']);
+
+//Route::get('/sales' , [CustomerController::class, 'returnSalesByData']);

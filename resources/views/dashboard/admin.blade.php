@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -15,13 +18,19 @@
     <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Fredoka">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.css" type="text/css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Fredoka">
 
     <title>Dashboard</title>
 
-</style>
 </head>
+
+
 <body class="flex h-screen">
   <!-- Sidebar -->
  <div id="mySidebar" class="sidebar">
@@ -59,6 +68,7 @@
             <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
             <span>Sales</span>
         </a>
+
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
             <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
@@ -105,9 +115,10 @@
             @yield('content-dashboard')  
           </div>
 
-      
+          <!-- <div>
+            @yield('content-sales-graphs')  
+          </div> -->
 
-          
         </main>
     </div>
 
@@ -115,4 +126,5 @@
 
   <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
-</body
+</body>
+</html>

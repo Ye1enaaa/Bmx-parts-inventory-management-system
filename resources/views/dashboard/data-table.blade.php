@@ -79,7 +79,7 @@
 <div class="total-admin"> <!--ug unsa naa diri nga class name mao dapat naa didto sa parent class-->
     <div class="title">
         <p class="title-text">
-            Customers
+            Suppliers
         </p>
     </div>
     <div class="data">
@@ -111,38 +111,39 @@
 
             <div class="flex flex-wrap sm:flex-nowrap justify-center">
 
-              <div class="total-quantity bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+              <div class="total-quantity bg-[#294D61] hover:bg-[#6DA5C0] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
                   <ion-icon name="wine" class="text-6xl"></ion-icon>
                 </div>
                 @yield('total-quantity')
               </div>
 
-              <div class="total-inventory-value bg-cyan-600 hover:bg-cyan-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+              <div class="total-inventory-value bg-[#0f969C] hover:bg-[#6DA5C0] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
                   <ion-icon name="trending-up-sharp" class="text-6xl"></ion-icon>
                 </div>
                 @yield('total-inventory-value')
               </div>
 
-              <div class="total-admin bg-orange-500 hover:bg-orange-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+              <div class="total-admin bg-[#294D61] hover:bg-[#6DA5C0] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
                   <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
                 </div>
                 @yield('customer-table')
               </div>
+
             </div>
 
             <div class="flex flex-wrap sm:flex-nowrap justify-center">
 
-              <div class="sales bg-cyan-500 hover:bg-cyan-400 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+              <div class="sales bg-[#0f969C] hover:bg-[#6DA5C0] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
                   <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
                 </div>
                 @yield('total-sales')
               </div>
 
-              <div class="product-field bg-orange-600 hover:bg-orange-500 rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
+              <div class="product-field bg-[#294D61] hover:bg-[#6DA5C0] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
                   <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
                 </div>

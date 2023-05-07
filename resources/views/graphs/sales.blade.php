@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.dashboard')
+
+@section('content-sales-graphs')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.css" type="text/css">
+
+
+<div id="mySidebar" class="sidebar">
+    <!-- Sidebar content -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+</div>
+
+<div class="main-sales-graphs">
+    <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold mb-5 text-black">Sales Graphs</h1>
+    </div>
     <canvas id="myChart"></canvas>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -52,5 +60,8 @@
         }
     });
     </script>
-</body>
-</html>
+</div>
+
+<script src="{{asset('js/admin-dashboard.js')}}"></script>
+
+@endsection

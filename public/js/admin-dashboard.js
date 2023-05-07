@@ -22,8 +22,30 @@ function showPurchase() {
 
 function showSales() {
     var mainContent = document.querySelector(".main-content1");
-    mainContent.innerHTML = "<h1>Sale</h1><p>This is the Sale content.</p>";
+    fetch("/graphs")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 }
+
+// function showSales() {
+//     var mainContent = document.querySelector(".main-content1");
+//     var salesGraph = document.createElement("div");
+//     salesGraph.classList.add("main-sales-graphs");
+//     fetch("/graphs")
+//         .then((response) => response.text())
+//         .then((data) => {
+//             salesGraph.innerHTML = data;
+//             mainContent.appendChild(salesGraph);
+//         })
+//         .catch((error) => {
+//             console.error("Error:", error);
+//         });
+// }
 
 function showProducts() {
     var mainContent = document.querySelector(".main-content1");
@@ -219,55 +241,45 @@ allProgress.forEach((item) => {
 });
 
 // APEXCHART
-var options = {
-    series: [
-        {
-            name: "series1",
-            data: [31, 40, 28, 51, 42, 109, 100],
-        },
-        {
-            name: "series2",
-            data: [11, 32, 45, 32, 34, 52, 41],
-        },
-    ],
-    chart: {
-        height: 350,
-        type: "area",
-    },
-    dataLabels: {
-        enabled: false,
-    },
-    stroke: {
-        curve: "smooth",
-    },
-    xaxis: {
-        type: "datetime",
-        categories: [
-            "2018-09-19T00:00:00.000Z",
-            "2018-09-19T01:30:00.000Z",
-            "2018-09-19T02:30:00.000Z",
-            "2018-09-19T03:30:00.000Z",
-            "2018-09-19T04:30:00.000Z",
-            "2018-09-19T05:30:00.000Z",
-            "2018-09-19T06:30:00.000Z",
-        ],
-    },
-    tooltip: {
-        x: {
-            format: "dd/MM/yy HH:mm",
-        },
-    },
-};
-
-// function showPopupForm() {
-//     var form = document.getElementById("popup-form");
-//     form.style.display = "block";
-// }
-
-// function hidePopupForm() {
-//     var form = document.getElementById("popup-form");
-//     form.style.display = "none";
-// }
+// var options = {
+//     series: [
+//         {
+//             name: "series1",
+//             data: [31, 40, 28, 51, 42, 109, 100],
+//         },
+//         {
+//             name: "series2",
+//             data: [11, 32, 45, 32, 34, 52, 41],
+//         },
+//     ],
+//     chart: {
+//         height: 350,
+//         type: "area",
+//     },
+//     dataLabels: {
+//         enabled: false,
+//     },
+//     stroke: {
+//         curve: "smooth",
+//     },
+//     xaxis: {
+//         type: "datetime",
+//         categories: [
+//             "2018-09-19T00:00:00.000Z",
+//             "2018-09-19T01:30:00.000Z",
+//             "2018-09-19T02:30:00.000Z",
+//             "2018-09-19T03:30:00.000Z",
+//             "2018-09-19T04:30:00.000Z",
+//             "2018-09-19T05:30:00.000Z",
+//             "2018-09-19T06:30:00.000Z",
+//         ],
+//     },
+//     tooltip: {
+//         x: {
+//             format: "dd/MM/yy HH:mm",
+//         },
+//     },
+// };
 
 function showPopupForm() {
     document.getElementById("popup-form").classList.remove("hidden");

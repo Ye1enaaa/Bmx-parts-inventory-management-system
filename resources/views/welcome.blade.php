@@ -8,7 +8,7 @@
     <script src="{{ asset('assets/welcome.blade.pictures') }}"></script>
 
 
-    <title>Liquor Inventory management</title>    
+    <title>BMX Bike Parts Inventory management</title>    
 
    <script src="https://cdn.tailwindcss.com"></script>
 
@@ -19,38 +19,40 @@
 
       <div class="banner">
         <div class="slider">
-          <img src="{{ asset('assets/pictures/1.jpg') }}" id="slideImg">
+          <img src="{{ asset('assets/pictures/2.png') }}" id="slideImg">
         </div>
         
         <div class="overlay">
-          <div class="navbar">
-            <div class="logo">
-              <img src="{{ asset('assets/pictures/logo.png') }}">
+          
+           <div class="fixed top-0 left-0 right-0 container h-16 bg-[#6DA5C0]">
+              <div class="flex justify-start py-3">
+
+                  <div class="-my-4 logo w-20 ml-10 flex-shrink-0">
+                      <img src="{{ asset('assets/pictures/bmx.png') }}" class="h-full w-full object-contain">
+                  </div>
+
+                  <div class="flex justify-end items-center mr-10 flex-1">
+                      <button class="bg-[#294D61] hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">Login</button>                  
+                      <button class="bg-[#294D61] hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline ml-4" onclick="location.href='/register'">Register</button>
+                  </div>
+
+              </div>
             </div>
 
-            <div>
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">Login</button>                  
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/register'" style="margin-left: 40px; margin-right: 40px;">Register</button>
+
+
+          <div class="content font-poppins">
+            <h1>Bicycle Moto Cross Inventory Management</h1>
+            <h3>Invest in BMX bike parts that are reliable and true, and watch your performance and success come shining through.</h3>
           </div>
 
+          <div class="fixed bottom-0 w-full container mx-auto bg-[#6DA5C0] text-black px-3 font-poppins">
+            <div class="py-4 pb-5">
+              <h3 class="text-center">&copy; 2023 System, Inc. All rights reserved. BMX Bike Parts Inventory Management System.</h3>
+            </div>
+          </div>  
 
 
-          </div>
-
-
-          <div class="content">
-
-                <h1>Liquor Inventory System</h1>
-                <h3>Managing your liquor, managing your business, it will lead you to success.</h3>
-
-                 <div class="icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-
-                  </div>
-          </div>
 
 
         </div>
@@ -61,12 +63,16 @@
         var slideImg = document.getElementById("slideImg");
 
         var images = new Array(
-              "assets/pictures/1.jpg",
-              "assets/pictures/2.jpg",
-              "assets/pictures/3.jpg",
-              "assets/pictures/4.jpg",
-              "assets/pictures/5.jpg",
-              "assets/pictures/6.jpg"
+              "assets/pictures/1.png",
+              "assets/pictures/2.png",
+              "assets/pictures/3.png",
+              "assets/pictures/4.png",
+              "assets/pictures/5.png",
+              "assets/pictures/6.png",
+              "assets/pictures/7.png",
+              "assets/pictures/8.png",
+              "assets/pictures/9.jpg",
+              "assets/pictures/10.jpg"
 
         );
 

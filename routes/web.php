@@ -99,4 +99,6 @@ Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
 
 
 //Graphs
-Route::get('/graphs' , [CustomerController::class, 'returnSalesByData']);
+Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('admin');
+
+

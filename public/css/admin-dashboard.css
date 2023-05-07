@@ -16,7 +16,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background: #1b58bb;
+    background: #072e33;
     overflow-x: hidden;
     padding-top: 80px;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 .sidebar a:not(.logout-link):not(.title):hover {
-    background: #3975d6;
+    background: #072e33;
     font-size: 120%;
 }
 
@@ -101,7 +101,7 @@ body {
     }
 
     .sidebar a:not(.logout-link):not(.title):hover {
-        background: #3975d6;
+        background: #072e33;
         font-size: 110%;
     }
 
@@ -151,7 +151,7 @@ body {
 }
 
 .bar {
-    background-color: #1b58bb;
+    background-color: #072e33;
     width: 100%;
     z-index: 1;
 }

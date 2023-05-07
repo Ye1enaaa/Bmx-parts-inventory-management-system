@@ -22,7 +22,7 @@
 
     <title>Dashboard</title>
 
-</style>
+<!-- </style> -->
 </head>
 <body class="flex h-screen">
   <!-- Sidebar -->

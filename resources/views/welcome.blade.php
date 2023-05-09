@@ -24,7 +24,8 @@
         
         <div class="overlay">
           
-           <div class="fixed top-0 left-0 right-0 container h-16 bg-[#6DA5C0]">
+          <div class="fixed flex-wrap justify-between h-16 w-full left-0 right-0 bg-[#6DA5C0]">
+
               <div class="flex justify-start py-3">
 
                   <div class="-my-4 logo w-20 ml-10 flex-shrink-0">
@@ -46,7 +47,7 @@
             <h3>Invest in BMX bike parts that are reliable and true, and watch your performance and success come shining through.</h3>
           </div>
 
-          <div class="fixed bottom-0 w-full container mx-auto bg-[#6DA5C0] text-black px-3 font-poppins">
+          <div class="flex-wrap justify-between h-16 w-full left-0 right-0 fixed bottom-0 bg-[#6DA5C0] text-black px-3 font-poppins">
             <div class="py-4 pb-5">
               <h3 class="text-center">&copy; 2023 System, Inc. All rights reserved. BMX Bike Parts Inventory Management System.</h3>
             </div>

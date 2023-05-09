@@ -1,6 +1,13 @@
 function openNav() {
-    document.getElementById("mySidebar").classList.add("open");
-    document.querySelector(".main-content").classList.add("open");
+    const sidebar = document.getElementById("mySidebar");
+    const mainContent = document.querySelector(".main-content");
+    if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        mainContent.classList.remove("open");
+    } else {
+        sidebar.classList.add("open");
+        mainContent.classList.add("open");
+    }
 }
 
 function closeNav() {
@@ -31,21 +38,6 @@ function showSales() {
             console.error("Error:", error);
         });
 }
-
-// function showSales() {
-//     var mainContent = document.querySelector(".main-content1");
-//     var salesGraph = document.createElement("div");
-//     salesGraph.classList.add("main-sales-graphs");
-//     fetch("/graphs")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             salesGraph.innerHTML = data;
-//             mainContent.appendChild(salesGraph);
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
 
 function showProducts() {
     var mainContent = document.querySelector(".main-content1");

@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="{{asset('css/admin-dashboard.css')}}">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
     <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,6 +27,10 @@
     
 
     <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Fredoka">
+    
+     <script src="js/script.js" defer></script>
+     <!-- <script src="js/script.js"></script> -->
+
 
     <title>Dashboard</title>
 
@@ -33,8 +39,8 @@
 
 <body class="flex h-screen">
   <!-- Sidebar -->
- <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+ <div id="mySidebar" class="sidebar open">
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
@@ -80,25 +86,16 @@
             <span>Supplier</span>
         </a>
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showCustomers()">
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showCustomers()">
             <i class="icon"><ion-icon name="settings-outline"></ion-icon></i>
             <span>Customers</span>
-        </a>
+        </a> -->
 
-
-    <br></br>
-            <div class="icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-
-            </div>
 
   </div>
 
   <!-- Main Content -->
-  <div class="flex flex-col flex-1 main-content">
+  <div class="flex flex-col flex-1 main-content open">
     <!-- Top Bar -->
         <div>
           @yield('top-bar')  
@@ -115,11 +112,10 @@
             @yield('content-dashboard')  
           </div>
 
-          <!-- <div>
-            @yield('content-sales-graphs')  
-          </div> -->
 
         </main>
+
+          
     </div>
 
   </div>

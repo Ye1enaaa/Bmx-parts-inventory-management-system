@@ -1,12 +1,10 @@
-* {
-    margin: 10;
-    padding: 10;
-    text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-body {
-    font-family: "Fredoka", sans-serif;
-    overflow-x: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins, sans-serif";
 }
 
 .sidebar {
@@ -16,7 +14,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background: #072e33;
+    background: #428fb6;
     overflow-x: hidden;
     padding-top: 80px;
 }
@@ -47,7 +45,7 @@ body {
 }
 
 .sidebar a:not(.logout-link):not(.title):hover {
-    background: #072e33;
+    background: #6da5c0;
     font-size: 120%;
 }
 
@@ -101,7 +99,7 @@ body {
     }
 
     .sidebar a:not(.logout-link):not(.title):hover {
-        background: #072e33;
+        background: #6da5c0;
         font-size: 110%;
     }
 
@@ -151,7 +149,7 @@ body {
 }
 
 .bar {
-    background-color: #072e33;
+    background-color: #428fb6;
     width: 100%;
     z-index: 1;
 }
@@ -210,4 +208,115 @@ body {
     max-width: 1000px;
     max-height: 600px;
     overflow-y: scroll;
+}
+
+.wrapper {
+    width: 430px;
+    height: 450px;
+    background: #38888d;
+    position: fixed;
+    top: 140px;
+    right: 20px;
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: bold;
+    position: relative;
+}
+
+header .icons {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    display: flex;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    color: #072e33;
+    font-size: 1.9rem;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 80%;
+}
+
+header .icons span:hover {
+    background: #37a2b0;
+}
+
+header .icons span:last-child {
+    margin-right: -10px;
+}
+.calendar {
+    padding: 20px;
+}
+.calendar ul {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+}
+
+.calendar ul li {
+    position: relative;
+    width: calc(100% / 7);
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.calendar .days li::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li:hover::before {
+    background: #fff;
+}
+
+.days li.active::before {
+    background: #1cd3dd;
 }

@@ -16,7 +16,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background: #1b58bb;
+    background: #428fb6;
     overflow-x: hidden;
     padding-top: 80px;
 }
@@ -48,20 +48,8 @@ body {
 }
 
 .sidebar a:not(.logout-link):not(.title):hover {
-    background: #3975d6;
+    background: #428fb6;
     font-size: 120%;
-}
-
-.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.closebtn:hover {
-    background-color: transparent;
 }
 
 .openbtn {
@@ -103,7 +91,7 @@ body {
     }
 
     .sidebar a:not(.logout-link):not(.title):hover {
-        background: #3975d6;
+        background: #428fb6;
         font-size: 110%;
     }
 
@@ -153,7 +141,7 @@ body {
 }
 
 .bar {
-    background-color: #1b58bb;
+    background-color: #428fb6;
     width: 100%;
     z-index: 1;
 }

@@ -26,8 +26,8 @@
 </head>
 <body class="flex h-screen">
   <!-- Sidebar -->
- <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+ <div id="mySidebar" class="sidebar open">
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
@@ -59,19 +59,12 @@
         </a>
 
 
-    <br></br>
-            <div class="icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
 
-            </div>
 
   </div>
 
   
-  <div class="flex flex-col flex-1 main-content">
+  <div class="flex flex-col flex-1 main-content open">
     <div>
         <div class="bar">
 
@@ -81,7 +74,7 @@
         
           <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
             <div class="flex items-center justify-center mr-6 text-white">
-                <span class="text-2xl font-bold font-serif sm:text-3xl">Liquor Inventory System</span>
+                <span class="text-2xl font-bold font-serif sm:text-3xl">BMX: Dirt Jump Parts Inventory System</span>
             </div>
 
             <div class="flex items-center">
@@ -104,7 +97,7 @@
 
     <div id="main">
 
-      <button class="openbtn" onclick="openNav()">☰ </button>      
+      <button class="openbtn" onclick="openNav()"> ☰ </button>      
 
         <div id="content-accounts">
           <div class="flex items-center justify-between">

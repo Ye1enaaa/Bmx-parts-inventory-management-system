@@ -9,7 +9,7 @@
         
             <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
             <div class="flex items-center justify-center mr-6 text-white">
-                <span class="text-2xl font-bold font-serif sm:text-3xl">Liquor Inventory System</span>
+                <span class="text-2xl font-bold font-serif sm:text-3xl">BMX: Dirt Jump Parts Inventory System</span>
             </div>
 
             <div class="flex items-center">
@@ -52,7 +52,7 @@
 @section('total-quantity')
 <div class="total-quantity">
     <div class="title">
-        <p class="quantity-title">Liquor Quantity</p>
+        <p class="quantity-title"> Quantity</p>
     </div>
     <div class="data">
         <p>
@@ -113,7 +113,7 @@
 
               <div class="total-quantity bg-[#4e86a4] hover:bg-[#6DA5C0] rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
-                  <ion-icon name="wine" class="text-6xl"></ion-icon>
+                  <ion-icon name="bicycle-outline" class="text-6xl"></ion-icon>
                 </div>
                 @yield('total-quantity')
               </div>
@@ -132,7 +132,7 @@
 
               <div class="total-admin bg-[#0f969C] hover:bg-[#19b5bd] rounded-lg w-80 font-serif text-2xl text-center p-10 m-4">
                 <div class="icon text-white mb-2" style="float: right;">
-                  <ion-icon name="people-circle-outline" class="text-6xl"></ion-icon>
+                  <ion-icon name="person" class="text-6xl"></ion-icon>
                 </div>
                 @yield('customer-table')
               </div>

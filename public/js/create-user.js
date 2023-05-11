@@ -1,6 +1,13 @@
 function openNav() {
-    document.getElementById("mySidebar").classList.add("open");
-    document.querySelector(".main-content").classList.add("open");
+    const sidebar = document.getElementById("mySidebar");
+    const mainContent = document.querySelector(".main-content");
+    if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        mainContent.classList.remove("open");
+    } else {
+        sidebar.classList.add("open");
+        mainContent.classList.add("open");
+    }
 }
 
 function closeNav() {
@@ -44,7 +51,7 @@ function showEditForm(userId) {
         `.edit-user-form[data-user-id="${userId}"]`
     );
     form.style.display = "block";
-    console.log(userId)
+    console.log(userId);
     // hide the container for the clicked user
     const container = document.querySelector(
         `.edit-user-container[data-user-id="${userId}"]`

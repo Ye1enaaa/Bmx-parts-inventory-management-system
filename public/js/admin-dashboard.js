@@ -87,12 +87,6 @@ function showSuppliers() {
         });
 }
 
-function showCustomers() {
-    var mainContent = document.querySelector(".main-content1");
-    mainContent.innerHTML =
-        "<h1>SystemUsers</h1><p>This is the SystemUsers content.</p>";
-}
-
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
 const sidebar = document.getElementById("sidebar");

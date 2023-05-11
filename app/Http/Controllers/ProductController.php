@@ -54,6 +54,7 @@ class ProductController extends Controller
         return redirect('/dashboard');
     }
 
+
     //edit
     public function editData(Request $request,$id){
         $product = Product::findOrFail($id);
@@ -81,6 +82,25 @@ class ProductController extends Controller
 
         return response([
             'products' => $product
+        ]);
+    }
+
+    public function storeStock(Request $request){
+        $number = mt_rand(1000000000,9999999999);
+
+        $request['product_code'] = $number;
+        if($this->productCodeExists($number)){
+            $number = mt_rand(1000000000,9999999999);
+        }
+
+        $unit_price = $request['unit_price'];
+        $quantity = $request['quantity'];
+
+        $request['inventory_value'] = $unit_price * $quantity; 
+
+        $stock = Product::create($request->all());
+        return response([
+            'stock' => $stock
         ]);
     }
 }

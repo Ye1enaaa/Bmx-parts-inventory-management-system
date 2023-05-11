@@ -45,3 +45,4 @@ Route::get('/product-id/{product_code}' , [StaffController::class, 'returnBarcod
 //Route::get('/sales' , [CustomerController::class, 'returnSalesByData']);
 
 Route::get('/overstocks' , [ProductController::class, 'checkOverstock']);
+Route::post('/storestock' , [ProductController::class,'storeStock']);

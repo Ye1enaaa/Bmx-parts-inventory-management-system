@@ -43,3 +43,5 @@ Route::get('/show-stocks' , [ProductController::class, 'showStocksMobile']);
 Route::get('/product-id/{product_code}' , [StaffController::class, 'returnBarcodeData']);
 
 //Route::get('/sales' , [CustomerController::class, 'returnSalesByData']);
+
+Route::get('/overstocks' , [ProductController::class, 'checkOverstock']);

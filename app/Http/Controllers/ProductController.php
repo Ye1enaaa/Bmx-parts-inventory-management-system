@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Overstocks;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -65,6 +66,14 @@ class ProductController extends Controller
     public function productCodeExists($number){
         return Product::whereProductCode($number)->exists();
     }
+
+    public function checkOverstock(){
+        $stocks = Overstocks::all();
+        return response([
+            'stocks' => $stocks
+        ]);
+    }
+
 
     //For mobile
     public function showStocksMobile(){

@@ -44,7 +44,7 @@ function showEditForm(userId) {
         `.edit-user-form[data-user-id="${userId}"]`
     );
     form.style.display = "block";
-
+    console.log(userId)
     // hide the container for the clicked user
     const container = document.querySelector(
         `.edit-user-container[data-user-id="${userId}"]`

@@ -277,3 +277,26 @@ function hidePopupForm() {
     var form = document.getElementById("popup-form");
     form.style.display = "none";
 }
+
+// sa product - form ni siya
+function showEditForm(event) {
+    event.preventDefault();
+    document.getElementById("edit-form").style.display = "block";
+}
+
+// function showEditForm(userId) {
+//     event.preventDefault();
+//     document.querySelector(
+//         `[data-user-id="edit-user-${userId}"] .popup-form`
+//     ).style.display = "block";
+// }
+
+// Add form validation here
+var form = document.getElementById("product-form");
+form.addEventListener("submit", function (event) {
+    // Add validation code here
+});
+
+function hideEditForm() {
+    document.getElementById("edit-form").style.display = "none";
+}

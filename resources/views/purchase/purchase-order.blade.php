@@ -24,7 +24,7 @@
 
 
         <table class="table-auto w-full">
-            <thead class="text-white bg-[#0C7075] border-gray-900 ">
+            <thead class="text-white bg-[#313131] border-gray-900 ">
                 <tr class="text-center font bold">
                     <th class="px-4 py-2">Order Date</th>
                     <th class="px-4 py-2">Customer Name</th>

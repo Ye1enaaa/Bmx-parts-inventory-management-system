@@ -20,7 +20,8 @@
              <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
 
 
-            <div class= "h-900px w-950px bg-blue-400 px-10 space-y-10 mx-auto p-11 rounded-md">
+           <div class="h-900px w-950px bg-[#e6e3e3] px-10 space-y-10 mx-auto p-11 rounded-md border border-black">
+
 
             <div class="flex space-x-10">
 

@@ -44,22 +44,20 @@
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
-          <span class="fa-stack">
-            <i class="fas fa-circle fa-stack-2x text-white"></i>
-            <i class="fas fa-user fa-stack-1x fa-inverse text-black"></i>
-          </span>
+            <ion-icon name="person-circle" class="text-white" style="font-size: 4rem;"></ion-icon>
+
 
           <div class=" text-sm mt-3">
             <div>{{ Auth::user()->name }}</div>
             <div>{{ Auth::user()->email }}</div>
           </div>
         </a>
-      </div>
+    </div>
 
         <br>
 
   
-        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-100 flex items-center">
           <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
           <span>Dashboard</span>
         </a>
@@ -96,11 +94,16 @@
         </div>
 
         <!-- Hamburger Menu -->
+
+        <br> <br> 
+
+
     <div id="main">
 
       <button class="openbtn" onclick="openNav()">☰ </button>      
         <!-- Main Content -->
         <main class="main-content1">
+          <br>
 
           <div>
             @yield('content-dashboard')  

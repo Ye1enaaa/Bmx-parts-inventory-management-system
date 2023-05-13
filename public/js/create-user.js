@@ -25,6 +25,11 @@ function showAddAccounts() {
     document.getElementById("content-add-accounts").style.display = "block";
 }
 
+function showSales() {
+    document.getElementById("content-accounts").style.display = "none";
+    document.getElementById("content-add-accounts").style.display = "block";
+}
+
 // function showEditForm(userId) {
 //     var editForm = document.getElementById("edit-user-form-" + userId);
 //     if (editForm) {

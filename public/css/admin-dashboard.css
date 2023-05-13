@@ -12,19 +12,29 @@
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 70;
     left: 0;
-    background: #428fb6;
+    background: #121f25;
     overflow-x: hidden;
     padding-top: 80px;
 }
 
+.sidebar::before {
+    content: "";
+    background-color: #428fb6;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
 .sidebar .title {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     font-weight: bold;
     color: white;
     text-align: center;
-    font-family: "Open Sans", sans-serif;
     display: flex;
     flex-direction: column;
     pointer-events: none;
@@ -45,20 +55,8 @@
 }
 
 .sidebar a:not(.logout-link):not(.title):hover {
-    background: #6da5c0;
+    background: #878787;
     font-size: 120%;
-}
-
-.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.closebtn:hover {
-    background-color: transparent;
 }
 
 .openbtn {
@@ -70,7 +68,7 @@
 }
 
 .openbtn:hover {
-    background-color: #444;
+    background-color: #dadada;
 }
 
 #main {
@@ -151,7 +149,10 @@
 .bar {
     background-color: #428fb6;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .bar ul .logout {
@@ -217,6 +218,7 @@
     position: fixed;
     top: 140px;
     right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .wrapper header {
@@ -266,6 +268,7 @@ header .icons span:hover {
 header .icons span:last-child {
     margin-right: -10px;
 }
+
 .calendar {
     padding: 20px;
 }
@@ -294,7 +297,7 @@ header .icons span:last-child {
     margin-top: 30px;
 }
 .days li.inactive {
-    color: #aaa;
+    color: #b0b0b0;
 }
 
 .days li.active {
@@ -314,9 +317,65 @@ header .icons span:last-child {
 }
 
 .days li:hover::before {
-    background: #fff;
+    background: #a9a9a9;
 }
 
 .days li.active::before {
     background: #1cd3dd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #d3d3d3;
+}
+
+/* tbody tr:hover {
+    background-color: #dadada;
+    cursor: pointer;
+} */
+
+@keyframes moveIcon {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes moveIicon {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+#product-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#product-form input[type="text"],
+#product-form input[type="number"],
+#product-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#product-form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-form {
+    display: none;
 }

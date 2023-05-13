@@ -52,25 +52,25 @@ class CustomerController extends Controller
         //]);
     }
 
-    public function returnSalesByData(){
-        $salesByDay = DB::table('customer_orders')
+    // public function returnSalesByData(){
+    //     $salesByDay = DB::table('customer_orders')
+    //     ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(total_value) as total'))
+    //     ->groupBy('day')
+    //     ->get();
+
+    //     return view('graphs.sales', compact('salesByDay'));
+    // }
+
+
+public function returnSalesByData() {
+    $salesByDay = DB::table('customer_orders')
         ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(total_value) as total'))
         ->groupBy('day')
         ->get();
 
-        return view('graphs.sales', compact('salesByDay'));
-    }
+    return view('graphs.sales', ['salesByDay' => $salesByDay]);
 
-
-    // public function returnSalesByData(){
-    //     $salesByDay = DB::table('customer_orders')
-    //         ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(total_value) as total'))
-    //         ->groupBy('day')
-    //         ->get();
-
-    //     return view('graphs.sales')->with('salesByDay', $salesByDay)->render();
-    // }
-
+}
 
 
 

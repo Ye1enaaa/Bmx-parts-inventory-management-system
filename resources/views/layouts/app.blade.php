@@ -7,21 +7,30 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- <title>{{ config('app.name', 'Login') }}</title> -->
+    <title>Login</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <!-- <script src="{{ asset('assets/welcome.blade.pictures') }}"></script> -->
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
 </head>
-<body>
+
+<body class="min-h-screen flex items-center justify-center ">
+
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-[#6da5c0] shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <!-- {{ config('app.name', 'Laravel') }} -->
+                    BMX: Inventory Management System
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -71,10 +80,36 @@
                 </div>
             </div>
         </nav>
+        <br>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div>
+
+            <div class="image-container">
+                <img src="{{ asset('assets/pictures/bmx.png') }}">
+            </div>
+            <main class="py-2">
+                @yield('content')
+            </main>
+
+
+        </div>
+
+
     </div>
+
+
+<div class="custom-footer">&copy; 2023 System, Inc. All rights reserved. BMX Bike Parts Inventory Management System.</div>
+
+
+<!-- <div class="fixed-bottom left-0 right-0  flex-col justify-center d-flex justify-content-between bg-primary text-dark px-4" 
+            style="height: 10vh; width: 100%;">
+    <div class="py-4 pb-5">
+        <h3 class="text-center small mx-auto">&copy; 2023 System, Inc. All rights reserved. BMX Bike Parts Inventory Management System.</h3>
+    </div>
+</div> -->
+
+
+
 </body>
+
 </html>

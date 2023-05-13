@@ -100,5 +100,13 @@ Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
 
 //Graphs
 Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('admin');
+// Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('superadmin');
 
 
+
+// Route::get('/edit/{id}', [ProductController::class, 'showEditForm']);
+// Route::post('/edit/{id}', [ProductController::class, 'editData']);
+
+// Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
+
+Route::put('/edit/{id}', 'ProductController@edit')->name('products.edit');

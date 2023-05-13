@@ -64,6 +64,9 @@ class ProductController extends Controller
         $product->update($request->all());
     }
 
+
+
+
     public function productCodeExists($number){
         return Product::whereProductCode($number)->exists();
     }
@@ -103,4 +106,33 @@ class ProductController extends Controller
             'stock' => $stock
         ]);
     }
+
+
+public function edit(Request $request, $id)
+{
+    $product = Product::find($id);
+    $product->name = $request->input('name');
+    $product->unit_price = $request->input('unit_price');
+    $product->quantity = $request->input('quantity');
+    $product->description = $request->input('description');
+    $product->save();
+
+    return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+
+    $validatedData = $request->validate([
+    'name' => 'required|max:255',
+    'unit_price' => 'required|numeric',
+    'quantity' => 'required|integer',
+    'description' => 'nullable|max:255',
+]);
+
+$product->update($validatedData);
+
 }
+
+
+
+
+}
+
+

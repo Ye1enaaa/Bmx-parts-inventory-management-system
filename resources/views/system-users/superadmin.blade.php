@@ -27,21 +27,18 @@
 <body class="flex h-screen">
   <!-- Sidebar -->
  <div id="mySidebar" class="sidebar open">
-    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
-          <span class="fa-stack">
-            <i class="fas fa-circle fa-stack-2x text-white"></i>
-            <i class="fas fa-user fa-stack-1x fa-inverse text-black"></i>
-          </span>
+            <ion-icon name="person-circle" class="text-white" style="font-size: 4rem;"></ion-icon>
+
 
           <div class=" text-sm mt-3">
             <div>{{ Auth::user()->name }}</div>
             <div>{{ Auth::user()->email }}</div>
           </div>
         </a>
-      </div>
+    </div>
 
         <br>
 
@@ -49,13 +46,18 @@
         
 
         <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showAccounts()">
-            <i class="icon"><ion-icon name="storefront-outline"></ion-icon></i>
-            <span>Accounts</span>
+            <i class="icon"><ion-icon name="people"></ion-icon></i>
+            <span>User account</span>
         </a>
 
         <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showAddAccounts()">
-            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
-            <span>Add accounts</span>
+            <i class="icon"><ion-icon name="person-add"></ion-icon></i>
+            <span>Accounts</span>
+        </a>
+
+        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
+            <i class="icon"><ion-icon name="person-add"></ion-icon></i>
+            <span>Sales</span>
         </a>
 
 
@@ -71,29 +73,31 @@
       <ul class="">
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
         
-          <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
+            <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
             <div class="flex items-center justify-center mr-6 text-white">
-                <span class="text-2xl font-bold font-serif sm:text-3xl">BMX: Dirt Jump Parts Inventory System</span>
+                <span class="text-1xl font-bold sm:text-2xl">BMX: Dirt Jump Parts Inventory System</span>
             </div>
 
             <div class="flex items-center">
                 <a class="hidden text-white sm:inline-block hover:text-gray-200 mx-16" href="{{ route('logout') }}" 
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    Super Admin  <i class=" fas fa-sign-out-alt mr-2"></i> 
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                     </form>
                 </a>
+ 
             </div>
-          </div>
         </div>
         
       </ul>
 
   </div>
 </div>
+<br> <br> 
 
     <div id="main">
 
@@ -172,7 +176,7 @@
           <div class="popup-form edit-user-form h-200px w-950px bg-gray-100 px-10 space-y-10 mx-auto p-11 rounded-md" data-user-id="{{ $user->id }}">
                 <form id="edit-user-form-({{ $user->id }})" action="{{ route('edit.user', $user->id) }}" method="post">
                     @csrf
-                    @method('PATCH')
+                    @method('PUT')
 
 
                     <h1 class="justify-center flex text-2xl font-bold mb-5 text-black"><b>Edit Infomation</b></h1>
@@ -208,7 +212,7 @@
                 <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Account</b></h1>
               </div>
 
-               <div class= "h-900px w-950px bg-gray-100 px-10 space-y-10 mx-auto p-11 rounded-md">
+               <div class= "h-900px w-950px bg-gray-300 px-10 space-y-10 mx-auto p-11 rounded-md">
               <div class="card-body">
                 <form action="{{route('create.user')}}" method="post">
                   @csrf
@@ -255,7 +259,6 @@
 
                       <br>
 
-
                       <!--<div class="form-group">
                           <label for="confirm-password">Confirm Password:</label>
                           <input required="" class="form-control" name="confirm-password" id="confirm-password" type="password">
@@ -266,14 +269,12 @@
                   </form>
                 </div>
               </div>
-        </div>
+          </div>
 
 
     </div>
 
-  
 
-    
 
     <script src="{{asset('js/create-user.js')}}"></script>
 

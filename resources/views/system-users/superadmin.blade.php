@@ -132,7 +132,7 @@
                             @elseif($user->role ==2)
                             Administrator
                             @elseif($user->role ==3)
-                            Customer
+                            Staff
                             @endif
                         </td>
                         <td class="border px-3  py-2">{{$user->name}}</td>
@@ -181,7 +181,7 @@
 
                     <h1 class="justify-center flex text-2xl font-bold mb-5 text-black"><b>Edit Infomation</b></h1>
 
-                    <input type="hidden" name="user_id" value="({{ $user->id }})">
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <label for="name" class="block w-20 mr-2 font-bold dark:text-white">Name:</label>
                     <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
                         type="text" 

@@ -32,7 +32,7 @@ class ProductController extends Controller
 
     public function returnCreateDataView(){
         //$supplier = DB::table('supplies')->pluck('name')->get();
-        return view('liquor-data.create', compact('supplier'));
+        return view('liquor-data.create');
     }
 
     // public function showCreateViewInDashboard()

@@ -54,14 +54,14 @@ class AdminController extends Controller
         ]);
 
 
-        $product = Product::all();
+        /*$product = Product::all();
         return view('liquor-data.show', compact('product'));
 
         $suppliers = Supplier::all();
 
         return view('dashboard.dashboard', [
             'suppliers' => $suppliers
-        ]);
+        ]);*/
     }
 
     //auth

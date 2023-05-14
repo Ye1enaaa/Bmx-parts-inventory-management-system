@@ -52,17 +52,23 @@ function showEditForm(userId) {
     });
 
     // show the edit form for the clicked user
-    const form = document.querySelector(
+    const editElement = document.querySelector(
         `.edit-user-form[data-user-id="${userId}"]`
     );
-    form.style.display = "block";
+    if (editElement) { // Check if editElement exists before accessing its properties
+        editElement.style.display = "block";
+    }
     console.log(userId);
+
     // hide the container for the clicked user
     const container = document.querySelector(
         `.edit-user-container[data-user-id="${userId}"]`
     );
-    container.style.display = "none";
+    if (container) { // Check if container exists before accessing its properties
+        container.style.display = "none";
+    }
 }
+
 
 function hideEditForm(userId) {
     const form = document.querySelector(

@@ -5,18 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Overstocks;
+use App\Models\Supplie;
 class Product extends Model
 {
     use HasFactory;
     
     protected $fillable = [
         'name',
+        'supplier_id',
         'description',
         'product_code',
         'unit_price',
         'quantity',
         'inventory_value'
     ];
+
+    public function supplier(){
+        return $this->belongsTo(Supplie::class);
+    }
 
    /* protected static function boot()
     {

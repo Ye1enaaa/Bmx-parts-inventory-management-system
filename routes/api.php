@@ -46,3 +46,6 @@ Route::get('/product-id/{product_code}' , [StaffController::class, 'returnBarcod
 
 Route::get('/overstocks' , [ProductController::class, 'checkOverstock']);
 Route::post('/storestock' , [ProductController::class,'storeStock']);
+
+Route::get('/supply/{id}' , [ProductController::class, 'getSupplier']);
+Route::get('/alldataaa' , [ProductController::class, 'getsupp']);

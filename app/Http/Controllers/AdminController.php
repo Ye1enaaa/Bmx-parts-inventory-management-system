@@ -11,6 +11,7 @@ use Validator;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\CustomerOrder;
+use App\Models\Supplie;
 
 class AdminController extends Controller
 {
@@ -42,7 +43,7 @@ class AdminController extends Controller
         $total_quantity = DB::table('products')->sum('quantity');
         $total_inventory = DB::table('products')->sum('inventory_value');
         $total_value = DB::table('customer_orders')->sum('total_value');
-        $total_admin = DB::table('admins')->count();
+        $total_admin = DB::table('supplies')->count();
         return view('dashboard.data-table',[
             'count' => $count,
             'customerOrders' => $customerOrders,
@@ -118,7 +119,7 @@ class AdminController extends Controller
         $total_quantity = DB::table('products')->sum('quantity');
         $total_inventory = DB::table('products')->sum('inventory_value');
         $total_value = DB::table('customer_orders')->sum('total_value');
-        $total_admin = DB::table('admins')->count();
+        $total_admin = DB::table('supplies')->count();
 
         return response([
             'product_count' => $count,

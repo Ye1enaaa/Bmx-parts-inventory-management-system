@@ -9,14 +9,25 @@
 
   </div>
 
-
+    <div>
+        @foreach($suppliers as $supplier)
+        <h3>{{$supplier->name}}</h3>
+            @foreach($supplier->products as $product)
+            <h4>{{$product->name}}</h4>
+            @endforeach
+        @endforeach
+    </div>
   <div class="main-supplier">
 
 
     <div class="add-supplier">
-        <form action="{{route('supplier.add')}}" method="post" class="px-1 max-w-3xl mx-auto space-y-6>
+        <form action="{{route('supplier.add')}}" method="post" class="px-1 max-w-3xl mx-auto space-y-6">
             @csrf
-
+            <!--<select name="supplier_id">
+              @foreach($suppliers as $supplier)
+                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+              @endforeach
+            </select>-->
              <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
 
 
@@ -54,7 +65,7 @@
                 <div class="w-1/2">
                     <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
                     <textarea 
-                        name="description" 
+                        name="desc" 
                         id="desc" 
                         placeholder="Description"
                         class="form-control mb-3 bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:border-blue-500 block py-3 px-20" cols="70" rows="7" required>

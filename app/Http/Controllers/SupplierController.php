@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplie;
+use Illuminate\Support\Str;
 class SupplierController extends Controller
 {
     public function returnSupplierViewPage(){
-        return view('supplier.supplier');
+        $suppliers = Supplie::with('products')->get(); 
+        return view('supplier.supplier', compact('suppliers'));
     }
     
     public function showAdminDashboard()
@@ -24,6 +26,7 @@ class SupplierController extends Controller
 
         $supplier = Supplie::create([
             'name'=>$validateData['name'],
+            //'suid' => Str::uuid(), //
             'contact_number'=>$validateData['contact_number'],
             'desc'=>$validateData['desc']
         ]);

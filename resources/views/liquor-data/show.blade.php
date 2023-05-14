@@ -27,6 +27,7 @@
                   <th class="px-4 py-2">Inventory Value</th>
                   <th class="px-4 py-2">QR Code</th>
                   <th class="px-4 py-2">Description</th>
+                  <th class="px-4 py-2">Supplier</th>
                   <th class="px-4 py-2">Edit</th>
                 </tr>
               </thead>
@@ -40,6 +41,7 @@
                   <td class="border px-6 py-4">{{$product->inventory_value}}</td>                  
                   <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                   <td class="border px-6 py-4">{{$product->description}}</td>
+                  <td class="border px-6 py-4">{{$product->supplier->name}}</td>
                   <td class="border px-6 py-4">
                       <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                     </td>
@@ -94,7 +96,11 @@
             @csrf
             <h1 class="justify-center flex text-3xl font-bold mb-5 text-black"><b>Add Products</b></h1>
             <br>
-            
+            <select name="supplier_id">
+              @foreach($supplier as $supplier)
+                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+              @endforeach
+            </select>
             <div class="flex flex-wrap space-x-10">
               <div class="w-full mb-4 flex items-center">
                 <label for="Name" class="block w-20 mr-2 font-bold dark:text-white">Product Name:</label>

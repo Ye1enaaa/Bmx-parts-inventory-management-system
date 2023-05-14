@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('supplies', function (Blueprint $table) {
+            //$table->unsignedBigInteger('id')->primary();
             $table->id();
+            //$table->unsignedBigInteger('suid')->primary();
             $table->string('name');
             $table->string('contact_number');
             $table->boolean('status')->default(true);
             $table->string('desc');
             $table->timestamps();
+
+            //$table->primary('suid');
         });
     }
 
@@ -26,6 +30,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        /*Schema::table('supplies', function (Blueprint $table) {
+            $table->increments('id')->change();
+        });*/
         Schema::dropIfExists('supplies');
     }
 };

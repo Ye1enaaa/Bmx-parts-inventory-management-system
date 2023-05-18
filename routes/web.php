@@ -43,7 +43,7 @@ Route::post('/admin', [AdminController::class, 'loginAdmin'])->name('login.admin
 Auth::routes();
 
 //you are
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //return views/page for login admin
 //Route::get('/admins' , [AdminController::class,'returnAdminLoginView']);
@@ -100,13 +100,6 @@ Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
 
 //Graphs
 Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('admin');
-// Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('superadmin');
 
-
-
-// Route::get('/edit/{id}', [ProductController::class, 'showEditForm']);
-// Route::post('/edit/{id}', [ProductController::class, 'editData']);
-
-// Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
 
 Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');

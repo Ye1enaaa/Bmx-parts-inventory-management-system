@@ -208,7 +208,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     max-width: 1000px;
     max-height: 600px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .wrapper {

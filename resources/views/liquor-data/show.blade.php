@@ -91,16 +91,21 @@
       </div>
 
 
-        <div id="popup-form" class="bg-gray-100 px-10 mx-auto p-11 rounded-md hidden">
+       <div id="popup-form" class="bg-gray-100 px-10 mx-auto p-11 rounded-md hidden">
           <form action="{{route('post')}}" method="post"> <br>
             @csrf
             <h1 class="justify-center flex text-3xl font-bold mb-5 text-black"><b>Add Products</b></h1>
             <br>
-            <select name="supplier_id">
-              @foreach($supplier as $supplier)
-                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
-              @endforeach
-            </select>
+
+           <select name="supplier_id" class="font-bold w-full mb-4 p-3 flex items-center border border-gray-400 bg-gray-200">
+            <option value="" disabled selected>Supplier name</option>
+            @foreach($supplier as $supplier)
+              <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+            @endforeach
+          </select>
+
+
+
             <div class="flex flex-wrap space-x-10">
               <div class="w-full mb-4 flex items-center">
                 <label for="Name" class="block w-20 mr-2 font-bold dark:text-white">Product Name:</label>
@@ -136,7 +141,7 @@
 
 
               <div class="w-full mb-4">
-                <label for="Description" class="block mb-2 text-lg dark:text-white">Description:</label>
+                <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
                 <textarea 
                   name="description" 
                   class="form-control mb-3 bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:border-blue-500 block py-3 px-20" 
@@ -159,14 +164,6 @@
   </div>
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
-
-
-
-
-
-
-
-
 
 
 

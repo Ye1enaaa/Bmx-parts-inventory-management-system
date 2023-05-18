@@ -1,0 +1,22 @@
+#popup-container {
+    /* display: none; */
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 20px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+    max-width: 1000px;
+    max-height: 600px;
+}
+
+.hidden {
+    display: none;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}

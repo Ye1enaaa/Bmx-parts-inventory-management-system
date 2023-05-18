@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('app:check-inventory-levels')->everyFiveMinutes();
+        //$schedule->command('app:check-inventory-levels')->everyFiveMinutes();
+        //$schedule->command('app:check-under-stock-level')->everyMinute();
     }
 
     /**

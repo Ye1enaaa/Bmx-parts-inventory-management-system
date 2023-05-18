@@ -109,4 +109,4 @@ Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middle
 
 // Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
 
-Route::put('/edit/{id}', 'ProductController@edit')->name('products.edit');
+Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');

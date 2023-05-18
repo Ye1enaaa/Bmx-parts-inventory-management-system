@@ -132,7 +132,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->save();
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+        return redirect('/dashboard')->with('Success','Updated Successfully');
 
         $validatedData = $request->validate([
         'name' => 'required|max:255',

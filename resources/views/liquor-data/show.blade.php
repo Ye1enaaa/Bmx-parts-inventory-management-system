@@ -57,7 +57,7 @@
           <!-- <div class="popup-form edit-product-form h-200px w-950px bg-gray-100 px-10 space-y-10 mx-auto p-11 rounded-md" id="edit-product-{{ $product->id }}" data-product-id="{{ $product->id }}"> -->
 
            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid black; padding: 10px; display: none; background-color: white; width: 50%; border-radius: 10px;" id="edit-form">
-              <form id="product-form" method="POST" action="/edit/{{ $product->id }}">
+              <form id="product-form" method="POST" action="{{route('products.edit', $product->id)}}">
                 @csrf
                 @method('PUT')
                 <div class="bg-white">

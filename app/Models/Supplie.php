@@ -12,6 +12,7 @@ class Supplie extends Model
     protected $fillable=[
         'name',
         //'suid',
+        'email_address',
         'contact_number',
         'status',
         'desc'

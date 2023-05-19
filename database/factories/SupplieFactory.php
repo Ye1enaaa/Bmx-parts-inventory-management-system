@@ -19,6 +19,7 @@ class SupplieFactory extends Factory
         return [
             //
             'name' => $this->faker->name,
+            'email_address' => $this->faker->safeEmail(),
             'contact_number' => $this->faker->phoneNumber,
             'status' => $this->faker->boolean(),
             'desc' => $this->faker->paragraph,

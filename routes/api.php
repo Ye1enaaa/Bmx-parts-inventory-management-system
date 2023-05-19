@@ -50,4 +50,4 @@ Route::post('/storestock' , [ProductController::class,'storeStock']);
 Route::get('/supply/{id}' , [ProductController::class, 'getSupplier']);
 Route::get('/alldataaa' , [ProductController::class, 'getsupp']);
 
-Route::get('/stock/{id}', [ProductController::class, 'getOneStock']);
+Route::get('/trydatas', [ProductController::class, 'tryDatas']);

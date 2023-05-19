@@ -25,23 +25,14 @@ class CheckUnderStockLevel extends Command
     /**
      * Execute the console command.
      */
-    /*public function handle(Client $twilio): void
+    public function handle(): void
     {
+        //dd(session('alert'));
         $stock = DB::table('products')->value('quantity');
         
-        if($stock < 5){
-            $twilio = new Client(config('services.twilio.account_sid'), config('services.twilio.auth_token'));
-            $twilio->messages->create(
-                '+639659065840',
-                [
-                    'from' => config('services.twilio.phone_number'),
-                    'body' => 'Stock is below 5, Current stock' . $stock,
-                ]
-            );
-
-            $this->info('SMS notif sent successful');
-        }else{
-            $this->info('Stock above 5');
+        if($stock < 6){
+            session()->flash('alert','Stock quantity is below 5!');
         }
-    }*/
+        //dd(session('alert'));
+    }
 }

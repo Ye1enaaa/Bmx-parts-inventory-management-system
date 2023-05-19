@@ -20,6 +20,7 @@ class SupplierController extends Controller
     public function addSupplier(Request $request){
         $validateData = $request->validate([
             'name'=>'required|string',
+            'email_address'=>'required|string',
             'contact_number'=>'required|string|max:11',
             'desc'=>'required|string'
         ]);
@@ -27,6 +28,7 @@ class SupplierController extends Controller
         $supplier = Supplie::create([
             'name'=>$validateData['name'],
             //'suid' => Str::uuid(), //
+            'email_address'=>$validateData['email_address'],
             'contact_number'=>$validateData['contact_number'],
             'desc'=>$validateData['desc']
         ]);

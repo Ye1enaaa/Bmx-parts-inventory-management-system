@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         \App\Models\Supplie::factory()->create([
             'name' => 'Test Supplier',
+            'email_address' => 'testsupplier@example.ccn',
             'contact_number' => '09123334567',
             'status' => '1',
             'desc' => 'Test Description'

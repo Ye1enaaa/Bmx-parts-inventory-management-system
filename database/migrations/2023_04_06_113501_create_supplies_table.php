@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             //$table->unsignedBigInteger('suid')->primary();
             $table->string('name');
+            $table->string('email_address');
             $table->string('contact_number');
             $table->boolean('status')->default(true);
             $table->string('desc');

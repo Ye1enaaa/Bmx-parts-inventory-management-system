@@ -136,7 +136,7 @@
                                     <input 
                                         class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
                                         type="text" 
-                                        name="Email" required
+                                        name="email_address" required
                                         id="Email" 
                                         placeholder="Email">
 

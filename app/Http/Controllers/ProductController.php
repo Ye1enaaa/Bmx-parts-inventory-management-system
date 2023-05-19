@@ -177,6 +177,14 @@ class ProductController extends Controller
         ]);
     }
 
+    public function tryDatas(){
+        $stock = DB::table('products')->value('quantity');
+        
+        return response([
+            'stock' => $stock
+        ]);
+    }
+
 }
 
 

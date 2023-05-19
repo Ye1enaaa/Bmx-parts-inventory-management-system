@@ -116,7 +116,16 @@
     </div>
 
   </div>
-
+  
+    
+  @if (session()->has('alert'))
+    <script src="{{ asset('js/stock-alert.js') }}"></script>
+    <script>
+        showAlert('{{ session('alert') }}');
+        console.log('Hi');
+    </script>
+  @endif
+ 
   <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
 </body>

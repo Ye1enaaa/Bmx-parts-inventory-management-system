@@ -17,9 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id');
             $table->string('description');
             $table->string('product_code');
-            $table->string('unit_price');
-            $table->string('quantity');
-            $table->string('inventory_value');
+            $table->float('unit_price');
+            $table->integer('quantity');
+            $table->float('inventory_value');
             $table->timestamps();
 
             //$table->dropForeign('products_supplier_id_foreign');

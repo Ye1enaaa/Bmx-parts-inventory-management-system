@@ -55,10 +55,10 @@
             <span>Accounts</span>
         </a>
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
             <i class="icon"><ion-icon name="person-add"></ion-icon></i>
             <span>Sales</span>
-        </a>
+        </a> -->
 
 
 
@@ -97,7 +97,7 @@
 
   </div>
 </div>
-<br> <br> 
+<br> <br> <br> 
 
     <div id="main">
 
@@ -212,7 +212,7 @@
                 <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Account</b></h1>
               </div>
 
-               <div class= "h-900px w-950px bg-gray-300 px-10 space-y-10 mx-auto p-11 rounded-md">
+               <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-md">
               <div class="card-body">
                 <form action="{{route('create.user')}}" method="post">
                   @csrf
@@ -253,7 +253,7 @@
                         <select class="form-control border-gray-400 block py-2 px-4" name="role" id="role" required>
                           <option value="">Select a role</option>
                           <option value="2">Administrator</option>
-                          <option value="3">Customer</option>
+                          <option value="3">Staff</option>
                         </select>
                       </div>
 

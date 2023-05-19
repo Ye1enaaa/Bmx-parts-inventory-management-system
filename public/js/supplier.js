@@ -1,9 +1,9 @@
 function showPopupFormSupplier() {
     var form = document.getElementById("popup-container");
-    form.classList.remove("hidden");
+    form.style.display = "block";
 }
 
 function hidePopupFormSupplier() {
     var form = document.getElementById("popup-container");
-    form.classList.add("hidden");
+    form.style.display = "none";
 }

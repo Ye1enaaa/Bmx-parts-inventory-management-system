@@ -30,7 +30,7 @@ class SupplierController extends Controller
             'contact_number'=>$validateData['contact_number'],
             'desc'=>$validateData['desc']
         ]);
-
+        return redirect('/dashboard');
         $supplier->save();
     }
 }

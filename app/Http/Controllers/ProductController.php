@@ -170,6 +170,13 @@ class ProductController extends Controller
         ]);
     }
 
+    public function getOneStock($id){
+        $product = Product::where('id', $id)->with('supplier')->get();
+        return response([
+            'product' => $product
+        ]);
+    }
+
 }
 
 

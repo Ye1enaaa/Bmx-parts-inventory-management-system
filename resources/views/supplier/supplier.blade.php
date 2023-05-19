@@ -34,7 +34,8 @@
 
                 <th class="px-3 py-2">Company Name</th>
                 <th class="px-3 py-2">Contact Number</th>
-                <th class="px-3 py-2">Address</th>
+                <th class="px-3 py-2">Email Address</th>
+                <th class="px-3 py-2">Office Address</th>
                 <th class="px-3 py-2">Date</th>
                 <th class="px-4 py-2 ">Product Name</th>
                 
@@ -52,6 +53,10 @@
 
                     <td class="supplier-name text-center py-3">
                         <span>{{ $supplier->contact_number }}</span>
+                    </td>
+
+                    <td class="supplier-name text-center py-3">
+                        <span>{{ $supplier->desc }}</span>
                     </td>
 
                     <td class="supplier-name text-center py-3">
@@ -91,39 +96,52 @@
                     @csrf
 
 
-                    <div class="h-900px w-950px bg-[#e6e3e3] px-10 space-y-10 mx-auto p-11 rounded-md border border-black">
+                    <div class="h-900px w-950px bg-[#e6e3e3] px-10 space-y-10 mx-auto p-11 rounded-md border border-black shadow-lg">
 
                         <h1 class="justify-center flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
                         
 
 
-                        <div class="flex space-x-10">
+                            <div class="flex space-x-10">
 
-                            <div class="w-1/2">
-                                
-                                <label for="Name" class=" block mb-2 text-lg font-bold dark:text-white">Company Name:</label>
+                                <div class="w-1/2">
+                                    
+                                    <label for="Name" class=" block mb-2 text-lg font-bold dark:text-white">Company Name:</label>
+                                        <input 
+                                            class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
+                                            type="text" 
+                                            name="name" required
+                                            id="name" 
+                                            placeholder="Name">
+
+                                </div>
+
+                                <div class="w-1/2">
+
+                                    <label for="Name" class=" block mb-2 text-lg font-bold dark:text-white">Contact Number:</label>
+                                        <input 
+                                            class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
+                                            type="number" 
+                                            name="contact_number" required
+                                            id="number" 
+                                            placeholder="Ph: 09518052760">
+
+                                </div>
+
+                            </div>
+
+
+                            <div>
+                                <label for="Email" class=" block mb-2 text-lg font-bold dark:text-white">Email Address:</label>
                                     <input 
                                         class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
                                         type="text" 
-                                        name="name" required
-                                        id="name" 
-                                        placeholder="Name">
+                                        name="Email" required
+                                        id="Email" 
+                                        placeholder="Email">
+
 
                             </div>
-
-                            <div class="w-1/2">
-
-                                <label for="Name" class=" block mb-2 text-lg font-bold dark:text-white">Contact Number:</label>
-                                    <input 
-                                        class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500" 
-                                        type="number" 
-                                        name="contact_number" required
-                                        id="number" 
-                                        placeholder="Ph: 09518052760">
-
-                            </div>
-
-                        </div>
 
                             <div class="w-1/2">
                                 <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Address:</label>
@@ -139,7 +157,7 @@
 
                             </div>
 
-                           <div class="justify-center flex">
+                            <div class="justify-center flex">
                                 <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
 
                                 <button type="button" class="text-white ml-6 bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupFormSupplier()">Cancel</button>

@@ -4,7 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
 //use Twilio\Rest\Client;
+use App\Mail\StockNotification;
 
 class CheckUnderStockLevel extends Command
 {
@@ -28,10 +31,15 @@ class CheckUnderStockLevel extends Command
     public function handle(): void
     {
         //dd(session('alert'));
-        $stock = DB::table('products')->value('quantity');
-        
-        if($stock < 6){
-            session()->flash('alert','Stock quantity is below 5!');
+        //$stock = DB::table('products')->value('quantity');
+        $stocks = Product::all();
+
+        foreach($stocks as $stock){
+            if($stock->quantity < 6){
+                session()->flash('alert','Stock quantity is below 5!');
+                $email = 'avilasonson@gmail.com';
+                Mail::to($email)->send(new StockNotification($stock->name,$stock->quantity));
+            }
         }
         //dd(session('alert'));
     }

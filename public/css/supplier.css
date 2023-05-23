@@ -1,5 +1,5 @@
 #popup-container {
-    /* display: none; */
+    display: none;
     position: absolute;
     z-index: 999;
     top: 50%;

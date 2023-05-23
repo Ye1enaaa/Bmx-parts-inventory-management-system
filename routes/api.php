@@ -51,3 +51,16 @@ Route::get('/supply/{id}' , [ProductController::class, 'getSupplier']);
 Route::get('/alldataaa' , [ProductController::class, 'getsupp']);
 
 Route::get('/trydatas', [ProductController::class, 'tryDatas']);
+
+//-----------------------FOR STOCK IN AND OUT------------------------\\
+Route::post('/stockin' , [StaffController::class,'stockIn']);
+Route::post('/stockout' , [StaffController::class,'stockOut']);
+//-----------------------FETCH BARCODE DATA----------------------------\\
+Route::get('/qrcode/{product_code}' , [StaffController::class, 'readQrCode']);
+
+
+
+
+
+//-------------------------EXPERIMENTATION API-------------------------\\
+Route::get('/stockcard/{id}' , [ProductController::class,'fetchStocksWithCard']);

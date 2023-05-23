@@ -24,6 +24,10 @@ class Product extends Model
         return $this->belongsTo(Supplie::class);
     }
 
+    public function stockcard(){
+        return $this->hasMany(StockCard::class);
+    }
+
    /* protected static function boot()
     {
         parent::boot();

@@ -25,6 +25,17 @@ class ProductController extends Controller
         ]);
     }
 
+    public function returnStockCard($id){
+        $stockcard = Product::with('stockcard')->find($id);
+
+        if(!$stockcard){
+            return response([
+                'error' => '404 not found'
+            ],404);
+        }
+        return view('card.stockcard', compact('stockcard'));
+    }
+
     public function showAdminDashboard()
     {
         return view('dashboard.admin');
@@ -182,6 +193,14 @@ class ProductController extends Controller
         
         return response([
             'stock' => $stock
+        ]);
+    }
+
+    public function fetchStocksWithCard($id){
+        $stockcard = Product::with('stockcard')->find($id);
+
+        return response()->json([
+            'stockcard' => $stockcard 
         ]);
     }
 

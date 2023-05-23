@@ -8,6 +8,7 @@ use Validators;
 use App\Models\User;
 use App\Models\Sales;
 use App\Models\CustomerOrder;
+use App\Models\StockCard;
 //use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
@@ -47,7 +48,92 @@ class StaffController extends Controller
         ]);
     }
 
-    public function expData(){
 
+    //--------------------------STOCK IN--------------------------\\
+    public function readQrCode(string $product_code){
+        $product = Product::with('supplier')->where('product_code', $product_code)->first();
+        return response()->json([
+            'stock' => $product,
+            'stockName' => $product->name,
+            'supplier' => $product->supplier->name
+        ]);
+    }
+    public function stockIn(Request $request){
+        /*$product = Product::where('product_code',$product_code)->first();
+        $productCode = $product->product_code;
+        $productId = $product->id;
+        $productName = $product->name;
+        if(!$productCode){
+            return response()->json([
+                'error' => 'Not Found'
+            ],404);
+        }*/
+
+        //$name=$request->input('stockName');
+        $stockquantity = $request->input('stockQuantity');
+        $stockname = $request->input('stockName');
+        $suppliername = $request->input('supplierName');
+        $productid = $request->input('product_id');
+
+        $stockin = new StockCard;
+        $stockin -> status = "IN";
+        $stockin -> stockName = $stockname;
+        $stockin -> supplierName = $suppliername;
+        $stockin -> stockQuantity = $stockquantity;
+        $stockin -> product_id = $productid;
+        //$stockin->save();
+
+        $product = Product::where('name',$stockname)->first();
+
+        if($product){
+            $product->quantity += $stockquantity;
+            $product->inventory_value += $stockquantity * $product->unit_price;
+            
+        }else if(!$product){
+            return response([
+                'error' => 'Not Found'
+            ], 404);
+        }
+
+        $stockin->stockBalance = $product->quantity;
+        $stockin->save();
+        $product->save();
+        return response()->json([
+            'stockhistory' => $stockin 
+        ]);
+    }
+    //----------------------STOCK OUT---------------------\\
+    public function stockOut(Request $request){
+        $stockquantity = $request->input('stockQuantity');
+        $stockname = $request->input('stockName');
+        $suppliername = $request->input('supplierName');
+        $productid = $request->input('product_id');
+
+        $stockin = new StockCard;
+        $stockin -> status = "OUT";
+        $stockin -> stockName = $stockname;
+        $stockin -> supplierName = $suppliername;
+        $stockin -> stockQuantity = $stockquantity;
+        $stockin -> product_id = $productid;
+        //$stockin->save();
+
+        $product = Product::where('name',$stockname)->first();
+
+        if($product){
+            $product->quantity -= $stockquantity;
+            $product->inventory_value -= $stockquantity * $product->unit_price;
+            
+        }else if(!$product){
+            return response([
+                'error' => 'Not Found'
+            ], 404);
+        }
+
+        $stockin->stockBalance = $product->quantity;
+        $stockin->save();
+        $product->save();
+        return response()->json([
+            'stockhistory' => $stockin 
+        ]);
     }
 }

@@ -28,6 +28,7 @@
                   <th class="px-4 py-2">Amount</th>
                   <th class="px-4 py-2">QR Code</th>
                   <th class="px-4 py-2">Supplier</th>
+                  <th class="px-4 py-2">Stock Card</th>
                   <th class="px-4 py-2">Edit</th>
                 </tr>
               </thead>
@@ -42,6 +43,7 @@
                   <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
                   <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                   <td class="border px-6 py-4">{{$product->supplier->name}}</td>
+                  <td class="border px-6 py-4"><a href="http://127.0.0.1:8000/stockcard/{{$product->id}}" target="_blank">Print</a></td>
                   <td class="border px-6 py-4">
                       <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                     </td>

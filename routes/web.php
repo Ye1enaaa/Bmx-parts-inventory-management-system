@@ -28,7 +28,7 @@ Route::get('/', function () {
 //return views/page for posting liquor
 Route::get('/index', [ProductController::class, 'index'])->middleware('admin');
 Route::get('/create', [ProductController::class,'returnCreateDataView']);
-
+Route::get('/stockcard/{id}' , [ProductController::class, 'returnStockCard']);
 Route::get('/dashboard/admin', [ProductController::class, 'showAdminDashboard'])->middleware('admin');
 Route::get('/dashboard/create', [ProductController::class, 'showCreateViewInDashboard'])->middleware('admin');
 

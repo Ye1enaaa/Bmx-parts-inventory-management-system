@@ -29,7 +29,6 @@
     <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Fredoka">
     
      <script src="js/script.js" defer></script>
-     <!-- <script src="js/script.js"></script> -->
 
 
     <title>Dashboard</title>
@@ -63,15 +62,15 @@
         </a>
 
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
             <i class="icon"><ion-icon name="bicycle-outline"></ion-icon></i>
             <span>Purchase</span>
-        </a>
+        </a> -->
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
             <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
             <span>Sales</span>
-        </a>
+        </a> -->
 
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
@@ -79,10 +78,30 @@
             <span>Products</span>
         </a>
 
-        <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
             <i class="icon"><ion-icon name="person"></ion-icon></i>
             <span>Supplier</span>
+        </a> -->
+
+
+     <div x-data="{ open: false }" class="relative">
+      <button @click="open = !open" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <i class="icon"><ion-icon name="person"></ion-icon></i>
+        <span>Supplier</span>
+      </button>
+      <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
+        <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#" onclick="showSuppliers()">
+          Supplier Information
         </a>
+        <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#" onclick="showPopupFormSupplier()">
+          Add Supplier
+        </a>
+      </div>
+    </div>
+
+
+
+
 
   </div>
 
@@ -127,6 +146,10 @@
   @endif
  
   <script src="{{asset('js/admin-dashboard.js')}}"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
 </body>
 </html>

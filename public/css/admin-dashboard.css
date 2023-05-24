@@ -160,16 +160,6 @@
     left: 285px;
 }
 
-.dropdown-item {
-    color: #222;
-    display: flex;
-    position: relative;
-    top: 30px;
-    bottom: 0px;
-    left: 1050px;
-    font-weight: 700;
-}
-
 .nav-link {
     font-size: 24px;
 }

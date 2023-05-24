@@ -44,12 +44,34 @@
 
   </div>
 
+    <div class="main-supplier-information">
+   
+    @yield('content-supplier-information')
 
-  <div class="main-purchase-order">
+  </div>
+
+
+  <div class="main-supplier-add">
+   
+    @yield('content-supplier-add')
+
+  </div>
+ 
+
+
+
+
+
+  <div class="container">
+        @yield('content')
+    </div>
+
+
+  <!-- <div class="main-purchase-order">
    
     @yield('content-purchase-order')
 
-  </div>
+  </div> -->
 
 
   

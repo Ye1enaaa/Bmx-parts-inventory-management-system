@@ -51,41 +51,17 @@ function showProducts() {
         });
 }
 
-// function showProducts() {
+// function showSuppliers() {
 //     var mainContent = document.querySelector(".main-content1");
-//     fetch("/index")
+//     fetch("/supplier")
 //         .then((response) => response.text())
 //         .then((data) => {
 //             mainContent.innerHTML = data;
-//             // Add event listener to the button that will redirect to create URL
-//             var createBtn = document.querySelector("#create-btn");
-//             createBtn.addEventListener("click", () => {
-//                 fetch("/create")
-//                     .then((response) => response.text())
-//                     .then((data) => {
-//                         mainContent.innerHTML = data;
-//                     })
-//                     .catch((error) => {
-//                         console.error("Error:", error);
-//                     });
-//             });
 //         })
 //         .catch((error) => {
 //             console.error("Error:", error);
 //         });
 // }
-
-function showSuppliers() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/supplier")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
 
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
@@ -299,4 +275,29 @@ form.addEventListener("submit", function (event) {
 
 function hideEditForm() {
     document.getElementById("edit-form").style.display = "none";
+}
+
+function toggleDropdown() {
+    var dropdown = document.getElementById("supplierDropdown");
+    dropdown.classList.toggle("hidden");
+}
+
+function showPopupFormSupplier() {
+    // Get the popup form element
+    var popupForm = document.getElementById("popup-form");
+
+    // Show the popup form by modifying its CSS
+    popupForm.style.display = "block";
+}
+
+function showSuppliers() {
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/supplier")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 }

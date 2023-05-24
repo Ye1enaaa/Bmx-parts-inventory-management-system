@@ -51,18 +51,6 @@ function showProducts() {
         });
 }
 
-// function showSuppliers() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/supplier")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
-
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
 const sidebar = document.getElementById("sidebar");
@@ -260,13 +248,6 @@ function showEditForm(event) {
     document.getElementById("edit-form").style.display = "block";
 }
 
-// function showEditForm(userId) {
-//     event.preventDefault();
-//     document.querySelector(
-//         `[data-user-id="edit-user-${userId}"] .popup-form`
-//     ).style.display = "block";
-// }
-
 // Add form validation here
 var form = document.getElementById("product-form");
 form.addEventListener("submit", function (event) {
@@ -282,22 +263,10 @@ function toggleDropdown() {
     dropdown.classList.toggle("hidden");
 }
 
-function showPopupFormSupplier() {
-    // Get the popup form element
-    var popupForm = document.getElementById("popup-form");
+// function showPopupFormSupplier() {
+//     // Get the popup form element
+//     var popupForm = document.getElementById("popup-form");
 
-    // Show the popup form by modifying its CSS
-    popupForm.style.display = "block";
-}
-
-function showSuppliers() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/supplier")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
+//     // Show the popup form by modifying its CSS
+//     popupForm.style.display = "block";
+// }

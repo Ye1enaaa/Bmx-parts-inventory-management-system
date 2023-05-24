@@ -10,6 +10,10 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+use App\Http\Controllers\StockCardController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,3 +107,9 @@ Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middle
 
 
 Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+
+
+
+
+// Define the route for generating and downloading the PDF
+Route::get('/convert-to-pdf', [StockCardController::class, 'convertToPDF'])->name('convertToPDF');

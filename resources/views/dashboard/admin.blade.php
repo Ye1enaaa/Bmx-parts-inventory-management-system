@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="{{asset('js/admin-dashboard.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,6 +20,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
     <script src="{{asset('js/admin-dashboard.js')}}"></script>
+    <script src="{{asset('js/supplier.js')}}"></script>
+
 
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -35,11 +39,9 @@
 
 </head>
 
-
 <body class="flex h-screen">
-  <!-- Sidebar -->
+
  <div id="mySidebar" class="sidebar open">
-    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
@@ -53,51 +55,40 @@
         </a>
     </div>
 
-        <br>
+        <br><br>
 
-  
-        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-100 flex items-center">
-          <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
-          <span>Dashboard</span>
-        </a>
-
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
-            <i class="icon"><ion-icon name="bicycle-outline"></ion-icon></i>
-            <span>Purchase</span>
-        </a> -->
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
-            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
-            <span>Sales</span>
-        </a> -->
+              <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+                <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
+                <span class="text-xl font-medium">Dashboard</span>
+              </a>
 
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
-            <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
-            <span>Products</span>
+          <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
+          <span class="text-xl font-medium">Products</span>
         </a>
 
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
-            <i class="icon"><ion-icon name="person"></ion-icon></i>
-            <span>Supplier</span>
-        </a> -->
 
+      <div x-data="{ open: false }" class="relative">
+        
+      <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full">
+        <button @click="open = !open" >
+          <i class="icon"><ion-icon name="person"></ion-icon></i>
+          <span class="text-xl font-medium">Supplier</span>
+        </button>
+      </a> 
 
-     <div x-data="{ open: false }" class="relative">
-      <button @click="open = !open" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-        <i class="icon"><ion-icon name="person"></ion-icon></i>
-        <span>Supplier</span>
-      </button>
-      <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
-        <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#" onclick="showSuppliers()">
-          Supplier Information
-        </a>
-        <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" href="#" onclick="showPopupFormSupplier()">
-          Add Supplier
-        </a>
+        <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-full bg-[#072e33] rounded-md shadow-lg">
+          
+          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showSupplierInformation()">
+            Supplier Information
+          </a>
+          <br>
+          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showAddSupplier()">
+            Add Supplier
+          </a>
+        </div>
       </div>
-    </div>
 
 
 
@@ -145,11 +136,25 @@
     </script>
   @endif
  
-  <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
 </body>
 </html>
+
+
+
+
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
+            <i class="icon"><ion-icon name="bicycle-outline"></ion-icon></i>
+            <span>Purchase</span>
+        </a> -->
+
+        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
+            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
+            <span>Sales</span>
+        </a> -->
+
+                <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
+            <i class="icon"><ion-icon name="person"></ion-icon></i>
+            <span>Supplier</span>
+        </a> -->

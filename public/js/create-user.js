@@ -55,7 +55,8 @@ function showEditForm(userId) {
     const editElement = document.querySelector(
         `.edit-user-form[data-user-id="${userId}"]`
     );
-    if (editElement) { // Check if editElement exists before accessing its properties
+    if (editElement) {
+        // Check if editElement exists before accessing its properties
         editElement.style.display = "block";
     }
     console.log(userId);
@@ -64,11 +65,11 @@ function showEditForm(userId) {
     const container = document.querySelector(
         `.edit-user-container[data-user-id="${userId}"]`
     );
-    if (container) { // Check if container exists before accessing its properties
+    if (container) {
+        // Check if container exists before accessing its properties
         container.style.display = "none";
     }
 }
-
 
 function hideEditForm(userId) {
     const form = document.querySelector(
@@ -81,3 +82,18 @@ function hideEditForm(userId) {
     );
     container.style.display = "block";
 }
+
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirm-password");
+const passwordError = document.getElementById("password-error");
+
+function validatePassword() {
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        passwordError.textContent = "Passwords do not match";
+    } else {
+        passwordError.textContent = "";
+    }
+}
+
+passwordInput.addEventListener("input", validatePassword);
+confirmPasswordInput.addEventListener("input", validatePassword);

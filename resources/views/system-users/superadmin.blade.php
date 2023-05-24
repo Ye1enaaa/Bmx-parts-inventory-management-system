@@ -105,7 +105,7 @@
 
         <div id="content-accounts">
           <div class="flex items-center justify-between">
-            <h1 class="p-2 flex text-4xl font-bold mb-10 text-black"><b>Accounts</b></h1>
+            <h1 class="p-2 flex text-6xl font-bold mb-10 text-black"><b>Accounts</b></h1>
           </div>
 
           <div class="mt-1">
@@ -118,7 +118,7 @@
                         <th class="px-4 py-2">Email</th>
                         <th class="px-4 py-2">Password</th>
                         <th class="px-4 py-2">Status</th>
-                        <th class="px-4 py-2">Delete</th>
+                        <th class="px-4 py-2">Soft Delete</th>
                         <th class="px-4 py-2">Disable</th>
                         <th class="px-4 py-2">Edit</th>
                     </tr>
@@ -149,19 +149,20 @@
                             <form action="{{ route('softdel.user', $user->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">DELETE</button>
+                                  <button type="submit" style="color: red;">DELETE</button>
+
                             </form>
                         </td>
                         <td class="border px-3  py-2">
                             <form action="{{ route('disable.user', $user->id) }}" method="post">
                                 @csrf
                                 @method('PATCH')
-                                <button type="submit">DISABLE</button>
+                                <button type="submit" style="color: purple;">DISABLE</button>
                             </form>
                         </td>
                         <td class="border px-3 py-2">
                             <div class="edit-user-container" data-user-id="{{ $user->id }}">
-                                <button onclick="showEditForm({{ $user->id }})">EDIT</button>
+                              <button onclick="showEditForm({{ $user->id }})" style="color: #FFB700;">EDIT</button>
                             </div>
                         </td>
 
@@ -173,24 +174,25 @@
           </div>
 
           
-          <div class="popup-form edit-user-form h-200px w-950px bg-gray-100 px-10 space-y-10 mx-auto p-11 rounded-md" data-user-id="{{ $user->id }}">
+          <div class="popup-form edit-user-form h-200px w-950px  px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: green;" data-user-id="{{ $user->id }}">
                 <form id="edit-user-form-({{ $user->id }})" action="{{ route('edit.user', $user->id) }}" method="post">
                     @csrf
                     @method('PUT')
 
 
-                    <h1 class="justify-center flex text-2xl font-bold mb-5 text-black"><b>Edit Infomation</b></h1>
+                    <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Edit Infomation</b></h1>
 
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
-                    <label for="name" class="block w-20 mr-2 font-bold dark:text-white">Name:</label>
-                    <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
+                    <label for="name" class="block w-20 mr-2 font-bold dark:text-gray">Name:</label>
+                    <input class="border-black block py-2 px-4 w-full rounded focus:outline-none focus:border-black"
                         type="text" 
                         name="name" 
                         value="{{ $user->name }}" required><br>
-                    <label for="password" class="block w-20 mr-2 font-bold dark:text-white">Password:</label>
-                    <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
+                    <label for="password" class="block w-20 mr-2 font-bold dark:text-gray">Password:</label>
+                    <input class="border-black block py-2 px-4 w-full rounded focus:outline-none focus:border-black"
                         type="password" 
                         name="password" required><br>
+                        <br> 
 
                     <div class="flex justify-center">
                         <button type="submit" class="mr-2 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SAVE</button>
@@ -209,13 +211,14 @@
           <div id="content-add-accounts">
             <div class="card">
               <div class="card-header">
-                <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Account</b></h1>
+                <h1 class="flex text-6xl font-bold mb-10 text-black"><b>Add Account</b></h1>
               </div>
 
-               <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-md">
-              <div class="card-body">
-                <form action="{{route('create.user')}}" method="post">
-                  @csrf
+              <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: gray;">
+                <div class="card-body">
+                  <form action="{{route('create.user')}}" method="post">
+                    @csrf
+
                     <div class="flex items-center">
                       <label for="name" class="block w-20 mr-2 font-bold dark:text-white">Name:</label>
                       <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
@@ -237,46 +240,56 @@
                     
                     <br>
 
-                  <div class="flex items-center">
-                    <label for="password" class="block w-20 mr-2 font-bold dark:text-white">Password:</label>
-                    <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
-                        name="password" required
-                        id="password" 
-                        type="password">
+                     <div class="flex items-center">
+                      <label for="password" class="block w-20 mr-2 font-bold dark:text-white">Password:</label>
+                      <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
+                            name="password" required
+                            id="password" 
+                            type="password">
+                    </div>
 
-                      </div>
+                    <br>
+
+                    <div class="flex items-center form-group">
+                      <label for="confirm-password" class="block w-20 mr-2 font-bold dark:text-white">Confirm Password:</label>
+                      <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
+                            name="confirm-password" required
+                            id="confirm-password" 
+                            type="password">
+                      <span id="password-error" class="text-red-500"></span>
+                    </div>
+
 
                       <br>
 
-                      <div class="flex items-center">
+                      <div class="flex items-center w-full">
                         <label for="role" class="block w-20 mr-2 font-bold dark:text-white">Role:</label>
-                        <select class="form-control border-gray-400 block py-2 px-4" name="role" id="role" required>
+                        <select class="form-control border-gray-400 block py-2 px-4 w-full" name="role" id="role" required>
                           <option value="">Select a role</option>
                           <option value="2">Administrator</option>
                           <option value="3">Staff</option>
                         </select>
                       </div>
 
+
                       <br>
 
-                      <!--<div class="form-group">
-                          <label for="confirm-password">Confirm Password:</label>
-                          <input required="" class="form-control" name="confirm-password" id="confirm-password" type="password">
-                      </div>naa diri end comment-->
-                      <input type="submit" 
-                        class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
-                        value="submit">
+                    
+
+                      <div class="flex justify-center">
+                        <input type="submit" 
+                              class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 font-medium rounded-lg text-sm px-16 py-2.5 text-center" 
+                              value="submit">
+                      </div>
+
+
                   </form>
                 </div>
               </div>
+            </div>
           </div>
 
 
     </div>
-
-
-
-    <script src="{{asset('js/create-user.js')}}"></script>
-
-
-</body
+</body>
+</html>

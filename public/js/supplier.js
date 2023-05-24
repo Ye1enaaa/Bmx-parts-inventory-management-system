@@ -1,14 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // JavaScript code here
-    function showPopupFormSupplier() {
-        var form = document.getElementById("popup-container");
-        form.style.display = "block";
-    }
+function showSupplierInformation() {
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/supplier")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
 
-    function hidePopupFormSupplier() {
-        var form = document.getElementById("popup-container");
-        form.style.display = "none";
-    }
-
-    // Additional JavaScript code if needed
-});
+function showAddSupplier() {
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/supplier")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}

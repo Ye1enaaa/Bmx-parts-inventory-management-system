@@ -13,6 +13,8 @@
 
 <body class="bg-[#428fb6] p-4">
 <div class="font-serif mx-auto ">
+  <br><br>
+  <br>
 
   <div class="bg-white rounded-lg shadow-md p-6">
     <h1 class="text-4xl font-bold mb-4 flex justify-center font-serif ">STOCK CARD</h1>

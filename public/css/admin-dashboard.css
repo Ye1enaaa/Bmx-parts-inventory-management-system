@@ -55,7 +55,7 @@
 }
 
 .sidebar a:not(.logout-link):not(.title):hover {
-    background: #878787;
+    /* background: #878787; */
     font-size: 120%;
 }
 

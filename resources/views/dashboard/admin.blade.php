@@ -55,32 +55,36 @@
         </a>
     </div>
 
-        <br>
+        <br><br>
 
-              <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-100 flex items-center">
+              <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
                 <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
-                <span class="text-base font-medium">Dashboard</span>
+                <span class="text-xl font-medium">Dashboard</span>
               </a>
 
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
           <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
-          <span class="text-base font-medium">Products</span>
+          <span class="text-xl font-medium">Products</span>
         </a>
 
 
       <div x-data="{ open: false }" class="relative">
-        <button @click="open = !open" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        
+      <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full">
+        <button @click="open = !open" >
           <i class="icon"><ion-icon name="person"></ion-icon></i>
-          <span>Supplier</span>
+          <span class="text-xl font-medium">Supplier</span>
         </button>
-        <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg">
+      </a> 
+
+        <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-full bg-[#072e33] rounded-md shadow-lg">
           
-          <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100 text-xs" href="#" onclick="showSupplierInformation()">
+          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showSupplierInformation()">
             Supplier Information
           </a>
           <br>
-          <a class="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100 text-xs" href="#" onclick="showAddSupplier()">
+          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showAddSupplier()">
             Add Supplier
           </a>
         </div>

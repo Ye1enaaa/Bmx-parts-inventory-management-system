@@ -31,7 +31,7 @@ class CustomerController extends Controller
 
         $product = Product::where('name', $name_value)->first();
         if($product -> quantity - $quantity <= 0){
-            $product->delete();
+            //$product->delete();
         }else{
             $product->quantity -= $quantity;
             $product->inventory_value -= $quantity * $product->unit_price;

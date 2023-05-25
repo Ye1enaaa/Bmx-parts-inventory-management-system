@@ -20,14 +20,21 @@ class UserController extends Controller
             'name'=>'required|string',
             'email'=>'required|string|unique:users,email',
             'password'=>'required|min:8',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png',
             'role' => 'required'
         ]);
+
+        $imagePath = null;
+        if($request->hasFile('image')){
+            $imagePath = $request->file('image')->store('user_profile', 'public');
+        }
 
         $user = User::create([
             'name'=> $dataValidation['name'],
             'email'=> $dataValidation['email'],
             'password'=> Hash::make($dataValidation['password']),
             'role' => $dataValidation['role'],
+            'image' => $imagePath
         ]);
 
         $user->save();

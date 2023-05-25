@@ -54,7 +54,13 @@
         {{ $data['status'] }}
       </td>
       <td class="border p-2 text-center">{{$data['supplierName']}}</td>
-      <td class="border p-2 text-center">{{$data['stockQuantity']}}</td>
+      <td class="border p-2 text-center">
+        @if( $data['status'] === 'IN')
+        +{{$data['stockQuantity']}}
+        @elseif($data['status'] === 'OUT')
+        -{{$data['stockQuantity']}}
+        @endif
+      </td>
       <td class="border p-2 text-center">{{$data['stockBalance']}}</td>
     </tr>
     @endforeach

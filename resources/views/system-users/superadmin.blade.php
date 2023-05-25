@@ -114,6 +114,7 @@
                 <thead class="text-white bg-gray-500 border-gray-500 ">
                     <tr class="text-center font bold">
                         <th class="px-4 py-2">Role</th>
+                        <th class="px-4 py-2">Image</th>
                         <th class="px-4 py-2">Name</th>
                         <th class="px-4 py-2">Email</th>
                         <th class="px-4 py-2">Password</th>
@@ -134,6 +135,13 @@
                             @elseif($user->role ==3)
                             Staff
                             @endif
+                        </td>
+                        <td class="border px-3  py-2">
+                          @if($user->image == null)
+                          <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+                          @elseif($user->image)
+                          <img src="http://127.0.0.1:8000/storage/{{$user->image}}" alt="">
+                          @endif
                         </td>
                         <td class="border px-3  py-2">{{$user->name}}</td>
                         <td class="border px-3  py-2">{{$user->email}}</td>
@@ -216,7 +224,7 @@
 
               <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: gray;">
                 <div class="card-body">
-                  <form action="{{route('create.user')}}" method="post">
+                  <form action="{{route('create.user')}}" method="post" enctype='multipart/form-data'>
                     @csrf
 
                     <div class="flex items-center">
@@ -273,8 +281,8 @@
 
 
                       <br>
-
-                    
+                      <input type="file" name="image" id="">
+                      <br>
 
                       <div class="flex justify-center">
                         <input type="submit" 

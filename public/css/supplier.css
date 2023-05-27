@@ -1,0 +1,17 @@
+/* #popup-container {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 600px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+} */

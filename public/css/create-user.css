@@ -1,0 +1,200 @@
+* {
+    margin: 10;
+    padding: 10;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Poppins, sans-serif";
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 70;
+    left: 0;
+    background: #121f25;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+.sidebar::before {
+    content: "";
+    background-color: #428fb6;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.sidebar .title {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.sidebar .title a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    transition: 0.3s;
+    justify-content: center;
+}
+
+.sidebar a:not(.logout-link):not(.title):hover {
+    background: #d3d3d3;
+    font-size: 120%;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #dadada;
+}
+
+#main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media (max-height: 650px) {
+    .sidebar {
+        padding-top: 25px;
+    }
+
+    .sidebar .title {
+        font-size: 4px;
+        line-height: 27px;
+    }
+
+    .sidebar .title a {
+        flex-direction: row;
+    }
+
+    .sidebar a {
+        padding: 8px 0 8px 20px;
+        font-size: 16px;
+    }
+
+    .sidebar a:not(.logout-link):not(.title):hover {
+        background: #428fb6;
+        font-size: 110%;
+    }
+
+    .sidebar .closebtn {
+        right: 15px;
+        font-size: 28px;
+        margin-left: 0;
+    }
+
+    .openbtn {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    #main {
+        margin-left: 70px;
+        padding: 8px;
+    }
+
+    .bar ul .logout {
+        left: 215px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
+
+    .icons a {
+        margin: 0 5px;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.icons a {
+    height: fit-content;
+    margin: 0 5px;
+    color: white;
+}
+
+.bar {
+    background-color: #428fb6;
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bar ul .logout {
+    position: fixed;
+    left: 285px;
+}
+
+.dropdown-item {
+    color: #222;
+    display: flex;
+    position: relative;
+    top: 30px;
+    bottom: 0px;
+    left: 1050px;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.main-content.open {
+    margin-left: 250px;
+}
+
+.popup-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    /* overflow: auto; */
+    background-color: rgba(0, 0, 0, 0.4);
+}

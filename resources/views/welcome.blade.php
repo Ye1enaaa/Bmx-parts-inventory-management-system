@@ -55,7 +55,6 @@
 
 
 
-
         </div>
 
       </div>
@@ -91,6 +90,8 @@
 
       </script>
 
+
+<script src="{{asset('js/welcome-blade.js')}}"></script>
 
     </body>
 

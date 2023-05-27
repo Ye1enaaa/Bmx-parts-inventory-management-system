@@ -148,17 +148,10 @@
             <div >
                 <div class="flex flex-wrap ">
 
-                <div class="relative">
-                    <div class="Sales bg-red-600 hover:bg-red-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500  shadow shadow-black" style="transform: translateZ(-30px);">
-                        <div class="icon text-white mb-2" style="float: right; animation: moveIicon 3s infinite alternate;">
-                            <ion-icon name="stats-chart-sharp" class="text-6xl"></ion-icon>
-                        </div>
-                        @yield('total-sales')
-                    </div>
-                </div>    
+                 
 
                 <div class="relative">
-                    <div class="Total-admin bg-purple-600 hover:bg-purple-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500 rotateX-12 shadow shadow-black" style="transform: translateZ(-30px);">
+                    <div class="Total-admin bg-red-600 hover:bg-red-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500 rotateX-12 shadow shadow-black" style="transform: translateZ(-30px);">
                         <div class="icon text-white mb-2" style="float: right; animation: moveIcon 3s infinite alternate;">
                             <ion-icon name="person" class="text-6xl"></ion-icon>
                         </div>
@@ -166,11 +159,7 @@
                     </div>
                 </div>  
 
-              
-
-            </div>
-            
-            <div class="relative">
+                <div class="relative">
                 <div class="product-field bg-green-600 hover:bg-green-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500  shadow shadow-black" style="transform: translateZ(-30px);">
                     <div class="icon text-white mb-2" style="float: right; animation: moveIicon 3s infinite alternate;">
                   <ion-icon name="pricetags-sharp" class="text-6xl"></ion-icon>
@@ -178,6 +167,11 @@
                 @yield('product-field')        
               </div>
             </div>
+
+
+        </div>
+            
+
 
             </div>
 

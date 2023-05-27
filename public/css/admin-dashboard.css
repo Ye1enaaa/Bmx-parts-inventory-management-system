@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins, sans-serif";
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 70;
+    left: 0;
+    background: #121f25;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+.sidebar::before {
+    content: "";
+    background-color: #428fb6;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.sidebar .title {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.sidebar .title a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    justify-content: center;
+}
+
+.sidebar a:not(.logout-link):not(.title):hover {
+    /* background: #878787; */
+    font-size: 120%;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #dadada;
+}
+
+#main {
+    padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media (max-height: 650px) {
+    .sidebar {
+        padding-top: 25px;
+    }
+
+    .sidebar .title {
+        font-size: 4px;
+        line-height: 27px;
+    }
+
+    .sidebar .title a {
+        flex-direction: row;
+    }
+
+    .sidebar a {
+        padding: 8px 0 8px 20px;
+        font-size: 16px;
+    }
+
+    .sidebar a:not(.logout-link):not(.title):hover {
+        background: #6da5c0;
+        font-size: 110%;
+    }
+
+    .sidebar .closebtn {
+        right: 15px;
+        font-size: 28px;
+        margin-left: 0;
+    }
+
+    .openbtn {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    #main {
+        margin-left: 70px;
+        padding: 8px;
+    }
+
+    .bar ul .logout {
+        left: 215px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
+
+    .icons a {
+        margin: 0 5px;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.icons a {
+    height: fit-content;
+    margin: 0 5px;
+    color: white;
+}
+
+.bar {
+    background-color: #428fb6;
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bar ul .logout {
+    position: fixed;
+    left: 285px;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.main-content.open {
+    margin-left: 250px;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+/* .popup-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: scroll;
+} */
+
+#popup-form {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-width: 1000px;
+    max-height: 600px;
+    /* overflow-y: scroll; */
+}
+
+.wrapper {
+    width: 430px;
+    height: 450px;
+    background: #38888d;
+    position: fixed;
+    top: 140px;
+    right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: bold;
+    position: relative;
+}
+
+header .icons {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    display: flex;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    color: #072e33;
+    font-size: 1.9rem;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 80%;
+}
+
+header .icons span:hover {
+    background: #37a2b0;
+}
+
+header .icons span:last-child {
+    margin-right: -10px;
+}
+
+.calendar {
+    padding: 20px;
+}
+.calendar ul {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+}
+
+.calendar ul li {
+    position: relative;
+    width: calc(100% / 7);
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.days li.inactive {
+    color: #b0b0b0;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.calendar .days li::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li:hover::before {
+    background: #a9a9a9;
+}
+
+.days li.active::before {
+    background: #1cd3dd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #d3d3d3;
+}
+
+/* tbody tr:hover {
+    background-color: #dadada;
+    cursor: pointer;
+} */
+
+@keyframes moveIcon {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes moveIicon {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+#product-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#product-form input[type="text"],
+#product-form input[type="number"],
+#product-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#product-form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-form {
+    display: none;
+}

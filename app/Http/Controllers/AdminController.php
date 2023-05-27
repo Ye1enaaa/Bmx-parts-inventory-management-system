@@ -3,16 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  App\Models\Admin;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Validator;
+use App\Models\Product;
+use App\Models\User;
+use App\Models\CustomerOrder;
+use App\Models\Supplie;
 
 class AdminController extends Controller
 {
+
+        public function index()
+    {
+        return view('dashboard.dashboard');
+    }
+
+
     //views
     public function returnAdminLoginView(){
-        return view('auth-admin.login-admin');
+        return view('auth-admin.login-admin');          
+    }
+    public function returnPurchaseView(){
+        $customerOrders = CustomerOrder::with('user')->get();
+        return view('purchase.purchase-order',[
+            'customerOrders' => $customerOrders
+        ]);
+    }
+
+    public function returnAdminDashboardView(){
+        $count = DB::table('products')->count();
+        $user = Auth::user();
+        // Retrieve the orders associated with the authenticated user and join the users table to include the user's name;
+        $customerOrders = CustomerOrder::with('user')->get();
+
+
+        $total_quantity = DB::table('products')->sum('quantity');
+        $total_inventory = DB::table('products')->sum('inventory_value');
+        $total_value = DB::table('customer_orders')->sum('total_value');
+        $total_admin = DB::table('supplies')->count();
+        return view('dashboard.data-table',[
+            'count' => $count,
+            'customerOrders' => $customerOrders,
+            'total_quantity'=> $total_quantity,
+            'total_inventory'=> $total_inventory,
+            'total_value' => $total_value,
+            'total_admin'=> $total_admin
+        ]);
+
+
+        /*$product = Product::all();
+        return view('liquor-data.show', compact('product'));
+
+        $suppliers = Supplier::all();
+
+        return view('dashboard.dashboard', [
+            'suppliers' => $suppliers
+        ]);*/
     }
 
     //auth
@@ -63,4 +112,30 @@ class AdminController extends Controller
             'token' => $token
         ]);
     }
+    
+    //For mobile
+    public function returnDashboardMobileView(){
+        $count = DB::table('products')->count();
+        $total_quantity = DB::table('products')->sum('quantity');
+        $total_inventory = DB::table('products')->sum('inventory_value');
+        $total_value = DB::table('customer_orders')->sum('total_value');
+        $total_admin = DB::table('supplies')->count();
+
+        return response([
+            'product_count' => $count,
+            'products_quantity' => $total_quantity,
+            'inventory_value' => $total_inventory,
+            'orders_value' => $total_value,
+            'admin_count' => $total_admin
+        ]);
+    }
+
+    public function returnPurchases(){
+        $customerOrders = CustomerOrder::with('user')->get();
+        
+        return response([
+            'purchaseOrder' => $customerOrders
+        ]);
+    }
+
 }

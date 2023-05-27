@@ -1,99 +1,181 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=105">
-    <title>Generate Barcode In Laravel</title>       
-   <!-- Fonts -->
-   <!--<link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">-->
-   <!-- Bootstrap -->
-   <!--<link rel="stylesheet" href="https://cdn.tailwindcss.com">-->
-   <script src="https://cdn.tailwindcss.com"></script>
-   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+@extends('layouts.dashboard')
 
-  </head>
+@section('content-liquor-data-show')
 
-
-  <body class="p-5 h-screen bg-gray-500">
-    <h1 class="text-3xl font-bold mb-5 text-white"><b>List of Products</b></h1>
-
-    <div class="pb-8 ">
-
-      <a href="/create" class="bg-cyan-900 text-white font-bold py-2 px-4 rounded hover: cyan-700">New Post</a>
-
-      </div>
-    
-        <div class="overflow-auto rounded-lg shadow hidden md:block">
-          
-              <table class="w-full whitespace-nowrap">
-                
-
-                  <thead class="text-white bg-gray-900 border-gray-900 " >
-                    
-                    <tr class="text-center font bold">
-                      <th class="border px-10  py-5 ">Product Code</th>
-                      <th class="border px-6  py-4 ">Title</th>
-                      <th class="border px-10  py-5 ">Price</th>
-                      <th class="border px-10  py-5 ">Quantity</th>
-                      <th class="border px-6  py-4 ">Qr Code</th>
-                      <th class="border px-6  py-4 ">Description</th>
-                    </tr>
-                  </thead>
+  <div class="main-liquor-data-show">
+    <div class="flex items-center justify-between">
+      <h1 class="text-6xl font-bold mb-5 text-black">List of Products</h1>
+    </div>
+      
+    <div class="mt-4">
+      
+  <div class="flex justify-end">
+    <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-4 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md" onclick="showPopupForm()">Add Product</button>
+  </div>
 
 
-                  <tbody class="text-black text-center divide-y divide-gray-100">
-                    
-                    @foreach($product as $product)
+      <div class="overflow-auto rounded-lg shadow-2xl hidden md:block ">
+        <div class="mt-4">
 
-                    <tr class="bg-gray-200 hover:underline ">
+          <div style="position: relative;">
 
-                        <td class="border px-6  py-4">{{$product->product_code}}</td>
-                        <td class="border px-6  py-4">{{$product->name}}</td>
-                        <td class="border px-6  py-4">{{$product->unit_price}}</td>
-                        <td class="border px-6  py-4">{{$product->quantity}}</td>
-                          
-                        <td class="border px-6  py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
-                        <td class="border px-6  py-4">{{$product->description}}</td>
-                    </tr>
-                    @endforeach
-                   
+            <table class="table-auto w-full">
+              <thead class="text-white bg-gray-900 border-gray-900">
+                <tr class="text-center font-bold">
+                  <th class="px-4 py-2">Product Code</th>
+                  <th class="px-4 py-2">Description</th>
+                  <th class="px-4 py-2">Stock on Hand</th>
+                  <th class="px-4 py-2">Price</th>
+                  <th class="px-4 py-2">Title</th>
+                  <th class="px-4 py-2">Amount</th>
+                  <th class="px-4 py-2">QR Code</th>
+                  <th class="px-4 py-2">Supplier</th>
+                  <th class="px-4 py-2">Edit</th>
+                  <th class="px-4 py-2">Stock Card</th>
+                  
+                </tr>
+              </thead>
+              <tbody class="text-black text-center divide-y divide-blue-300">
+                @foreach($product as $product)
+                <tr class="hover:underline ">
+                  <td class="border px-6 py-4">{{$product->product_code}}</td>
+                  <td class="border px-6 py-4">{{$product->description}}</td>
+                  <td class="border px-6 py-4">{{$product->quantity}}</td>
+                  <td class="border px-6 py-4">{{$product->unit_price}}</td>
+                  <td class="border px-6 py-4">{{$product->name}}</td>
+                  <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
+                  <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
+                  <td class="border px-6 py-4">{{$product->supplier->name}}</td>
+                  <td class="border px-6 py-4">
+                      <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
+                  </td>
+                  <td class="border px-6 py-4"><a href="http://127.0.0.1:8000/stockcard/{{$product->id}}" target="_blank">Print</a></td>
+                  
+                </tr>
+                @endforeach
+              </tbody>
+            </table>   
 
-                  </tbody>
-                  </div>    
-                </table>   
-                 
+          </div>
+
+
+
+
+        <div class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid black; padding: 10px; display: none; background-color: white; width: 50%; border-radius: 10px; box-shadow: 0 4px 6px -1px black; background-color: white;"
+         id="edit-form">
+              
+              <form id="product-form" method="POST" action="{{route('products.edit', $product->id)}}">
+                  @csrf
+                  @method('PUT')
+
+                  <div class="bg-white">
+                      <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Edit Products</b></h1>
+                      <label for="name">Title:</label>
+                      <input type="text" name="name" value="{{ $product->name }}" required><br>
+                      <label for="unit_price">Price:</label>
+                      <input type="number" name="unit_price" value="{{ $product->unit_price }}" required><br>
+                      <label for="quantity">Quantity:</label>
+                      <input type="number" name="quantity" value="{{ $product->quantity }}" required><br>
+                      <label for="description">Description:</label>
+                      <textarea name="description" required>{{ $product->description }}</textarea><br>
+
+                      <div class="flex justify-center items-center">
+                        <button type="submit" style="background-color: blue; color: white; padding: 10px 20px; margin-right: 20px; border: none; border-radius: 5px;">Update</button>
+                        <button type="button" onclick="hideEditForm()" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Cancel</button>
+
+                      </div>
+                      
+                  </div>
+
+              </form>
+          </div>
+
+
         </div>
+
 
         
-        <div class="grid grid-cols1 gap-4 md:hidden">
-          <div class="bg-white space-y-4 p-4 rounded-lg shadow">
-          <div class=flex items-center space-x-2 text-sm>
-            <div>
-              <div>
-                <a href="#"class="text-blue-500 font-bold hover:underline">{{$product->id}}</a>
-              </div>
-
-              <div class="text-gray-500">{{$product->name}}</div>
-              
-              <div class="text-gray-500">{{$product->unit_price}}</div>
-               
-              <div class="text-gray-500">img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}</div>
-           
-
-              <div classtext-sm text-gray-700="">{{$product->description}}</div>
-            </div>
-
-          </div>
-          </div>
-
-
-        </div>
-
       </div>
 
-    </div>
-   
+
+       <div id="popup-form" class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="box-shadow: 0 4px 6px -1px black; background-color: white;">
+
+            <form action="{{route('post')}}" method="post"> <br>
+              @csrf
+              <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Add Products</b></h1>
+              <br>
+
+            <select name="supplier_id" class="font-bold w-full mb-4 p-3 flex items-center border border-gray-400 bg-gray-200">
+              <option value="" disabled selected>Supplier name</option>
+              @foreach($supplier as $supplier)
+                <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+              @endforeach
+            </select>
+
+
+              <div class="flex flex-wrap space-x-10">
+                <div class="w-full mb-4 flex items-center">
+                  <label for="Name" class="block w-20 mr-2 font-bold dark:text-white">Product Name:</label>
+                  <input class="border border-black block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500"
+                    type="text" 
+                    name="name" required>
+                </div>
+              </div>
+
+              <div class="w-full mb-4 flex items-center">
+                  <label for="Price" class="block w-20 mr-2 font-bold dark:text-white">Price:</label>
+                  <div class="flex">
+                    <div class="flex items-center px-4 bg-blue-800 text-white rounded-l">
+                      PHP
+                    </div>
+                    <input 
+                      placeholder="1"
+                      class="border border-black block py-2 px-4 w-full rounded-l-none rounded-r focus:outline-none focus:border-blue-500" 
+                      type="number" 
+                      min="0"
+                      name="unit_price" required>
+                    <div class="flex items-center px-4">
+                      <label for="Quantity" class="block w-20 mr-2 font-bold dark:text-white">Quantity:</label>
+                    </div>
+                    <input 
+                      placeholder="1"
+                      class="border border-black block py-2 px-4 w-full rounded-l-none rounded-r focus:outline-none focus:border-blue-500" 
+                      type="number" 
+                      min="0"
+                      name="quantity" required>
+                  </div>
+                </div>
+
+
+                <div class="w-full mb-4">
+                  <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
+                  <textarea 
+                    name="description" 
+                    class="form-control mb-3 bg-gray-50 border  text-black text-sm rounded-lg focus:border-blue-500 block py-3 px-20" 
+                    cols="70" rows="7" required>
+                  </textarea>
+                </div>
+              
+
+              <div class="flex justify-center">
+                <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>
+                <button type="button" class="text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupForm()">Cancel</button>
+              </div>
+
+            
+            </form>
+        </div>
+      </div>
+
+      
+  </div>
+
+     <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
 
 
-  </body>
-</html>
+@endsection
+
+
+
+

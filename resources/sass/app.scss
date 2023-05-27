@@ -1,0 +1,51 @@
+// Fonts
+// @import url("https://fonts.bunny.net/css?family=Nunito");
+
+@import url("https://fonts.bunny.net/css?family=Poppins:400,500,600&display=swap");
+
+// Variables
+@import "variables";
+
+@import "bootstrap";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+.navbar-light {
+    background-color: $primary-color !important;
+}
+
+.bg-primary {
+    background-color: $primary-color !important;
+}
+
+.custom-footer {
+    @extend .py-4;
+    @extend .pb-5;
+    @extend .mx-auto;
+    @extend .text-center;
+    @extend .small;
+    background-color: $primary-color;
+    color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    @extend .flex-center;
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}

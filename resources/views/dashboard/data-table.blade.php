@@ -20,7 +20,7 @@
                 <div class="profile-container" style="padding: 1px; display: flex; align-items: center;">
                    <a class="flex items-center" id="profile-link">
                         <div class="w-10 h-10 rounded-full overflow-hidden">
-                            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="w-full h-full object-cover" alt="Profile">
+                            <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
                         </div>
                         <span class="ml-2 name" style="color: #FFFFFF;">Admin</span>&nbsp;
                     </a>

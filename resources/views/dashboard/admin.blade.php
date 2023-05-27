@@ -46,7 +46,7 @@
 <div class="title">
     <a class="flex items-center ms-1">
         <div class="w-12 h-12 rounded-full overflow-hidden">
-            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="w-full h-full object-cover" alt="Profile Picture">
+           <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
         </div>
 
         <div class="text-sm mt-3">

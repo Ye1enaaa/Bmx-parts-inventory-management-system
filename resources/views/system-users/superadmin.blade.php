@@ -30,7 +30,9 @@
 
     <div class="title">
         <a class="d-flex align-items-center ms-1">
-            <ion-icon name="person-circle" class="text-white" style="font-size: 4rem;"></ion-icon>
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+            </div>
 
 
           <div class=" text-sm mt-3">
@@ -76,20 +78,31 @@
 
         
             <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
-            <div class="flex items-center justify-center mr-6 text-white">
-                <span class="text-1xl font-bold sm:text-2xl">BMX: Dirt Jump Parts Inventory System</span>
-            </div>
+              <div class="flex items-center justify-center mr-6 text-white">
+                  <span class="text-1xl font-bold sm:text-2xl">BMX: Dirt Jump Parts Inventory System</span>
+              </div>
 
-            <div class="flex items-center">
-                <a class="hidden text-white sm:inline-block hover:text-gray-200 mx-16" href="{{ route('logout') }}" 
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Super Admin  <i class=" fas fa-sign-out-alt mr-2"></i> 
+                <div class="flex items-center">
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                    </form>
-                </a>
- 
+                  <div class="profile-container" style="padding: 1px; display: flex; align-items: center;">
+                    <a class="flex items-center" id="profile-link">
+                          <div class="w-10 h-10 rounded-full overflow-hidden">
+                              <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
+                          </div>
+                          <span class="ml-2 name" style="color: #FFFFFF;">Super Admin</span>&nbsp;
+                      </a>
+
+
+                      <a class="hidden text-white sm:inline-block hover:text-gray-200" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          <i class="fas fa-sign-out-alt mr-2"></i>
+                      </a>
+                  </div>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </div>
+
             </div>
         </div>
         

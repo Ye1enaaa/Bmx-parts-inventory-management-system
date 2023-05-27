@@ -1,8 +1,11 @@
 @extends('dashboard.admin')
 
+
+
 @section('top-bar')
 <div class="bar">
     <ul class="">
+
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
@@ -13,17 +16,30 @@
             </div>
 
             <div class="flex items-center">
-                <a class="hidden text-white sm:inline-block hover:text-gray-200 mx-16" href="{{ route('logout') }}" 
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Admin  <i class=" fas fa-sign-out-alt mr-2"></i> 
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                    </form>
-                </a>
- 
+                <div class="profile-container" style="padding: 1px; display: flex; align-items: center;">
+                   <a class="flex items-center" id="profile-link">
+                        <div class="w-10 h-10 rounded-full overflow-hidden">
+                            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="w-full h-full object-cover" alt="Profile">
+                        </div>
+                        <span class="ml-2 name" style="color: #FFFFFF;">Admin</span>&nbsp;
+                    </a>
+
+
+                    <a class="hidden text-white sm:inline-block hover:text-gray-200" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt mr-2"></i>
+                    </a>
+                </div>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
+
+
+ 
         </div>
+        
         
     </ul>
 
@@ -32,7 +48,6 @@
 
 @endsection
 
-<!--<h3 class="number">{{$count}} products</h3>-->
 
 @section('product-field')
 <div class="product-field">
@@ -199,6 +214,8 @@
                 </div>
 <script src="script.js" defer></script>
         
+
+
 @endsection
 
 

@@ -30,20 +30,6 @@ function showSales() {
     document.getElementById("content-add-accounts").style.display = "block";
 }
 
-// function showEditForm(userId) {
-//     var editForm = document.getElementById("edit-user-form-" + userId);
-//     if (editForm) {
-//         editForm.style.display = "block";
-//     }
-//     console.log("showEditForm called for user ID: " + userId);
-//     //document.getElementById("edit-user-form-" + userId).style.display = "block";
-//     console.log(userId);
-// }
-
-// function hideEditForm(userId) {
-//     document.getElementById("edit-user-form-" + userId).style.display = "none";
-// }
-
 function showEditForm(userId) {
     // hide all other edit forms
     const allForms = document.querySelectorAll(".edit-user-form");

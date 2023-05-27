@@ -43,17 +43,19 @@
 
  <div id="mySidebar" class="sidebar open">
 
-    <div class="title">
-        <a class="d-flex align-items-center ms-1">
-            <ion-icon name="person-circle" class="text-white" style="font-size: 4rem;"></ion-icon>
+<div class="title">
+    <a class="flex items-center ms-1">
+        <div class="w-12 h-12 rounded-full overflow-hidden">
+            <img src="{{ asset('storage/' . Auth::user()->picture) }}" class="w-full h-full object-cover" alt="Profile Picture">
+        </div>
 
-
-          <div class=" text-sm mt-3">
+        <div class="text-sm mt-3">
             <div>{{ Auth::user()->name }}</div>
             <div>{{ Auth::user()->email }}</div>
-          </div>
-        </a>
-    </div>
+        </div>
+    </a>
+</div>
+
 
         <br><br>
 
@@ -101,6 +103,8 @@
     <!-- Top Bar -->
         <div>
           @yield('top-bar')  
+
+          
         </div>
 
         <!-- Hamburger Menu -->

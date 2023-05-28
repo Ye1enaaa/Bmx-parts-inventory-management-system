@@ -69,17 +69,19 @@ function hideEditForm(userId) {
     container.style.display = "block";
 }
 
-const passwordInput = document.getElementById("password");
-const confirmPasswordInput = document.getElementById("confirm-password");
-const passwordError = document.getElementById("password-error");
-
-function validatePassword() {
-    if (passwordInput.value !== confirmPasswordInput.value) {
-        passwordError.textContent = "Passwords do not match";
-    } else {
-        passwordError.textContent = "";
-    }
-}
-
 passwordInput.addEventListener("input", validatePassword);
 confirmPasswordInput.addEventListener("input", validatePassword);
+
+document.getElementById("imageInput").addEventListener("change", function () {
+    const fileInput = this;
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            fileInput.setAttribute("data-image", e.target.result);
+        };
+        reader.readAsDataURL(file);
+    } else {
+        fileInput.setAttribute("data-image", "");
+    }
+});

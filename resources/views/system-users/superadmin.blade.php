@@ -157,13 +157,14 @@
                             Staff
                             @endif
                         </td>
-                        <td class="border px-3  py-2">
+                        <td class="border px-3 py-2">
                           @if($user->image == null)
-                          <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+                            <img class="small-image" src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
                           @elseif($user->image)
-                          <img src="{{ env('HOST_URL')}}./storage/{{$user->image}}" alt="">
+                            <img class="small-image" src="{{ env('HOST_URL')}}./storage/{{$user->image}}" alt="">
                           @endif
                         </td>
+
                         <td class="border px-3  py-2">{{$user->name}}</td>
                         <td class="border px-3  py-2">{{$user->email}}</td>
                         <td class="border px-3  py-2">********</td>
@@ -203,7 +204,7 @@
           </div>
 
           
-          <div class="popup-form edit-user-form h-200px w-950px  px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: green;" data-user-id="{{ $user->id }}">
+          <div class="popup-form edit-user-form h-300px w-950px  px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: green;" data-user-id="{{ $user->id }}">
                 <form id="edit-user-form-({{ $user->id }})" action="{{ route('edit.user', $user->id) }}" method="post">
                     @csrf
                     @method('PUT')
@@ -212,16 +213,22 @@
                     <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Edit Infomation</b></h1>
 
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
+
                     <label for="name" class="block w-20 mr-2 font-bold dark:text-gray">Name:</label>
                     <input class="border-black block py-2 px-4 w-full rounded focus:outline-none focus:border-black"
                         type="text" 
                         name="name" 
                         value="{{ $user->name }}" required><br>
+
+
                     <label for="password" class="block w-20 mr-2 font-bold dark:text-gray">Password:</label>
                     <input class="border-black block py-2 px-4 w-full rounded focus:outline-none focus:border-black"
                         type="password" 
                         name="password" required><br>
-                        <br> 
+                         
+
+                    <label for="image" class="block w-20 mr-2 font-bold dark:text-gray">Picture:</label>
+                    <input type="file" name="image" id="imageInput">
 
                     <div class="flex justify-center">
                         <button type="submit" class="mr-2 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SAVE</button>
@@ -229,7 +236,7 @@
                             type="button" onclick="hideEditForm({{ $user->id }})">CANCEL</button>
                     </div>
                 </form>
-            </div>
+          </div>
 
                     
 
@@ -269,7 +276,7 @@
                     
                     <br>
 
-                     <div class="flex items-center">
+                    <div class="flex items-center">
                       <label for="password" class="block w-20 mr-2 font-bold dark:text-white">Password:</label>
                       <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
                             name="password" required
@@ -280,15 +287,21 @@
                     <br>
 
                     <div class="flex items-center form-group">
-                      <label for="confirm-password" class="block w-20 mr-2 font-bold dark:text-white">Confirm Password:</label>
-                      <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
-                            name="confirm-password" required
-                            id="confirm-password" 
-                            type="password">
-                      <span id="password-error" class="text-red-500"></span>
+                      <div class="flex items-center justify-between w-full">
+                        <label for="confirm-password" class="block w-20 mr-2 font-bold dark:text-white">Confirm Password:</label>
+                        <div class="relative flex-grow">
+                          <input class="border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-gray-500"
+                                name="confirm-password" required
+                                id="confirm-password" 
+                                type="password">
+                          <span id="password-error" class="text-red-500 absolute left-0"></span>
+                        </div>
+                      </div>
                     </div>
 
 
+
+                    
                       <br>
 
                       <div class="flex items-center w-full">
@@ -320,5 +333,23 @@
 
 
     </div>
+
+<script>
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  const passwordError = document.getElementById('password-error');
+
+  confirmPasswordInput.addEventListener('input', function() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (password !== confirmPassword) {
+      passwordError.textContent = 'Passwords do not match';
+    } else {
+      passwordError.textContent = '';
+    }
+  });
+</script>
+
 </body>
 </html>

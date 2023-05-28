@@ -31,7 +31,11 @@
     <div class="title">
         <a class="d-flex align-items-center ms-1">
             <div class="w-12 h-12 rounded-full overflow-hidden">
-              <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+              @if(Auth::user()->image)
+              <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+              @elseif(Auth::user()->image == null)
+              <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+              @endif
             </div>
 
 
@@ -87,7 +91,11 @@
                   <div class="profile-container" style="padding: 1px; display: flex; align-items: center;">
                     <a class="flex items-center" id="profile-link">
                           <div class="w-10 h-10 rounded-full overflow-hidden">
-                              <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
+                              @if(Auth::user()->image)
+                              <img src="{{env('HOST_URL')}}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
+                              @elseif(Auth::user()->image == null)
+                              <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+                              @endif
                           </div>
                           <span class="ml-2 name" style="color: #FFFFFF;">Super Admin</span>&nbsp;
                       </a>
@@ -153,7 +161,7 @@
                           @if($user->image == null)
                           <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
                           @elseif($user->image)
-                          <img src="http://127.0.0.1:8000/storage/{{$user->image}}" alt="">
+                          <img src="{{ env('HOST_URL')}}./storage/{{$user->image}}" alt="">
                           @endif
                         </td>
                         <td class="border px-3  py-2">{{$user->name}}</td>

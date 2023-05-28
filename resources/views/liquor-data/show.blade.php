@@ -49,7 +49,7 @@
                   <td class="border px-6 py-4">
                       <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                   </td>
-                  <td class="border px-6 py-4"><a href="http://127.0.0.1:8000/stockcard/{{$product->id}}" target="_blank">Print</a></td>
+                  <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
                   
                 </tr>
                 @endforeach

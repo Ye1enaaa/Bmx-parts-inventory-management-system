@@ -46,7 +46,11 @@
 <div class="title">
     <a class="flex items-center ms-1">
         <div class="w-12 h-12 rounded-full overflow-hidden">
-           <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+          @if(Auth::user()->image)
+          <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+          @elseif(Auth::user()->image == null)
+          <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+          @endif
         </div>
 
         <div class="text-sm mt-3">

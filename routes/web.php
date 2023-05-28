@@ -112,4 +112,4 @@ Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edi
 
 
 // Define the route for generating and downloading the PDF
-Route::get('/convert-to-pdf', [StockCardController::class, 'convertToPDF'])->name('convertToPDF');
+Route::get('/convert-to-pdf/{id}', [StockCardController::class, 'convertToPDF'])->name('convertToPDF');

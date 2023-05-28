@@ -21,7 +21,7 @@
 
     <br><br>
 
-<form action="/convert-to-pdf" method="GET">
+<form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
   <button type="submit" class="ml-14 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
     Convert to PDF
   </button>

@@ -1,31 +1,20 @@
+<!-- //wala nani labot -->
+
+
 @extends('layouts.dashboard')
 
 @section('content-supplier')
 
 
-    <link rel="stylesheet" href="{{ asset('css/supplier.css') }}">
+<div class="main-supplier p-4">
+
 
     
-
-
-    <div id="mySidebar" class="sidebar">
-    <!-- Sidebar content -->
-    </div>
-    <br>
-
-<div class="main-supplier">
-
-
-    <!-- <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-4 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md float-right">Add Supplier</button> -->
-
-
-    <br>
-
-    <h1 class="flex text-3xl font-bold mb-10 text-black"><b>Supplier Information</b></h1>
+<h1 class="flex text-3xl font-bold mb-10 text-black ml-8 !important"><b>Supplier Information</b></h1>
 
 
 
-    <table class="w-full border shadow ">
+    <table class="w-full border shadow ml-4">
 
 
         <thead>
@@ -164,8 +153,8 @@
                     </div>
                 </form>
             </div>
-          
-
+            
+        
 </div>
 
 <script src="{{ asset('js/supplier.js') }}"></script>

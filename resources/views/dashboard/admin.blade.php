@@ -63,10 +63,15 @@
 
         <br><br>
 
-              <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-                <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
-                <span class="text-xl font-medium">Dashboard</span>
-              </a>
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+          <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
+          <span class="text-xl font-medium">Dashboard</span>
+        </a>
+
+        <!-- <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="changeText('Products')">
+  <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
+  <span class="text-xl font-medium">Products</span>
+</a> -->
 
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
@@ -96,10 +101,6 @@
         </div>
       </div>
 
-
-
-
-
   </div>
 
   <!-- Main Content -->
@@ -118,7 +119,14 @@
 
     <div id="main">
 
-      <button class="openbtn" onclick="openNav()">☰ </button>      
+      <div class="dashboard">
+        <div class="box bg-gray-200 p-1">
+          <button class="openbtn" onclick="openNav()">☰</button>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
+        </div>
+      </div>
+          
+        </div>   
         <!-- Main Content -->
         <main class="main-content1">
           <br>
@@ -150,19 +158,3 @@
 </html>
 
 
-
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
-            <i class="icon"><ion-icon name="bicycle-outline"></ion-icon></i>
-            <span>Purchase</span>
-        </a> -->
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
-            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
-            <span>Sales</span>
-        </a> -->
-
-                <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
-            <i class="icon"><ion-icon name="person"></ion-icon></i>
-            <span>Supplier</span>
-        </a> -->

@@ -46,7 +46,11 @@
 <div class="title">
     <a class="flex items-center ms-1">
         <div class="w-12 h-12 rounded-full overflow-hidden">
-           <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+          @if(Auth::user()->image)
+          <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+          @elseif(Auth::user()->image == null)
+          <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+          @endif
         </div>
 
         <div class="text-sm mt-3">
@@ -59,10 +63,10 @@
 
         <br><br>
 
-              <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
-                <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
-                <span class="text-xl font-medium">Dashboard</span>
-              </a>
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+          <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
+          <span class="text-xl font-medium">Dashboard</span>
+        </a>
 
 
         <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
@@ -92,10 +96,6 @@
         </div>
       </div>
 
-
-
-
-
   </div>
 
   <!-- Main Content -->
@@ -114,7 +114,14 @@
 
     <div id="main">
 
-      <button class="openbtn" onclick="openNav()">☰ </button>      
+      <div class="dashboard">
+        <div class="box bg-gray-200 p-1 w-full">
+          <button class="openbtn" onclick="openNav()">☰</button>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
+        </div>
+      </div>
+          
+        </div>   
         <!-- Main Content -->
         <main class="main-content1">
           <br>
@@ -146,19 +153,3 @@
 </html>
 
 
-
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showPurchase()">
-            <i class="icon"><ion-icon name="bicycle-outline"></ion-icon></i>
-            <span>Purchase</span>
-        </a> -->
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
-            <i class="icon"><ion-icon name="stats-chart-sharp"></ion-icon></i>
-            <span>Sales</span>
-        </a> -->
-
-                <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSuppliers()">
-            <i class="icon"><ion-icon name="person"></ion-icon></i>
-            <span>Supplier</span>
-        </a> -->

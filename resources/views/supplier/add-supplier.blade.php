@@ -1,10 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content-supplier-add')
-<link rel="stylesheet" href="{{ asset('css/supplier.css') }}">
-<div id="mySidebar" class="sidebar">
-    <!-- Sidebar content -->
-</div>
+
 <br>
 
 <div class="main-supplier-add">

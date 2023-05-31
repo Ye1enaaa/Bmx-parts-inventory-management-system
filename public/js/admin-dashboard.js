@@ -245,3 +245,11 @@ function toggleDropdown() {
     var dropdown = document.getElementById("supplierDropdown");
     dropdown.classList.toggle("hidden");
 }
+
+function confirmLogout(event) {
+    event.preventDefault();
+
+    if (confirm("Are you sure you want to logout?")) {
+        document.getElementById("logout-form").submit();
+    }
+}

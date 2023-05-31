@@ -81,12 +81,11 @@ Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])-
 Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
 
 
-
 //supplier
 // Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
 // Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
 
-
+//gi tandog ni jopin
 Route::get('/supplier-information', [SupplierController::class, 'showSupplierInformation']);
 Route::get('/add-supplier', [SupplierController::class, 'showAddSupplierForm']);
 Route::post('/supplier', [SupplierController::class, 'addSupplier'])->name('supplier.add');

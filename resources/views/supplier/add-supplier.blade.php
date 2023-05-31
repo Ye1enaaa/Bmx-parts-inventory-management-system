@@ -2,7 +2,7 @@
 
 @section('content-supplier-add')
 
-<br>
+
 
 <div class="main-supplier-add">
 

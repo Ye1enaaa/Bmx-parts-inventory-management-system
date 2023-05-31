@@ -77,14 +77,20 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 //Customer
 Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer');
 Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
-//supplier
-
-//Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
-
-Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
-Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
 
 Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
+
+
+
+//supplier
+// Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
+// Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
+
+
+Route::get('/supplier-information', [SupplierController::class, 'showSupplierInformation']);
+Route::get('/add-supplier', [SupplierController::class, 'showAddSupplierForm']);
+Route::post('/supplier', [SupplierController::class, 'addSupplier'])->name('supplier.add');
+
 
 //Purchase
 Route::get('/purchase', [AdminController::class,'returnPurchaseView']);

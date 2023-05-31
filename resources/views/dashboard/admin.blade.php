@@ -41,24 +41,24 @@
 
 <body class="flex h-screen">
 
- <div id="mySidebar" class="sidebar open">
+  <div id="mySidebar" class="sidebar open">
 
-<div class="title">
-    <a class="flex items-center ms-1">
-        <div class="w-12 h-12 rounded-full overflow-hidden">
-          @if(Auth::user()->image)
-          <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
-          @elseif(Auth::user()->image == null)
-          <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
-          @endif
-        </div>
+    <div class="title">
+        <a class="flex items-center ms-1">
+            <div class="w-12 h-12 rounded-full overflow-hidden">
+              @if(Auth::user()->image)
+              <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile Picture">
+              @elseif(Auth::user()->image == null)
+              <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+              @endif
+            </div>
 
-        <div class="text-sm mt-3">
-            <div>{{ Auth::user()->name }}</div>
-            <div>{{ Auth::user()->email }}</div>
-        </div>
-    </a>
-</div>
+            <div class="text-sm mt-3">
+                <div>{{ Auth::user()->name }}</div>
+                <div>{{ Auth::user()->email }}</div>
+            </div>
+        </a>
+    </div>
 
 
         <br><br>
@@ -94,7 +94,7 @@
             Add Supplier
           </a>
         </div>
-      </div>
+    </div>
 
   </div>
 

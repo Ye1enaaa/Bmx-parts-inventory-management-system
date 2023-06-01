@@ -29,15 +29,17 @@
                         <span class="ml-2 name" style="color: #FFFFFF;">Admin</span>&nbsp;
                     </a>
 
-
-                    <a class="hidden text-white sm:inline-block hover:text-gray-200" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="hidden text-white sm:inline-block hover:text-gray-200" href="#" onclick="confirmLogout(event)">
                         <i class="fas fa-sign-out-alt mr-2"></i>
                     </a>
+
                 </div>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+
+              
             </div>
 
 

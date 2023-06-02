@@ -121,8 +121,8 @@ td {
                 <tr>
                 <td>{{$data['created_at']->format('Y-m-d')}}</td>
 
-                <td class="border p-2 text-center {{ $data['status'] === 'IN' ? 'bg-green-500' : ($data['status'] === 'OUT' ? 'bg-red-500' : '') }}">
-                    {{ $data['status'] }}
+                <td class="{{ $data['status'] === 'IN' ? 'status-in' : ($data['status'] === 'OUT' ? 'status-out' : '') }}">
+                     {{ $data['status'] }}
                 </td>
                 <td class="border p-2 text-center">
                     @if( $data['supplierName'] )

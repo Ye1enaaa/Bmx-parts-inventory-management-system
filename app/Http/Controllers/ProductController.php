@@ -13,6 +13,7 @@ class ProductController extends Controller
 {
     //views
     public function index(){
+        $totalstocks = Product::all()->sum('quantity'); //
         $product = Product::with('supplier')->get();
         $supplier = DB::table('supplies')->get();
         if(!$product){
@@ -22,7 +23,8 @@ class ProductController extends Controller
         }
         return view('liquor-data.show', [
             'product' => $product,
-            'supplier' => $supplier
+            'supplier' => $supplier,
+            'totalstocks' => $totalstocks //
         ]);
     }
 

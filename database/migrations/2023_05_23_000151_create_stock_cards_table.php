@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('status');
             $table->string('stockName');
-            $table->string('supplierName');
-            $table->integer('stockQuantity');
+            $table->string('supplierName')->nullable(); //
+            $table->string('customerName')->nullable(); //
+            $table->integer('stockQuantity')->nullable(); //
+            $table->integer('stockQuantityIssued')->nullable(); //
             $table->integer('stockBalance')->nullable();
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();

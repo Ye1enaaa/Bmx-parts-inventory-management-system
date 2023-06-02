@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Overstocks;
 use App\Models\Supplie;
+use App\Models\StockCard;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -77,6 +78,14 @@ class ProductController extends Controller
         $product->supplier()->associate($suppliers);
         $product->save();
 
+        $stockin = new StockCard; // --
+        $stockin -> status = "REGISTERED";
+        $stockin -> stockName = $request['name'];
+        $stockin -> supplierName = $product->supplier->name;
+        $stockin -> stockQuantity = $quantity;
+        $stockin -> product_id = $product->id;
+        $stockin ->stockBalance = $product->quantity; //
+        $stockin->save(); // --
         return redirect('/dashboard');
     }
 
@@ -105,7 +114,7 @@ class ProductController extends Controller
     }
 
 
-    //For mobile
+    //---------------------------For mobile--------------------\\
     public function showStocksMobile(){
         $product = Product::all();
 

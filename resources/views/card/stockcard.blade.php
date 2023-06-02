@@ -41,9 +41,11 @@
     <tr>
       <th class="border p-2 text-center">Date</th>
       <th class="border p-2 text-center">Status</th>
-      <th class="border p-2 text-center">Received from/Issued to:</th>
-      <th class="border p-2 text-center">No. Received/Issued</th>
-      <th class="border p-2 text-center">New Balance</th>
+      <th class="border p-2 text-center">Received from:</th>
+      <th class="border p-2 text-center">Issued to:</th>
+      <th class="border p-2 text-center">No. Received:</th>
+      <th class="border p-2 text-center">No. Issued:</th>
+      <th class="border p-2 text-center">Balance</th>
     </tr>
   </thead>
   <tbody>
@@ -53,12 +55,32 @@
       <td class="border p-2 text-center {{ $data['status'] === 'IN' ? 'bg-green-500' : ($data['status'] === 'OUT' ? 'bg-red-500' : '') }}">
         {{ $data['status'] }}
       </td>
-      <td class="border p-2 text-center">{{$data['supplierName']}}</td>
       <td class="border p-2 text-center">
-        @if( $data['status'] === 'IN')
+        @if( $data['supplierName'] )
+        {{$data['supplierName']}}
+        @elseif( $data['supplierName'] == null )
+        - 
+        @endif
+      </td>
+      <td class="border p-2 text-center">
+      @if( $data['customerName'] )
+        {{$data['customerName']}}
+      @elseif( $data['customerName'] == null )
+      - 
+      @endif
+      </td>
+      <td class="border p-2 text-center">
+        @if( $data['stockQuantity'] )
         +{{$data['stockQuantity']}}
-        @elseif($data['status'] === 'OUT')
-        -{{$data['stockQuantity']}}
+        @elseif( $data['stockQuantity'] == null )
+        -
+        @endif
+      </td>
+      <td class="border p-2 text-center">
+        @if( $data['stockQuantityIssued'] )
+        -{{$data['stockQuantityIssued']}}
+        @elseif( $data['stockQuantityIssued'] ==null )
+        -
         @endif
       </td>
       <td class="border p-2 text-center">{{$data['stockBalance']}}</td>

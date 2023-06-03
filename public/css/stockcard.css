@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+}
+
+.status-in {
+    background-color: #48bb78;
+    color: #fff;
+}
+
+.status-out {
+    background-color: #f56565;
+    color: #fff;
+}
+@media print {
+    tr.bg-gray-700 th {
+        background-color: #718096 !important;
+        color: #fff !important;
+    }
+}

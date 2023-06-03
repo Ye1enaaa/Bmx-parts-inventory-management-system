@@ -117,7 +117,7 @@
       <div class="dashboard">
         <div class="box bg-gray-200 p-1 w-full">
           <button class="openbtn" onclick="openNav()">☰</button>
-          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboards</span>
         </div>
       </div>
           

@@ -5,12 +5,11 @@
 
 
 <div class="main-supplier-add">
+    <h1 class="flex text-3xl font-bold mb-10 text-black ml-6"><b>Add Supplier</b></h1>
 
-    <br>
     <form action="{{ route('supplier.add') }}" method="post" class="px-1 max-w-3xl mx-auto space-y-6">
     @csrf
     <div class="h-900px w-950px bg-[#e6e3e3] px-10 space-y-10 mx-auto p-11 rounded-md border border-black shadow-2xl">
-        <h1 class="justify-center flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
 
         <div class="flex space-x-10">
             <div class="w-1/2">

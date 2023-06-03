@@ -1,19 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('content-supplier-add')
-<link rel="stylesheet" href="{{ asset('css/supplier.css') }}">
-<div id="mySidebar" class="sidebar">
-    <!-- Sidebar content -->
-</div>
-<br>
+
+
 
 <div class="main-supplier-add">
+    <h1 class="flex text-3xl font-bold mb-10 text-black ml-6"><b>Add Supplier</b></h1>
 
-    <br>
     <form action="{{ route('supplier.add') }}" method="post" class="px-1 max-w-3xl mx-auto space-y-6">
     @csrf
     <div class="h-900px w-950px bg-[#e6e3e3] px-10 space-y-10 mx-auto p-11 rounded-md border border-black shadow-2xl">
-        <h1 class="justify-center flex text-4xl font-bold mb-10 text-black"><b>Add Supplier</b></h1>
 
         <div class="flex space-x-10">
             <div class="w-1/2">
@@ -45,9 +41,7 @@
         <div class="justify-center flex">
             <button type="submit"
                 class="btn btn-success col-md-3 text-white bg-green-700 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            <!-- <button type="button"
-                class="text-white ml-6 bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                onclick="hidePopupFormSupplier()">Cancel</button> -->
+            
         </div>
     </div>
 </form>

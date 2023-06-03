@@ -20,20 +20,26 @@
                 <div class="profile-container" style="padding: 1px; display: flex; align-items: center;">
                    <a class="flex items-center" id="profile-link">
                         <div class="w-10 h-10 rounded-full overflow-hidden">
-                            <img src="http://127.0.0.1:8000/storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
+                            @if(Auth::user()->image)
+                            <img src="{{ env('HOST_URL') }}./storage/{{Auth::user()->image}}" class="w-full h-full object-cover" alt="Profile">
+                            @elseif(Auth::user()->image == null)
+                            <img src="{{ asset('assets/pictures/userasuser.png')}}" alt="">
+                            @endif
                         </div>
                         <span class="ml-2 name" style="color: #FFFFFF;">Admin</span>&nbsp;
                     </a>
 
-
-                    <a class="hidden text-white sm:inline-block hover:text-gray-200" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <a class="hidden text-white sm:inline-block hover:text-gray-200" href="#" onclick="confirmLogout(event)">
                         <i class="fas fa-sign-out-alt mr-2"></i>
                     </a>
+
                 </div>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
+
+              
             </div>
 
 
@@ -67,7 +73,7 @@
 @section('total-quantity')
 <div class="total-quantity">
     <div class="title">
-        <p class="quantity-title"> Quantity</p>
+        <p class="quantity-title"> Stock on Hand</p>
     </div>
     <div class="data">
         <p>
@@ -208,7 +214,6 @@
                 </div>
 <script src="script.js" defer></script>
         
-
 
 @endsection
 

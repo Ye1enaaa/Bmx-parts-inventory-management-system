@@ -46,29 +46,17 @@ class UserController extends Controller
         $userFind = User::find($id);
         $userFind->name = $request->input('name');
         $userFind->password = Hash::make($request->input('password'));
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $path = $image->store('public/images'); // Store the image in a public/images directory, adjust the path as needed
+        $userFind->image = $path;
+    }
+
         $userFind->save();
 
         return redirect('/createuser');
     }
-
-
-
-    // public function editUser(Request $request){
-    //     $userId = $request->input('user_id');
-    //     $userFind = User::find($userId);
-    //     $userFind->name = $request->input('name');
-    //     $userFind->password = Hash::make($request->input('password'));
-    //     $userFind->save();
-
-    //     return redirect('/createuser');
-    // }
-
-
-
-
-
-
-
 
     //Check if active or not??
 

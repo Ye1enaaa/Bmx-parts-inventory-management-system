@@ -15,29 +15,29 @@ function closeNav() {
     document.querySelector(".main-content").classList.remove("open");
 }
 
-function showPurchase() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/purchase")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
+// function showPurchase() {
+//     var mainContent = document.querySelector(".main-content1");
+//     fetch("/purchase")
+//         .then((response) => response.text())
+//         .then((data) => {
+//             mainContent.innerHTML = data;
+//         })
+//         .catch((error) => {
+//             console.error("Error:", error);
+//         });
+// }
 
-function showSales() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/graphs")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-}
+// function showSales() {
+//     var mainContent = document.querySelector(".main-content1");
+//     fetch("/graphs")
+//         .then((response) => response.text())
+//         .then((data) => {
+//             mainContent.innerHTML = data;
+//         })
+//         .catch((error) => {
+//             console.error("Error:", error);
+//         });
+// }
 
 function showProducts() {
     var mainContent = document.querySelector(".main-content1");
@@ -51,28 +51,52 @@ function showProducts() {
         });
 }
 
+function showSupplierInformation() {
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/supplier-information")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
+function showAddSupplier() {
+    var mainContent = document.querySelector(".main-content1");
+    fetch("/add-supplier")
+        .then((response) => response.text())
+        .then((data) => {
+            mainContent.innerHTML = data;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}
+
 // SIDEBAR DROPDOWN
-const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
-const sidebar = document.getElementById("sidebar");
+// const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
+// const sidebar = document.getElementById("sidebar");
 
-allDropdown.forEach((item) => {
-    const a = item.parentElement.querySelector("a:first-child");
-    a.addEventListener("click", function (e) {
-        e.preventDefault();
+// allDropdown.forEach((item) => {
+//     const a = item.parentElement.querySelector("a:first-child");
+//     a.addEventListener("click", function (e) {
+//         e.preventDefault();
 
-        if (!this.classList.contains("active")) {
-            allDropdown.forEach((i) => {
-                const aLink = i.parentElement.querySelector("a:first-child");
+//         if (!this.classList.contains("active")) {
+//             allDropdown.forEach((i) => {
+//                 const aLink = i.parentElement.querySelector("a:first-child");
 
-                aLink.classList.remove("active");
-                i.classList.remove("show");
-            });
-        }
+//                 aLink.classList.remove("active");
+//                 i.classList.remove("show");
+//             });
+//         }
 
-        this.classList.toggle("active");
-        item.classList.toggle("show");
-    });
-});
+//         this.classList.toggle("active");
+//         item.classList.toggle("show");
+//     });
+// });
 
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector("nav .toggle-sidebar");
@@ -190,47 +214,6 @@ allProgress.forEach((item) => {
     item.style.setProperty("--value", item.dataset.value);
 });
 
-// APEXCHART
-// var options = {
-//     series: [
-//         {
-//             name: "series1",
-//             data: [31, 40, 28, 51, 42, 109, 100],
-//         },
-//         {
-//             name: "series2",
-//             data: [11, 32, 45, 32, 34, 52, 41],
-//         },
-//     ],
-//     chart: {
-//         height: 350,
-//         type: "area",
-//     },
-//     dataLabels: {
-//         enabled: false,
-//     },
-//     stroke: {
-//         curve: "smooth",
-//     },
-//     xaxis: {
-//         type: "datetime",
-//         categories: [
-//             "2018-09-19T00:00:00.000Z",
-//             "2018-09-19T01:30:00.000Z",
-//             "2018-09-19T02:30:00.000Z",
-//             "2018-09-19T03:30:00.000Z",
-//             "2018-09-19T04:30:00.000Z",
-//             "2018-09-19T05:30:00.000Z",
-//             "2018-09-19T06:30:00.000Z",
-//         ],
-//     },
-//     tooltip: {
-//         x: {
-//             format: "dd/MM/yy HH:mm",
-//         },
-//     },
-// };
-
 function showPopupForm() {
     document.getElementById("popup-form").classList.remove("hidden");
     var form = document.getElementById("popup-form");
@@ -263,25 +246,10 @@ function toggleDropdown() {
     dropdown.classList.toggle("hidden");
 }
 
-// function showPopupFormSupplier() {
-//     // Get the popup form element
-//     var popupForm = document.getElementById("popup-form");
+function confirmLogout(event) {
+    event.preventDefault();
 
-//     // Show the popup form by modifying its CSS
-//     popupForm.style.display = "block";
-// }
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     var dropdown = document.querySelector(".user-dropdown");
-//     var dropdownMenu = document.querySelector(".dropdown-menu");
-
-//     dropdown.addEventListener("click", function () {
-//         dropdown.classList.toggle("show");
-//     });
-
-//     document.addEventListener("click", function (event) {
-//         if (!dropdown.contains(event.target)) {
-//             dropdown.classList.remove("show");
-//         }
-//     });
-// });
+    if (confirm("Are you sure you want to logout?")) {
+        document.getElementById("logout-form").submit();
+    }
+}

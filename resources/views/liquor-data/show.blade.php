@@ -4,14 +4,16 @@
 
   <div class="main-liquor-data-show">
     <div class="flex items-center justify-between">
-      <h1 class="text-6xl font-bold mb-5 text-black">List of Products</h1>
+      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Products</h1>
     </div>
       
     <div class="mt-4">
       
-  <div class="flex justify-end">
-    <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-4 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md" onclick="showPopupForm()">Add Product</button>
+  <div class="flex justify-end px-4">
+    <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-6 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md" onclick="showPopupForm()">Add Product</button>
   </div>
+
+      <div class=" ml-72 py-2 px-6 text-black font-bold ">{{$totalstocks}} pcs.</div>
 
 
       <div class="overflow-auto rounded-lg shadow-2xl hidden md:block ">
@@ -19,46 +21,49 @@
 
           <div style="position: relative;">
 
-            <table class="table-auto w-full">
-              <thead class="text-white bg-gray-900 border-gray-900">
-                <tr class="text-center font-bold">
-                  <th class="px-4 py-2">Product Code</th>
-                  <th class="px-4 py-2">Description</th>
-                  <th class="px-4 py-2">Stock on Hand</th>
-                  <th class="px-4 py-2">Price</th>
-                  <th class="px-4 py-2">Title</th>
-                  <th class="px-4 py-2">Amount</th>
-                  <th class="px-4 py-2">QR Code</th>
-                  <th class="px-4 py-2">Supplier</th>
-                  <th class="px-4 py-2">Edit</th>
-                  <th class="px-4 py-2">Stock Card</th>
-                  
-                </tr>
-              </thead>
-              <tbody class="text-black text-center divide-y divide-blue-300">
-                @foreach($product as $product)
-                <tr class="hover:underline ">
-                  <td class="border px-6 py-4">{{$product->product_code}}</td>
-                  <td class="border px-6 py-4">{{$product->description}}</td>
-                  <td class="border px-6 py-4">{{$product->quantity}}</td>
-                  <td class="border px-6 py-4">{{$product->unit_price}}</td>
-                  <td class="border px-6 py-4">{{$product->name}}</td>
-                  <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
-                  <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
-                  <td class="border px-6 py-4">{{$product->supplier->name}}</td>
-                  <td class="border px-6 py-4">
-                      <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
-                  </td>
-                  <td class="border px-6 py-4"><a href="http://127.0.0.1:8000/stockcard/{{$product->id}}" target="_blank">Print</a></td>
-                  
-                </tr>
-                @endforeach
-              </tbody>
+            <div class="table-container px-4">
+            <table class="w-full border shadow">  
+                <thead class="text-white bg-gray-900 border-gray-900">
+                  <tr class="text-center font-bold">
+                    <th class="px-4 py-2">Product Code</th>
+                    <th class="px-4 py-2">Product Name</th>
+                    
+                    <th class="px-4 py-2">Stock on Hand</th>
+                    <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Amount</th>
+                    <th class="px-4 py-2">QR Code</th>
+                    <th class="px-4 py-2">Supplier</th>
+                    <th class="px-4 py-2">Edit</th>
+                    <th class="px-4 py-2">Stock Card</th>
+                    
+                  </tr>
+                </thead>
+                <tbody class="text-black text-center divide-y divide-blue-300">
+                  @foreach($product as $product)
+                  <tr class="hover:underline ">
+                    <td class="border px-6 py-4">{{$product->product_code}}</td>
+                    <td class="border px-6 py-4">{{$product->name}}</td>
+                    
+                    <td class="border px-6 py-4">{{$product->quantity}}</td>
+                    <td class="border px-6 py-4">{{$product->unit_price}}</td>
+                    <td class="border px-6 py-4">{{$product->description}}</td>
+                    <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
+                    <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
+                    <td class="border px-6 py-4">{{$product->supplier->name}}</td>
+                    <td class="border px-6 py-4">
+                        <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
+                    </td>
+                    <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
+                    
+                  </tr>
+                  @endforeach
+                </tbody>
             </table>   
-
+          
           </div>
 
-
+      </div>
 
 
         <div class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid black; padding: 10px; display: none; background-color: white; width: 50%; border-radius: 10px; box-shadow: 0 4px 6px -1px black; background-color: white;"
@@ -95,7 +100,7 @@
 
 
         
-      </div>
+      <!-- </div> -->
 
 
        <div id="popup-form" class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="box-shadow: 0 4px 6px -1px black; background-color: white;">

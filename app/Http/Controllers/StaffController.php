@@ -104,17 +104,17 @@ class StaffController extends Controller
     }
     //----------------------STOCK OUT---------------------\\
     public function stockOut(Request $request){
-        $stockquantity = $request->input('stockQuantity');
+        $stockquantity = $request->input('stockQuantityIssued');
         $stockname = $request->input('stockName');
-        $suppliername = $request->input('supplierName');
+        $customername = $request->input('customerName');
         $productid = $request->input('product_id');
 
-        $stockin = new StockCard;
-        $stockin -> status = "OUT";
-        $stockin -> stockName = $stockname;
-        $stockin -> supplierName = $suppliername;
-        $stockin -> stockQuantity = $stockquantity;
-        $stockin -> product_id = $productid;
+        $stockout = new StockCard;
+        $stockout -> status = "OUT";
+        $stockout -> stockName = $stockname;
+        $stockout -> customerName = $customername;
+        $stockout -> stockQuantityIssued = $stockquantity;
+        $stockout -> product_id = $productid;
         //$stockin->save();
 
         $product = Product::where('name',$stockname)->first();
@@ -129,11 +129,11 @@ class StaffController extends Controller
             ], 404);
         }
 
-        $stockin->stockBalance = $product->quantity;
-        $stockin->save();
+        $stockout->stockBalance = $product->quantity;
+        $stockout->save();
         $product->save();
         return response()->json([
-            'stockhistory' => $stockin 
+            'stockhistory' => $stockout 
         ]);
     }
 }

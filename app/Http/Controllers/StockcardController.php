@@ -14,10 +14,6 @@ class StockcardController extends Controller
         //$id = 1;
         $stockcard = Product::with('stockcard')->findOrFail($id);
         $stockName = $stockcard->name;
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         if(!is_null($stockcard)){
             $pdf = PDF::loadView('card.stockcard', compact('stockcard'));
             return $pdf->download($stockName.'.pdf');

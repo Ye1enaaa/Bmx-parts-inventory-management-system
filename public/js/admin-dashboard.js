@@ -253,3 +253,37 @@ function confirmLogout(event) {
         document.getElementById("logout-form").submit();
     }
 }
+
+//----------------------------------------EDITED BY ERICKSON---------------------------\\
+function showAlertWinStock(){
+    window.alert('Stock is below 5, see list!')
+}
+
+// const stocks = document.querySelectorAll('.main-liquor-data-show tbody tr');
+// stocks.forEach(stock => {
+//   const quantity = parseInt(stock.querySelector(`#checkValue${stock.dataset.productId}`).textContent);
+//   if (quantity < 5) {
+//     stock.classList.add('bg-red-500');
+//     showAlertWinStock();
+//   }
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all the table rows
+    const rows = document.querySelectorAll("tbody tr");
+
+    // Iterate over each row
+    rows.forEach(row => {
+      // Find the stock value cell within the row
+      const stockCell = row.querySelector("#checkValueData");
+      // Get the stock value
+      const stockValue = parseInt(stockCell.textContent);
+
+      // Check if the stock value is below 5 and show an alert
+      if (stockValue < 5) {
+        window.alert('Stock is below 5, see list!');
+      }
+    });
+  });
+
+console.log('Buang');

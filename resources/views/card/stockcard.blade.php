@@ -3,97 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+        <link rel="stylesheet" href="{{asset('css/stockcard.css')}}">
+
 
     <title>Stock Card</title>
+
+
 </head>
 
-<body class="bg-[#428fb6] p-4">
-<div class="font-serif mx-auto ">
-  <br><br>
-  <br>
-
-  <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-4xl font-bold mb-4 flex justify-center font-serif ">STOCK CARD</h1>
-
-    <br><br>
-
-<form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
-  <button type="submit" class="ml-14 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
-    Convert to PDF
-  </button>
-</form>
-
-
+<body>
+    <div class="container">
+        <form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
+            @unless(isset($noPrintButton))
+            <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
+                Convert to PDF
+            </button>
+            @endunless
+        </form>
         <br>
+        
+        <div class="bg-gray-100 rounded-lg shadow-md p-8">
+            <div class="flex justify-end">
+                <div class="-my-4 logo print-logo" style="width: 1in; height: 1in; margin-right: 0.625in;">
+                    <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/pictures/bmx.png'))) }}" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
 
-    <h3 class="ml-14 text-lg font-bold mb-2">Product Name: <span class="ml-14">{{$stockcard->name}}</span></h3>
-    <h3 class="ml-14 text-lg font-bold mb-2">Product Code: <span class="ml-14">{{$stockcard->product_code}}</span></h3>
-    <h3 class="ml-14 text-lg font-bold mb-2">Unit Price:   <span class="ml-24">₱ {{$stockcard->unit_price}}.00</span></h3>
-    <h3 class="ml-14 text-lg font-bold mb-2">Stock on Hand: <span class="ml-14">{{$stockcard->quantity}} pcs.</span></h3>
-    
-    
-<table class="w-full mt-4 border border-black">
-  <thead>
-    <tr>
-      <th class="border p-2 text-center">Date</th>
-      <th class="border p-2 text-center">Status</th>
-      <th class="border p-2 text-center">Received from:</th>
-      <th class="border p-2 text-center">Issued to:</th>
-      <th class="border p-2 text-center">No. Received:</th>
-      <th class="border p-2 text-center">No. Issued:</th>
-      <th class="border p-2 text-center">Balance</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($stockcard['stockcard'] as $data)
-    <tr>
-      <td class="border p-2 text-center">{{$data['created_at']}}</td>
-      <td class="border p-2 text-center {{ $data['status'] === 'IN' ? 'bg-green-500' : ($data['status'] === 'OUT' ? 'bg-red-500' : '') }}">
-        {{ $data['status'] }}
-      </td>
-      <td class="border p-2 text-center">
-        @if( $data['supplierName'] )
-        {{$data['supplierName']}}
-        @elseif( $data['supplierName'] == null )
-        - 
-        @endif
-      </td>
-      <td class="border p-2 text-center">
-      @if( $data['customerName'] )
-        {{$data['customerName']}}
-      @elseif( $data['customerName'] == null )
-      - 
-      @endif
-      </td>
-      <td class="border p-2 text-center">
-        @if( $data['stockQuantity'] )
-        +{{$data['stockQuantity']}}
-        @elseif( $data['stockQuantity'] == null )
-        -
-        @endif
-      </td>
-      <td class="border p-2 text-center">
-        @if( $data['stockQuantityIssued'] )
-        -{{$data['stockQuantityIssued']}}
-        @elseif( $data['stockQuantityIssued'] ==null )
-        -
-        @endif
-      </td>
-      <td class="border p-2 text-center">{{$data['stockBalance']}}</td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+            <div class="title">STOCK CARD</div>
+            <br>
+            
+
+           <div class="flex">
+                <div class="flex-grow">
+                    <h3 class="text-lg font-bold mb-2">Product Name: <span>{{$stockcard->name}}</span></h3>
+                    <h3 class="text-lg font-bold mb-2">Product Code: <span>{{$stockcard->product_code}}</span></h3>
+                </div>
+                <div class="flex items-end justify-end">
+                    <div>
+                      <h3 class="text-lg font-bold mb-2">Unit Price: <span>₱ {{$stockcard->unit_price}}.00</span></h3>
+                      <h3 class="text-lg font-bold mb-2">Stock on Hand: <span>{{$stockcard->quantity}} pcs.</span></h3>
+                    </div>
+                </div>
+            </div>
 
 
 
-  </div>
-</div>
+            <table>
+                <thead>
+                    <tr style="background-color: #718096; color: #fff;">
 
-
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Received from:</th>
+                        <th>Issued to:</th>
+                        <th>No. Received:</th>
+                        <th>No. Issued:</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($stockcard['stockcard'] as $data)
+                    <tr>
+                        <td>{{$data['created_at']->format('Y-m-d')}}</td>
+                        <td class="{{ $data['status'] === 'IN' ? 'status-in' : ($data['status'] === 'OUT' ? 'status-out' : '') }}">
+                            {{ $data['status'] }}
+                        </td>
+                        <td>
+                            @if($data['supplierName'])
+                            {{$data['supplierName']}}
+                            @else
+                            -
+                            @endif
+                        </td>
+                        <td>
+                            @if($data['customerName'])
+                            {{$data['customerName']}}
+                            @else
+                            -
+                            @endif
+                        </td>
+                        <td>
+                            @if($data['stockQuantity'])
+                            +{{$data['stockQuantity']}}
+                            @else
+                            -
+                            @endif
+                        </td>
+                        <td>
+                            @if($data['stockQuantityIssued'])
+                            -{{$data['stockQuantityIssued']}}
+                            @else
+                            -
+                            @endif
+                        </td>
+                        <td>₱ {{$data['stockBalance']}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

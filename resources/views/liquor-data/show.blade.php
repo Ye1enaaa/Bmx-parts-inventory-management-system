@@ -45,7 +45,7 @@
                     <td class="border px-6 py-4">{{$product->product_code}}</td>
                     <td class="border px-6 py-4">{{$product->name}}</td>
                     
-                    <td id="checkValueData" class="border px-6 py-4 {{$product->quantity < 5 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
+                    <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                     <td class="border px-6 py-4">{{$product->unit_price}}</td>
                     <td class="border px-6 py-4">{{$product->description}}</td>
                     <td class="border px-6 py-4">{{$product->inventory_value}}</td>     

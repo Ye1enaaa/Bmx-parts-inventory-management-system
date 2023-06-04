@@ -58,8 +58,9 @@ td {
         background-color: #718096 !important;
         color: #fff !important;
     }
-}
 
+
+}
 
 
 </style>
@@ -68,14 +69,18 @@ td {
 
 <body>
     <div class="container">
+         
 
-        <form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
-            @unless(isset($noPrintButton))
-            <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
-                Convert to PDF
-            </button>
-            @endunless
-        </form>
+            <form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
+                @unless(isset($noPrintButton))
+                <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
+                    Convert to PDF
+                </button>
+                @endunless
+
+            </form> 
+           
+
         <br>
 
         <div class="bg-gray-100 rounded-lg shadow-2xl p-8">

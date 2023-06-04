@@ -73,7 +73,7 @@
 @section('total-quantity')
 <div class="total-quantity">
     <div class="title">
-        <p class="quantity-title"> Quantity</p>
+        <p class="quantity-title"> Stock on Hand</p>
     </div>
     <div class="data">
         <p>

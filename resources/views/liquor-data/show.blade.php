@@ -2,9 +2,11 @@
 
 @section('content-liquor-data-show')
 
+
+
   <div class="main-liquor-data-show">
     <div class="flex items-center justify-between">
-      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Products</h1>
+      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Inventory</h1>
     </div>
       
     <div class="mt-4">
@@ -20,48 +22,66 @@
           <div style="position: relative;">
 
             <div class="table-container px-4">
-            <table class="w-full border shadow">  
-                <thead class="text-white bg-gray-900 border-gray-900">
-                  <tr class="text-center font-bold">
-                    <th class="px-4 py-2">Product Code</th>
-                    <th class="px-4 py-2">Description</th>
-                    <th class="px-4 py-2">Stock on Hand</th>
-                    <th class="px-4 py-2">Price</th>
-                    <th class="px-4 py-2">Title</th>
-                    <th class="px-4 py-2">Amount</th>
-                    <th class="px-4 py-2">QR Code</th>
-                    <th class="px-4 py-2">Supplier</th>
-                    <th class="px-4 py-2">Edit</th>
-                    <th class="px-4 py-2">Stock Card</th>
-                    
-                  </tr>
-                </thead>
-                <tbody class="text-black text-center divide-y divide-blue-300">
-                  @foreach($product as $product)
-                  <tr class="hover:underline ">
-                    <td class="border px-6 py-4">{{$product->product_code}}</td>
-                    <td class="border px-6 py-4">{{$product->description}}</td>
-                    <td class="border px-6 py-4">{{$product->quantity}}</td>
-                    <td class="border px-6 py-4">{{$product->unit_price}}</td>
-                    <td class="border px-6 py-4">{{$product->name}}</td>
-                    <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
-                    <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
-                    <td class="border px-6 py-4">{{$product->supplier->name}}</td>
-                    <td class="border px-6 py-4">
-                        <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
-                    </td>
-                    <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
-                    
-                  </tr>
-                  @endforeach
-                </tbody>
-            </table>   
+              <table class="w-full border shadow">  
+                  <thead class="text-white bg-gray-900 border-gray-900">
+                    <tr class="text-center font-bold">
+                      <th class="px-4 py-2">Product Code</th>
+                      <th class="px-4 py-2">Product Name</th>
+                      
+                      <th class="px-4 py-2">Stock on Hand</th>
+                      <th class="px-4 py-2">Price</th>
+                      <th class="px-4 py-2">Description</th>
+                      <th class="px-4 py-2">Amount</th>
+                      <th class="px-4 py-2">QR Code</th>
+                      <th class="px-4 py-2">Supplier</th>
+                      <th class="px-4 py-2">Edit</th>
+                      <th class="px-4 py-2">Stock Card</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody class="text-black text-center divide-y divide-blue-300">
+                    @foreach($product as $product)
+                    <tr class="hover:underline ">
+                      <td class="border px-6 py-4">{{$product->product_code}}</td>
+                      <td class="border px-6 py-4">{{$product->name}}</td>
+                      
+                      <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
+                      <td class="border px-6 py-4">{{$product->unit_price}}</td>
+                      <td class="border px-6 py-4">{{$product->description}}</td>
+                      <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
+                      <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
+                      <td class="border px-6 py-4">{{$product->supplier->name}}</td>
+                      <td class="border px-6 py-4">
+                          <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
+                      </td>
+                      <!-- <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td> -->
+                      <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
 
+                    </tr>
+                    @endforeach
+                  </tbody>
+              </table>   
+            </div>
           </div>
 
+            <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
+              <div class="box bg-green-400 p-1 ">
+              
+            <div class="flex items-center justify-end">
+            <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
+              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-blue-500 hover:bg-blue-400">Convert to print</button>
+            </div>
+
+
+  </div>
+</div>
+
+
+          
+          
+
+
       </div>
-
-
 
 
         <div class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid black; padding: 10px; display: none; background-color: white; width: 50%; border-radius: 10px; box-shadow: 0 4px 6px -1px black; background-color: white;"

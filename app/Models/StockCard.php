@@ -13,7 +13,9 @@ class StockCard extends Model
         'status',
         'stockName',
         'supplierName',
+        'customerName',
         'stockQuantity',
+        'stockQuantityIssued',
         'stockBalance',
         'product_id'
     ];

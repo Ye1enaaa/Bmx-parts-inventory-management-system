@@ -252,6 +252,8 @@
 
               <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: gray;">
                 <div class="card-body">
+                  <!-- <form method="POST" action="{{ route('create.user') }}"> -->
+
                   <form action="{{route('create.user')}}" method="post" enctype='multipart/form-data'>
                     @csrf
 

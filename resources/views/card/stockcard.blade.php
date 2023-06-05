@@ -11,7 +11,22 @@
 
 
     <title>Stock Card</title>
+    <script>
+        function filterStockCardByMonth(month) {
+            var rows = document.querySelectorAll('tbody tr');
 
+            rows.forEach(function(row) {
+                var date = row.querySelector('td:first-child').innerText;
+                var rowMonth = new Date(date).getMonth() + 1;
+
+                if (month === "" || rowMonth == month) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 <style>
     body {
@@ -107,7 +122,24 @@ td {
                     </div>
                 </div>
             </div>
-    
+            <div>
+                <label for="monthFilter">Filter by Month:</label>
+                    <select id="monthFilter" onchange="filterStockCardByMonth(this.value)">
+                    <option value="">All Months</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
     
             <table class="w-full mt-4 border border-black">
             <thead>

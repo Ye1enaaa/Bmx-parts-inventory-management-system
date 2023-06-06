@@ -378,3 +378,7 @@ tbody tr:nth-child(even) {
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
+
+.custom-margin {
+    margin-right: 150px;
+}

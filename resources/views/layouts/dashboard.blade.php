@@ -13,6 +13,19 @@
 
 
   <title>Dashboard</title>
+
+  <head>
+  <style>
+      .custom-margin {
+    margin-right: 150px;
+}
+
+
+
+  </style>
+
+</head>
+
 </head>
 
 <body>

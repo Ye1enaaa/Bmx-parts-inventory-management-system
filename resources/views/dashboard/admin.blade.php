@@ -63,21 +63,21 @@
 
         <br><br>
 
-        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center">
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer">
           <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
           <span class="text-xl font-medium">Dashboard</span>
         </a>
 
 
-        <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showProducts()">
+        <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showProducts()">
           <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
-          <span class="text-xl font-medium">Products</span>
+          <span class="text-xl font-medium">Inventory</span>
         </a>
 
 
       <div x-data="{ open: false }" class="relative">
         
-      <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full">
+      <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full cursor-pointer">
         <button @click="open = !open" >
           <i class="icon"><ion-icon name="person"></ion-icon></i>
           <span class="text-xl font-medium">Supplier</span>
@@ -117,7 +117,7 @@
       <div class="dashboard">
         <div class="box bg-gray-200 p-1 w-full">
           <button class="openbtn" onclick="openNav()">☰</button>
-          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboards</span>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
         </div>
       </div>
           

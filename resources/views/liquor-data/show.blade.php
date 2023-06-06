@@ -2,9 +2,11 @@
 
 @section('content-liquor-data-show')
 
+
+
   <div class="main-liquor-data-show">
     <div class="flex items-center justify-between">
-      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Products</h1>
+      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Inventory</h1>
     </div>
       
     <div class="mt-4">
@@ -13,8 +15,6 @@
     <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-6 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md" onclick="showPopupForm()">Add Product</button>
   </div>
 
-      <div class=" ml-72 py-2 px-6 text-black font-bold ">{{$totalstocks}} pcs.</div>
-
 
       <div class="overflow-auto rounded-lg shadow-2xl hidden md:block ">
         <div class="mt-4">
@@ -22,46 +22,64 @@
           <div style="position: relative;">
 
             <div class="table-container px-4">
-            <table class="w-full border shadow">  
-                <thead class="text-white bg-gray-900 border-gray-900">
-                  <tr class="text-center font-bold">
-                    <th class="px-4 py-2">Product Code</th>
-                    <th class="px-4 py-2">Product Name</th>
-                    
-                    <th class="px-4 py-2">Stock on Hand</th>
-                    <th class="px-4 py-2">Price</th>
-                    <th class="px-4 py-2">Description</th>
-                    <th class="px-4 py-2">Amount</th>
-                    <th class="px-4 py-2">QR Code</th>
-                    <th class="px-4 py-2">Supplier</th>
-                    <th class="px-4 py-2">Edit</th>
-                    <th class="px-4 py-2">Stock Card</th>
-                    
-                  </tr>
-                </thead>
-                <tbody class="text-black text-center divide-y divide-blue-300">
-                  @foreach($product as $product)
-                  <tr class="hover:underline ">
-                    <td class="border px-6 py-4">{{$product->product_code}}</td>
-                    <td class="border px-6 py-4">{{$product->name}}</td>
-                    
-                    <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
-                    <td class="border px-6 py-4">{{$product->unit_price}}</td>
-                    <td class="border px-6 py-4">{{$product->description}}</td>
-                    <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
-                    <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
-                    <td class="border px-6 py-4">{{$product->supplier->name}}</td>
-                    <td class="border px-6 py-4">
-                        <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
-                    </td>
-                    <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
-                    
-                  </tr>
-                  @endforeach
-                </tbody>
-            </table>   
-          
+              <table class="w-full border shadow">  
+                  <thead class="text-white bg-gray-900 border-gray-900">
+                    <tr class="text-center font-bold">
+                      <th class="px-4 py-2">Product Code</th>
+                      <th class="px-4 py-2">Product Name</th>
+                      
+                      <th class="px-4 py-2">Stock on Hand</th>
+                      <th class="px-4 py-2">Price</th>
+                      <th class="px-4 py-2">Description</th>
+                      <th class="px-4 py-2">Amount</th>
+                      <th class="px-4 py-2">QR Code</th>
+                      <th class="px-4 py-2">Supplier</th>
+                      <th class="px-4 py-2">Edit</th>
+                      <th class="px-4 py-2">Stock Card</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody class="text-black text-center divide-y divide-blue-300">
+                    @foreach($product as $product)
+                    <tr class="hover:underline ">
+                      <td class="border px-6 py-4">{{$product->product_code}}</td>
+                      <td class="border px-6 py-4">{{$product->name}}</td>
+                      
+                      <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
+                      <td class="border px-6 py-4">{{$product->unit_price}}</td>
+                      <td class="border px-6 py-4">{{$product->description}}</td>
+                      <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
+                      <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
+                      <td class="border px-6 py-4">{{$product->supplier->name}}</td>
+                      <td class="border px-6 py-4">
+                          <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
+                      </td>
+                      <!-- <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td> -->
+                      <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
+
+                    </tr>
+                    @endforeach
+                  </tbody>
+              </table>   
+            </div>
           </div>
+
+          <!-- diri ga edit karon -->
+            <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
+              <div class="box bg-green-400 p-1 ">
+              
+            <div class="flex items-center justify-end">
+
+              <h2 class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total Stock: {{$totalstocks}}</h2>
+<button class="btn btn-primary rounded-lg text-xl mr-10 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="loadUnderStocks()">Under Stock</button>
+
+              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="printPage()">Convert to print</button>
+            </div>
+
+
+  </div>
+</div>
+
 
       </div>
 
@@ -177,7 +195,38 @@
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
+<script>
+  function printPage() {
+    // Call the window.print() method to open the print dialog
+    window.print();
+  }
+</script>
 
+<script>
+  function redirectToUnderStocks() {
+    // Redirect to the desired page
+    window.location.href = "/index/understocks";
+  }
+</script>
+
+<script>
+  function loadUnderStocks() {
+    // Make an AJAX request to fetch the content of the understocks page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the body of the current page with the fetched content
+            var response = xhr.responseText;
+            document.body.innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index/understocks", true);
+    xhr.send();
+}
+</script>
 
 @endsection
 

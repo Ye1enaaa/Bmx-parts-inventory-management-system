@@ -75,29 +75,6 @@ function showAddSupplier() {
         });
 }
 
-// SIDEBAR DROPDOWN
-// const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
-// const sidebar = document.getElementById("sidebar");
-
-// allDropdown.forEach((item) => {
-//     const a = item.parentElement.querySelector("a:first-child");
-//     a.addEventListener("click", function (e) {
-//         e.preventDefault();
-
-//         if (!this.classList.contains("active")) {
-//             allDropdown.forEach((i) => {
-//                 const aLink = i.parentElement.querySelector("a:first-child");
-
-//                 aLink.classList.remove("active");
-//                 i.classList.remove("show");
-//             });
-//         }
-
-//         this.classList.toggle("active");
-//         item.classList.toggle("show");
-//     });
-// });
-
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector("nav .toggle-sidebar");
 const allSideDivider = document.querySelectorAll("#sidebar .divider");
@@ -255,8 +232,8 @@ function confirmLogout(event) {
 }
 
 //----------------------------------------EDITED BY ERICKSON---------------------------\\
-function showAlertWinStock(){
-    window.alert('Stock is below 5, see list!')
+function showAlertWinStock() {
+    window.alert("Stock is below 10, see list!");
 }
 
 // const stocks = document.querySelectorAll('.main-liquor-data-show tbody tr');
@@ -268,22 +245,22 @@ function showAlertWinStock(){
 //   }
 // });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Get all the table rows
     const rows = document.querySelectorAll("tbody tr");
 
     // Iterate over each row
-    rows.forEach(row => {
-      // Find the stock value cell within the row
-      const stockCell = row.querySelector("#checkValueData");
-      // Get the stock value
-      const stockValue = parseInt(stockCell.textContent);
+    rows.forEach((row) => {
+        // Find the stock value cell within the row
+        const stockCell = row.querySelector("#checkValueData");
+        // Get the stock value
+        const stockValue = parseInt(stockCell.textContent);
 
-      // Check if the stock value is below 5 and show an alert
-      if (stockValue < 5) {
-        window.alert('Stock is below 5, see list!');
-      }
+        // Check if the stock value is below 5 and show an alert
+        if (stockValue < 5) {
+            window.alert("Stock is below 10, see list!");
+        }
     });
-  });
+});
 
-console.log('Buang');
+console.log("Buang");

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\StockCardController;
+use App\Http\Controllers\UnderStockController;
 
 
 /*
@@ -36,7 +37,8 @@ Route::get('/stockcard/{id}' , [ProductController::class, 'returnStockCard']);
 Route::get('/dashboard/admin', [ProductController::class, 'showAdminDashboard'])->middleware('admin');
 Route::get('/dashboard/create', [ProductController::class, 'showCreateViewInDashboard'])->middleware('admin');
 
-
+//UnderStock
+Route::get('/index/understocks',[UnderStockController::class,'returnUnderStocks']);
 
 //post methods for Liquor Adding forms
 Route::post('/post' , [ProductController::class, 'storeData'])->name('post');

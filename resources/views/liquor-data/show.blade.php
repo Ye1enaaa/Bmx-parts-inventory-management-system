@@ -64,12 +64,16 @@
             </div>
           </div>
 
+          <!-- diri ga edit karon -->
             <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
               <div class="box bg-green-400 p-1 ">
               
             <div class="flex items-center justify-end">
-            <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
-              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-blue-500 hover:bg-blue-400">Convert to print</button>
+
+              <h2 class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total Stock: {{$totalstocks}}</h2>
+<button class="btn btn-primary rounded-lg text-xl mr-10 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="loadUnderStocks()">Under Stock</button>
+
+              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="printPage()">Convert to print</button>
             </div>
 
 
@@ -191,7 +195,38 @@
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
+<script>
+  function printPage() {
+    // Call the window.print() method to open the print dialog
+    window.print();
+  }
+</script>
 
+<script>
+  function redirectToUnderStocks() {
+    // Redirect to the desired page
+    window.location.href = "/index/understocks";
+  }
+</script>
+
+<script>
+  function loadUnderStocks() {
+    // Make an AJAX request to fetch the content of the understocks page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the body of the current page with the fetched content
+            var response = xhr.responseText;
+            document.body.innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index/understocks", true);
+    xhr.send();
+}
+</script>
 
 @endsection
 

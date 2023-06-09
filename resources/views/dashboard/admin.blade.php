@@ -147,6 +147,22 @@
     </script>
   @endif
  
+  <script>
+    fetch('{{ env('HOST_URL')}}./api/understocklvl')
+    .then(response => response.json())
+    .then(data => {
+      if (data.understock && data.understock.length > 0) {
+        var confirmation = window.confirm('Alert!! Low Stock Level, Please supply immediately!!');
+        if (confirmation) {
+          window.open('/index/understocks', '_blank');
+          //window.location.href = '/index/understocks';
+        } else {
+          
+        }
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  </script>
 
 
 </body>

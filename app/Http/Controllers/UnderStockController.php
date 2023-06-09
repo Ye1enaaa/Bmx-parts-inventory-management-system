@@ -11,4 +11,11 @@ class UnderStockController extends Controller
         $stocks = Product::where('quantity', '<', 10)->get();
         return view('understock.understock', compact('stocks'));
     }
+
+    public function returnUnderStocksAPI(){
+        $stocks = Product::where('quantity', '<', 10)->get();
+        return response()->json([
+            'understock' => $stocks
+        ]);
+    }
 }

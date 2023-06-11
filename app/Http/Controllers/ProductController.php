@@ -8,6 +8,8 @@ use App\Models\Overstocks;
 use App\Models\Supplie;
 use App\Models\StockCard;
 use Illuminate\Support\Facades\DB;
+use PDF;
+
 
 class ProductController extends Controller
 {
@@ -113,6 +115,26 @@ class ProductController extends Controller
         return response([
             'stocks' => $stocks
         ]);
+    }
+
+
+//gitandog ni jopin
+
+    public function showPrintView()
+    {
+        $totalstocks = Product::all()->sum('quantity');
+        $products = Product::with('supplier')->get();
+        $suppliers = DB::table('supplies')->get();
+
+        if (!$products) {
+            return response([
+                'error' => 'notFound'
+            ]);
+        }
+
+        $pdf = PDF::loadView('liquor-data.show', compact('products', 'suppliers', 'totalstocks'));
+
+        return $pdf->stream('inventory.pdf');
     }
 
 

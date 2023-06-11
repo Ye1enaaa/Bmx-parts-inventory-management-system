@@ -27,7 +27,6 @@
                     <tr class="text-center font-bold">
                       <th class="px-4 py-2">Product Code</th>
                       <th class="px-4 py-2">Product Name</th>
-                      
                       <th class="px-4 py-2">Stock on Hand</th>
                       <th class="px-4 py-2">Price</th>
                       <!-- <th class="px-4 py-2">Description</th> -->
@@ -54,8 +53,8 @@
                       <td class="border px-6 py-4">
                           <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                       </td>
-                      <!-- <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td> -->
-                      <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
+                      <td class="border px-6 py-4">
+                        <a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}">Show</a></td>
 
                     </tr>
                     @endforeach
@@ -64,22 +63,25 @@
             </div>
           </div>
 
-          <!-- diri ga edit karon -->
             <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
               <div class="box bg-green-400 p-1 ">
               
-            <div class="flex items-center justify-end">
+              <div class="flex items-center justify-end">
+              <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
 
-              <h2 class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total Stock: {{$totalstocks}}</h2>
-<button class="btn btn-primary rounded-lg text-xl mr-10 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="loadUnderStocks()">Under Stock</button>
+              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center px-6 text-white text-xl font-bold bg-blue-500 hover:bg-blue-400" download>
+  <span class="text-sm">Download Inventory</span>
+</a>
 
-              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-black hover:bg-blue-400" onclick="printPage()">Convert to print</button>
+
             </div>
-
 
   </div>
 </div>
 
+   
+          
+        
 
       </div>
 
@@ -93,18 +95,18 @@
 
                   <div class="bg-white">
                       <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Edit Products</b></h1>
-                      <label for="name">Title:</label>
+                      <label for="name">Product Name:</label>
                       <input type="text" name="name" value="{{ $product->name }}" required><br>
                       <label for="unit_price">Price:</label>
                       <input type="number" name="unit_price" value="{{ $product->unit_price }}" required><br>
                       <label for="quantity">Quantity:</label>
                       <input type="number" name="quantity" value="{{ $product->quantity }}" required><br>
-                      <label for="description">Description:</label>
-                      <textarea name="description" required>{{ $product->description }}</textarea><br>
+                      <!-- <label for="description">Description:</label>
+                      <textarea name="description" required>{{ $product->description }}</textarea><br> -->
 
                       <div class="flex justify-center items-center">
-                        <button type="submit" style="background-color: blue; color: white; padding: 10px 20px; margin-right: 20px; border: none; border-radius: 5px;">Update</button>
-                        <button type="button" onclick="hideEditForm()" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Cancel</button>
+                        <button type="submit" style="background-color: black; color: white; padding: 10px 20px; margin-right: 20px; border: none; border-radius: 5px;">Update</button>
+                        <button type="button" onclick="hideEditForm()" style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Cancel</button>
 
                       </div>
                       
@@ -161,13 +163,14 @@
                       <label for="Quantity" class="block w-20 mr-2 font-bold dark:text-white">Quantity:</label>
                     </div>
                     <input 
-                      placeholder="1"
+                      placeholder="minimum of 20"
                       class="border border-black block py-2 px-4 w-full rounded-l-none rounded-r focus:outline-none focus:border-blue-500" 
                       type="number" 
                       min="0"
                       name="quantity" required>
                   </div>
                 </div>
+                <br><br>
 
 
                 <!-- <div class="w-full mb-4">
@@ -180,10 +183,11 @@
                 </div> -->
               
 
-              <div class="flex justify-center">
-                <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>
-                <button type="button" class="text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupForm()">Cancel</button>
-              </div>
+             <div class="flex justify-center space-x-4">
+              <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>
+              <button type="button" class="text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupForm()">Cancel</button>
+            </div>
+
 
             
             </form>
@@ -194,39 +198,19 @@
   </div>
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
-
 <script>
-  function printPage() {
-    // Call the window.print() method to open the print dialog
-    window.print();
-  }
-</script>
+    document.getElementById('download-inventory-btn').addEventListener('click', function() {
+      // Code to be executed when the button is clicked
+      // Add your download logic here
+      
+      // Example: Triggering a file download
+      var downloadLink = document.createElement('a');
+      downloadLink.href = 'path/to/inventory.csv'; // Replace with the actual file path
+      downloadLink.download = 'inventory.csv'; // Replace with the desired file name
+      downloadLink.click();
+    });
+  </script>
 
-<script>
-  function redirectToUnderStocks() {
-    // Redirect to the desired page
-    window.location.href = "/index/understocks";
-  }
-</script>
-
-<script>
-  function loadUnderStocks() {
-    // Make an AJAX request to fetch the content of the understocks page
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Update the body of the current page with the fetched content
-            var response = xhr.responseText;
-            document.body.innerHTML = response;
-
-            // Scroll to the top of the page
-            window.scrollTo(0, 0);
-        }
-    };
-    xhr.open("GET", "/index/understocks", true);
-    xhr.send();
-}
-</script>
 
 @endsection
 

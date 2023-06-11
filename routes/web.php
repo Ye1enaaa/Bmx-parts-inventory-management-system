@@ -120,3 +120,7 @@ Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edi
 
 // Define the route for generating and downloading the PDF
 Route::get('/convert-to-pdf/{id}', [StockCardController::class, 'convertToPDF'])->name('convertToPDF');
+
+
+//gitandog ni jopin
+Route::get('/inventory/print', 'ProductController@showPrintView')->name('inventory.print');

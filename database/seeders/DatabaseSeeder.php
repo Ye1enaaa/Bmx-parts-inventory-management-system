@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Product::factory()->create([
              'name' => 'Test Product',
              'supplier_id' => '1',
-             'description' => 'ambot',
+             //'description' => 'ambot',
              'product_code' => '1234567892',
              'unit_price' => '2',
              'quantity' => '5',

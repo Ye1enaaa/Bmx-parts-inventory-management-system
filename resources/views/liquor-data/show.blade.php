@@ -30,7 +30,7 @@
                       
                       <th class="px-4 py-2">Stock on Hand</th>
                       <th class="px-4 py-2">Price</th>
-                      <th class="px-4 py-2">Description</th>
+                      <!-- <th class="px-4 py-2">Description</th> -->
                       <th class="px-4 py-2">Amount</th>
                       <th class="px-4 py-2">QR Code</th>
                       <th class="px-4 py-2">Supplier</th>
@@ -47,7 +47,7 @@
                       
                       <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                       <td class="border px-6 py-4">{{$product->unit_price}}</td>
-                      <td class="border px-6 py-4">{{$product->description}}</td>
+                      <!-- <td class="border px-6 py-4">{{$product->description}}</td> -->
                       <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
                       <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                       <td class="border px-6 py-4">{{$product->supplier->name}}</td>
@@ -170,14 +170,14 @@
                 </div>
 
 
-                <div class="w-full mb-4">
+                <!-- <div class="w-full mb-4">
                   <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
                   <textarea 
                     name="description" 
                     class="form-control mb-3 bg-gray-50 border  text-black text-sm rounded-lg focus:border-blue-500 block py-3 px-20" 
                     cols="70" rows="7" required>
                   </textarea>
-                </div>
+                </div> -->
               
 
               <div class="flex justify-center">

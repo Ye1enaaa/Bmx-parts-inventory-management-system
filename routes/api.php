@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UnderStockController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -64,3 +65,4 @@ Route::get('/qrcode/{product_code}' , [StaffController::class, 'readQrCode']);
 
 //-------------------------EXPERIMENTATION API-------------------------\\
 Route::get('/stockcard/{id}' , [ProductController::class,'fetchStocksWithCard']);
+Route::get('/understocklvl' , [UnderStockController::class,'returnUnderStocksAPI']);

@@ -117,7 +117,7 @@
       <div class="dashboard">
         <div class="box bg-gray-200 p-1 w-full">
           <button class="openbtn" onclick="openNav()">☰</button>
-          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Inventory System</span>
         </div>
       </div>
           
@@ -147,6 +147,22 @@
     </script>
   @endif
  
+  <script>
+    fetch('{{ env('HOST_URL')}}./api/understocklvl')
+    .then(response => response.json())
+    .then(data => {
+      if (data.understock && data.understock.length > 0) {
+        var confirmation = window.confirm('Alert!! Low Stock Level, Please supply immediately!!');
+        if (confirmation) {
+          window.open('/index/understocks', '_blank');
+          //window.location.href = '/index/understocks';
+        } else {
+          
+        }
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  </script>
 
 
 </body>

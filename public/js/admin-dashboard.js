@@ -75,29 +75,6 @@ function showAddSupplier() {
         });
 }
 
-// SIDEBAR DROPDOWN
-// const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
-// const sidebar = document.getElementById("sidebar");
-
-// allDropdown.forEach((item) => {
-//     const a = item.parentElement.querySelector("a:first-child");
-//     a.addEventListener("click", function (e) {
-//         e.preventDefault();
-
-//         if (!this.classList.contains("active")) {
-//             allDropdown.forEach((i) => {
-//                 const aLink = i.parentElement.querySelector("a:first-child");
-
-//                 aLink.classList.remove("active");
-//                 i.classList.remove("show");
-//             });
-//         }
-
-//         this.classList.toggle("active");
-//         item.classList.toggle("show");
-//     });
-// });
-
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector("nav .toggle-sidebar");
 const allSideDivider = document.querySelectorAll("#sidebar .divider");
@@ -284,6 +261,28 @@ document.addEventListener("DOMContentLoaded", function () {
             window.alert("Stock is below 10, see list!");
         }
     });
+    console.log("Hello");
 });
 
-console.log("Buang");
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockValue = document.getElementById("checkValueData").innerText;
+//     if (parseInt(stockValue) <= 10) {
+//       var notificationDiv = document.getElementById("stock-notification");
+//       notificationDiv.classList.remove("hidden");
+//       notificationDiv.classList.add("visible");
+//     }
+// });
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockCells = document.querySelectorAll("#checkValueData");
+//     console.log(stockCells);
+//     stockCells.forEach(function(cell) {
+//       var stockValue = parseInt(cell.innerText);
+//       if (stockValue <= 10) {
+//         var notificationDiv = document.getElementById("stock-notification");
+//         notificationDiv.classList.remove("hidden");
+//         notificationDiv.classList.add("visible");
+//         // You may also consider updating the notification message dynamically based on the product details
+//       }
+//     });
+// });

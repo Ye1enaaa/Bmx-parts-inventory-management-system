@@ -33,8 +33,8 @@
                     <td class="supplier-name text-center py-3">
                         <span>{{ $supplier->desc }}</span>
                     </td>
-                    <td class="supplier-name text-center py-3">
-                        <span>{{ $supplier->created_at }}</span>
+                   <td class="supplier-name text-center py-3">
+                        <span>{{ $supplier->created_at->format('Y-m-d') }}</span>
                     </td>
                     <td class="product-list text-center py-4 pr-8">
                         <div class="relative w-full">

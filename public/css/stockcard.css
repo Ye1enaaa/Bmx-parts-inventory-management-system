@@ -1,8 +1,17 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
+* {
+    font-family: "Poppins, sans-serif";
+}
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 70px;
+}
+
+.bg-custom-blue {
+    background-color: #428fb6;
 }
 
 .container {
@@ -37,6 +46,23 @@ td {
     background-color: #f56565;
     color: #fff;
 }
+
+.print-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.print-container * {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.print-container .top-bar,
+.print-container .print-button {
+    display: none !important;
+}
+
 @media print {
     tr.bg-gray-700 th {
         background-color: #718096 !important;

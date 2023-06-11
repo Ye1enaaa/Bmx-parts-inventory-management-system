@@ -1,27 +1,39 @@
-@extends('layouts.dashboard')
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{asset('js/admin-dashboard.js')}}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
 
-@section('content-sales-graphs')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        .chart-container {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.css" type="text/css">
 
-
-<div id="mySidebar" class="sidebar">
-    <!-- Sidebar content -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+<div id="salesGraphsContent" class="flex items-center justify-between w-full">
+    <div>
+        <h1 class="text-3xl font-bold mb-5 text-black ml-8">Sales Graphs</h1>
+    </div>
 </div>
 
-<div class="main-sales-graphs">
-    <div class="flex items-center justify-between">
-        <h1 class="text-3xl font-bold mb-5 text-black">Sales Graphs</h1>
-    </div>
+<div class="chart-container ml-8">
     <canvas id="myChart"></canvas>
-    
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+</div>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line', // Change the type to 'line'
         data: {
             labels: [
                 @foreach ($salesByDay as $sale)
@@ -59,9 +71,10 @@
             }
         }
     });
-    </script>
-</div>
+</script>
 
 <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
-@endsection
+
+</body>
+</html>

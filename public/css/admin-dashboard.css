@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("./fonts/poppins.ttf") format("truetype"); /* Update the font file path and format if needed */
+    /* Add additional font properties if required, such as font-weight and font-style */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins, sans-serif";
 }
 
 .sidebar {

@@ -27,28 +27,97 @@ function closeNav() {
 //         });
 // }
 
-// function showSales() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/graphs")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
+function showSales() {
+    // Make an AJAX request to fetch the content of the sales graphs page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Extract the specific content from the response
+            var parser = new DOMParser();
+            var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
+            var salesGraphsContent =
+                htmlDoc.getElementById("salesGraphsContent").innerHTML;
+
+            // Update the content on the current page with the fetched content
+            document.querySelector(".main-content1").innerHTML =
+                salesGraphsContent;
+
+            // Initialize the chart
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/graphs", true);
+    xhr.send();
+}
+
+// function showDashboard() {
+//     // Make an AJAX request to fetch the content of the upcoming events page
+//     var xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             // Update the content on the current page with the fetched content
+//             var response = xhr.responseText;
+//             document.querySelector(".main-content1").innerHTML = response;
+
+//             // Scroll to the top of the page
+//             window.scrollTo(0, 0);
+//         }
+//     };
+//     xhr.open("GET", "/dashboard", true);
+//     xhr.send();
 // }
 
+function showUnderstock() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index/understocks", true);
+    xhr.send();
+}
+
+function showstockcard(id) {
+    // Make an AJAX request to fetch the content of the stock card page for the given id
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/stockcard/" + id, true);
+    xhr.send();
+}
+
 function showProducts() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/index")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index", true);
+    xhr.send();
 }
 
 function showSupplierInformation() {

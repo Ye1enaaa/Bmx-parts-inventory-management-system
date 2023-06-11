@@ -7,11 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <script src="https://cdn.tailwindcss.com"></script>
-            <!-- <link rel="stylesheet" href="{{asset('css/stockcard.css')}}"> -->
 
 
     <title>Stock Card</title>
+    <script>
+        function filterStockCardByMonth(month) {
+            var rows = document.querySelectorAll('tbody tr');
 
+            rows.forEach(function(row) {
+                var date = row.querySelector('td:first-child').innerText;
+                var rowMonth = new Date(date).getMonth() + 1;
+
+                if (month === "" || rowMonth == month) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 <style>
     body {
@@ -22,7 +36,9 @@
 }
 
 .container {
-    max-width: 900px;
+    max-width: 100%;
+    margin: 0 20px; /* Adjust the value as needed */
+
 }
 
 .title {
@@ -60,6 +76,7 @@ td {
     }
 
 
+
 }
 
 
@@ -68,12 +85,12 @@ td {
 </head>
 
 <body>
-    <div class="container">
+    <div class="container ml-8">
          
 
             <form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
                 @unless(isset($noPrintButton))
-                <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
+                <button type="submit" class="ml-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
                     Convert to PDF
                 </button>
                 @endunless
@@ -83,7 +100,7 @@ td {
 
         <br>
 
-        <div class="bg-gray-100 rounded-lg shadow-2xl p-8">
+        <div class="bg-gray-200 rounded-lg shadow-2xl p-8 mr-8">
             <div class="flex justify-end">
                 <div class="-my-4 logo print-logo" style="width: 1in; height: 1in; margin-right: 0.625in;">
                     <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/pictures/bmx.png'))) }}" style="width: 100%; height: 100%; object-fit: contain;">
@@ -107,7 +124,27 @@ td {
                     </div>
                 </div>
             </div>
-    
+            <br>
+
+            <div class="flex-grow ml-20 text-lg font-bold mb-2">
+
+                <label for="monthFilter">Filter by Month:</label>
+                    <select id="monthFilter" onchange="filterStockCardByMonth(this.value)">
+                    <option value="">All Months</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
     
             <table class="w-full mt-4 border border-black">
             <thead>

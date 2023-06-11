@@ -12,7 +12,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\CustomerOrder;
 use App\Models\Supplie;
-
+use App\Models\StockCard;
 class AdminController extends Controller
 {
 
@@ -34,16 +34,13 @@ class AdminController extends Controller
     }
 
     public function returnAdminDashboardView(){
-        $count = DB::table('products')->count();
+        $count = DB::table('stock_cards')->sum('stockQuantityIssued'); // total Stock Outs
         $user = Auth::user();
-        // Retrieve the orders associated with the authenticated user and join the users table to include the user's name;
-        $customerOrders = CustomerOrder::with('user')->get();
-
-
-        $total_quantity = DB::table('products')->sum('quantity');
-        $total_inventory = DB::table('products')->sum('inventory_value');
-        $total_value = DB::table('customer_orders')->sum('total_value');
-        $total_admin = DB::table('supplies')->count();
+        $customerOrders = CustomerOrder::with('user')->get(); //Experiment
+        $total_quantity = DB::table('products')->sum('quantity'); // total stock on hand
+        $total_inventory = DB::table('products')->sum('inventory_value'); //total price of stocks
+        $total_value = DB::table('customer_orders')->sum('total_value'); //Experiment
+        $total_admin = DB::table('supplies')->count(); //count suppliers
         return view('dashboard.data-table',[
             'count' => $count,
             'customerOrders' => $customerOrders,

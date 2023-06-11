@@ -1,7 +1,5 @@
 @extends('dashboard.admin')
 
-
-
 @section('top-bar')
 <div class="bar">
     <ul class="">
@@ -11,9 +9,9 @@
 
         
             <div class="flex flex-wrap items-center justify-between w-full px-4 py-3 sm:flex-no-wrap">
-            <div class="flex items-center justify-center mr-6 text-white">
-                <span class="text-1xl font-bold sm:text-2xl">BMX: Dirt Jump Parts Inventory System</span>
-            </div>
+                <div class="flex items-center justify-center mr-6 text-white">
+                    <span class="text-1xl font-bold sm:text-2xl">BMX: Dirt Jump Parts Inventory System</span>
+                </div>
 
             <div class="flex items-center">
 
@@ -49,17 +47,22 @@
         
     </ul>
 
+
 </div>
 
 
 @endsection
 
 
+
+
+
+
 @section('product-field')
 <div class="product-field">
     <div class="title">
 
-        <p class="title-text"> Stock </p>
+        <p class="title-text"> Stock out </p>
     </div>
     <div class="data">
         <p>
@@ -129,6 +132,7 @@
 
 
 @section('content-dashboard')
+
 
         <div class="flex flex-wrap sm:flex-nowrap ">
 

@@ -27,28 +27,97 @@ function closeNav() {
 //         });
 // }
 
-// function showSales() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/graphs")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
+function showSales() {
+    // Make an AJAX request to fetch the content of the sales graphs page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Extract the specific content from the response
+            var parser = new DOMParser();
+            var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
+            var salesGraphsContent =
+                htmlDoc.getElementById("salesGraphsContent").innerHTML;
+
+            // Update the content on the current page with the fetched content
+            document.querySelector(".main-content1").innerHTML =
+                salesGraphsContent;
+
+            // Initialize the chart
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/graphs", true);
+    xhr.send();
+}
+
+// function showDashboard() {
+//     // Make an AJAX request to fetch the content of the upcoming events page
+//     var xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             // Update the content on the current page with the fetched content
+//             var response = xhr.responseText;
+//             document.querySelector(".main-content1").innerHTML = response;
+
+//             // Scroll to the top of the page
+//             window.scrollTo(0, 0);
+//         }
+//     };
+//     xhr.open("GET", "/dashboard", true);
+//     xhr.send();
 // }
 
+function showUnderstock() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index/understocks", true);
+    xhr.send();
+}
+
+function showstockcard(id) {
+    // Make an AJAX request to fetch the content of the stock card page for the given id
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/stockcard/" + id, true);
+    xhr.send();
+}
+
 function showProducts() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/index")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index", true);
+    xhr.send();
 }
 
 function showSupplierInformation() {
@@ -74,29 +143,6 @@ function showAddSupplier() {
             console.error("Error:", error);
         });
 }
-
-// SIDEBAR DROPDOWN
-// const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
-// const sidebar = document.getElementById("sidebar");
-
-// allDropdown.forEach((item) => {
-//     const a = item.parentElement.querySelector("a:first-child");
-//     a.addEventListener("click", function (e) {
-//         e.preventDefault();
-
-//         if (!this.classList.contains("active")) {
-//             allDropdown.forEach((i) => {
-//                 const aLink = i.parentElement.querySelector("a:first-child");
-
-//                 aLink.classList.remove("active");
-//                 i.classList.remove("show");
-//             });
-//         }
-
-//         this.classList.toggle("active");
-//         item.classList.toggle("show");
-//     });
-// });
 
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector("nav .toggle-sidebar");
@@ -284,6 +330,28 @@ document.addEventListener("DOMContentLoaded", function () {
             window.alert("Stock is below 10, see list!");
         }
     });
+    console.log("Hello");
 });
 
-console.log("Buang");
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockValue = document.getElementById("checkValueData").innerText;
+//     if (parseInt(stockValue) <= 10) {
+//       var notificationDiv = document.getElementById("stock-notification");
+//       notificationDiv.classList.remove("hidden");
+//       notificationDiv.classList.add("visible");
+//     }
+// });
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockCells = document.querySelectorAll("#checkValueData");
+//     console.log(stockCells);
+//     stockCells.forEach(function(cell) {
+//       var stockValue = parseInt(cell.innerText);
+//       if (stockValue <= 10) {
+//         var notificationDiv = document.getElementById("stock-notification");
+//         notificationDiv.classList.remove("hidden");
+//         notificationDiv.classList.add("visible");
+//         // You may also consider updating the notification message dynamically based on the product details
+//       }
+//     });
+// });

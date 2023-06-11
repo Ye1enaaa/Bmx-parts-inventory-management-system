@@ -30,7 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Fredoka">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
      <script src="js/script.js" defer></script>
 
@@ -62,22 +62,35 @@
 
 
         <br><br>
-
+      <!-- 
         <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer">
           <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
           <span class="text-xl font-medium">Dashboard</span>
+        </a> -->
+        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" >
+          <span class="icon text-white"><ion-icon name="file-tray-stacked"></ion-icon></span>
+          <span class="text-xl font-medium text-white">Dashboard</span>
+        </a>
+
+        <a href="#inventory" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showProducts()">
+          <span class="icon text-white"><ion-icon name="pricetags-outline"></ion-icon></span>
+          <span class="text-xl font-medium text-white">Inventory</span>
         </a>
 
 
-        <a class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showProducts()">
-          <i class="icon"><ion-icon name="pricetags-outline"></ion-icon></i>
-          <span class="text-xl font-medium">Inventory</span>
-        </a>
+<a href="#graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
+    <span class="icon text-white">
+        <i class="fas fa-chart-bar"></i>
+    </span>
+    <span class="text-xl font-medium text-white">Graphs</span>
+</a>
+
+
 
 
       <div x-data="{ open: false }" class="relative">
         
-      <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full cursor-pointer">
+      <a href="#supplier" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full cursor-pointer">
         <button @click="open = !open" >
           <i class="icon"><ion-icon name="person"></ion-icon></i>
           <span class="text-xl font-medium">Supplier</span>
@@ -96,18 +109,17 @@
         </div>
     </div>
 
+    
+
   </div>
 
-  <!-- Main Content -->
   <div class="flex flex-col flex-1 main-content open">
-    <!-- Top Bar -->
         <div>
           @yield('top-bar')  
 
           
         </div>
 
-        <!-- Hamburger Menu -->
 
         <br> <br> <br> 
 
@@ -117,7 +129,7 @@
       <div class="dashboard">
         <div class="box bg-gray-200 p-1 w-full">
           <button class="openbtn" onclick="openNav()">☰</button>
-          <span id="dashboardText" class="dashboard-text font-bold text-base">Dashboard</span>
+          <span id="dashboardText" class="dashboard-text font-bold text-base">Inventory System</span>
         </div>
       </div>
           
@@ -130,6 +142,7 @@
             @yield('content-dashboard')  
           </div>
 
+        
 
         </main>
 
@@ -147,6 +160,22 @@
     </script>
   @endif
  
+  <script>
+    fetch('{{ env('HOST_URL')}}./api/understocklvl')
+    .then(response => response.json())
+    .then(data => {
+      if (data.understock && data.understock.length > 0) {
+        var confirmation = window.confirm('Alert!! Low Stock Level, Please supply immediately!!');
+        if (confirmation) {
+          window.open('/index/understocks', '_blank');
+          //window.location.href = '/index/understocks';
+        } else {
+          
+        }
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  </script>
 
 
 </body>

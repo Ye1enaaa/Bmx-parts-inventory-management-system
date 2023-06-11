@@ -27,10 +27,9 @@
                     <tr class="text-center font-bold">
                       <th class="px-4 py-2">Product Code</th>
                       <th class="px-4 py-2">Product Name</th>
-                      
                       <th class="px-4 py-2">Stock on Hand</th>
                       <th class="px-4 py-2">Price</th>
-                      <th class="px-4 py-2">Description</th>
+                      <!-- <th class="px-4 py-2">Description</th> -->
                       <th class="px-4 py-2">Amount</th>
                       <th class="px-4 py-2">QR Code</th>
                       <th class="px-4 py-2">Supplier</th>
@@ -47,15 +46,19 @@
                       
                       <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                       <td class="border px-6 py-4">{{$product->unit_price}}</td>
-                      <td class="border px-6 py-4">{{$product->description}}</td>
+                      <!-- <td class="border px-6 py-4">{{$product->description}}</td> -->
                       <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
                       <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                       <td class="border px-6 py-4">{{$product->supplier->name}}</td>
                       <td class="border px-6 py-4">
                           <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                       </td>
-                      <!-- <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td> -->
-                      <td class="border px-6 py-4"><a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}" target="_blank">Print</a></td>
+                      <td class="border px-6 py-4">
+                        <a href="#stockcard" onclick="showstockcard({{$product->id}})">
+                          <span class="text-green-900">show</span>
+                        </a>
+                      </td>
+
 
                     </tr>
                     @endforeach
@@ -65,17 +68,31 @@
           </div>
 
             <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
-              <div class="box bg-green-400 p-1 ">
+              <div class="box bg-green-400 p-1 ml-6 mr-6">
               
-            <div class="flex items-center justify-end">
-            <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
-              <button class="btn btn-primary rounded-lg text-xl mr-8 justify-center px-6 text-white font-bold bg-blue-500 hover:bg-blue-400">Convert to print</button>
-            </div>
+              <div class="flex items-center justify-end">
+              <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
 
+              <a href="#understock" onclick="showUnderstock()" class="btn btn-primary items-center justify-center py-1 px-6 text-xl text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md">
+                <span class="text-sm font-medium text-white">Understock</span>
+              </a>
+
+              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center py-1 px-6 text-xl font-bold bg-blue-500 hover:bg-blue-400" download style="margin-left: 20px;">
+                <span class="text-sm font-medium text-white">Download Inventory</span>
+              </a>
+
+
+
+
+
+            </div>
 
   </div>
 </div>
 
+   
+          
+        
 
       </div>
 
@@ -89,18 +106,18 @@
 
                   <div class="bg-white">
                       <h1 class="justify-center flex text-4xl font-bold mb-5 text-black"><b>Edit Products</b></h1>
-                      <label for="name">Title:</label>
+                      <label for="name">Product Name:</label>
                       <input type="text" name="name" value="{{ $product->name }}" required><br>
                       <label for="unit_price">Price:</label>
                       <input type="number" name="unit_price" value="{{ $product->unit_price }}" required><br>
                       <label for="quantity">Quantity:</label>
                       <input type="number" name="quantity" value="{{ $product->quantity }}" required><br>
-                      <label for="description">Description:</label>
-                      <textarea name="description" required>{{ $product->description }}</textarea><br>
+                      <!-- <label for="description">Description:</label>
+                      <textarea name="description" required>{{ $product->description }}</textarea><br> -->
 
                       <div class="flex justify-center items-center">
-                        <button type="submit" style="background-color: blue; color: white; padding: 10px 20px; margin-right: 20px; border: none; border-radius: 5px;">Update</button>
-                        <button type="button" onclick="hideEditForm()" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Cancel</button>
+                        <button type="submit" style="background-color: black; color: white; padding: 10px 20px; margin-right: 20px; border: none; border-radius: 5px;">Update</button>
+                        <button type="button" onclick="hideEditForm()" style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Cancel</button>
 
                       </div>
                       
@@ -157,29 +174,31 @@
                       <label for="Quantity" class="block w-20 mr-2 font-bold dark:text-white">Quantity:</label>
                     </div>
                     <input 
-                      placeholder="1"
+                      placeholder="minimum of 20"
                       class="border border-black block py-2 px-4 w-full rounded-l-none rounded-r focus:outline-none focus:border-blue-500" 
                       type="number" 
                       min="0"
                       name="quantity" required>
                   </div>
                 </div>
+                <br><br>
 
 
-                <div class="w-full mb-4">
+                <!-- <div class="w-full mb-4">
                   <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
                   <textarea 
                     name="description" 
                     class="form-control mb-3 bg-gray-50 border  text-black text-sm rounded-lg focus:border-blue-500 block py-3 px-20" 
                     cols="70" rows="7" required>
                   </textarea>
-                </div>
+                </div> -->
               
 
-              <div class="flex justify-center">
-                <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>
-                <button type="button" class="text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupForm()">Cancel</button>
-              </div>
+             <div class="flex justify-center space-x-4">
+              <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>
+              <button type="button" class="text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="hidePopupForm()">Cancel</button>
+            </div>
+
 
             
             </form>
@@ -190,7 +209,18 @@
   </div>
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
-
+<script>
+    document.getElementById('download-inventory-btn').addEventListener('click', function() {
+      // Code to be executed when the button is clicked
+      // Add your download logic here
+      
+      // Example: Triggering a file download
+      var downloadLink = document.createElement('a');
+      downloadLink.href = 'path/to/inventory.csv'; // Replace with the actual file path
+      downloadLink.download = 'inventory.csv'; // Replace with the desired file name
+      downloadLink.click();
+    });
+  </script>
 
 
 @endsection

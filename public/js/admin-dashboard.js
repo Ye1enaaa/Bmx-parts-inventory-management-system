@@ -261,6 +261,28 @@ document.addEventListener("DOMContentLoaded", function () {
             window.alert("Stock is below 10, see list!");
         }
     });
+    console.log("Hello");
 });
 
-console.log("Buang");
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockValue = document.getElementById("checkValueData").innerText;
+//     if (parseInt(stockValue) <= 10) {
+//       var notificationDiv = document.getElementById("stock-notification");
+//       notificationDiv.classList.remove("hidden");
+//       notificationDiv.classList.add("visible");
+//     }
+// });
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var stockCells = document.querySelectorAll("#checkValueData");
+//     console.log(stockCells);
+//     stockCells.forEach(function(cell) {
+//       var stockValue = parseInt(cell.innerText);
+//       if (stockValue <= 10) {
+//         var notificationDiv = document.getElementById("stock-notification");
+//         notificationDiv.classList.remove("hidden");
+//         notificationDiv.classList.add("visible");
+//         // You may also consider updating the notification message dynamically based on the product details
+//       }
+//     });
+// });

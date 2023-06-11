@@ -54,7 +54,11 @@
                           <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
                       </td>
                       <td class="border px-6 py-4">
-                        <a href="{{env('HOST_URL')}}./stockcard/{{$product->id}}">Show</a></td>
+                        <a href="#stockcard" onclick="showstockcard({{$product->id}})">
+                          <span class="text-green-900">show</span>
+                        </a>
+                      </td>
+
 
                     </tr>
                     @endforeach
@@ -64,14 +68,21 @@
           </div>
 
             <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
-              <div class="box bg-green-400 p-1 ">
+              <div class="box bg-green-400 p-1 ml-6 mr-6">
               
               <div class="flex items-center justify-end">
               <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
 
-              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center px-6 text-white text-xl font-bold bg-blue-500 hover:bg-blue-400" download>
-  <span class="text-sm">Download Inventory</span>
-</a>
+              <a href="#understock" onclick="showUnderstock()" class="btn btn-primary items-center justify-center py-1 px-6 text-xl text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md">
+                <span class="text-sm font-medium text-white">Understock</span>
+              </a>
+
+              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center py-1 px-6 text-xl font-bold bg-blue-500 hover:bg-blue-400" download style="margin-left: 20px;">
+                <span class="text-sm font-medium text-white">Download Inventory</span>
+              </a>
+
+
+
 
 
             </div>

@@ -1,7 +1,5 @@
 @extends('dashboard.admin')
 
-
-
 @section('top-bar')
 <div class="bar">
     <ul class="">
@@ -49,10 +47,15 @@
         
     </ul>
 
+
 </div>
 
 
 @endsection
+
+
+
+
 
 
 @section('product-field')
@@ -129,6 +132,7 @@
 
 
 @section('content-dashboard')
+
 
         <div class="flex flex-wrap sm:flex-nowrap ">
 

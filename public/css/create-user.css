@@ -3,9 +3,13 @@
     padding: 10;
     text-decoration: none;
 }
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("./fonts/poppins.ttf") format("truetype"); /* Update the font file path and format if needed */
+    /* Add additional font properties if required, such as font-weight and font-style */
+}
 
 body {
-    font-family: "Poppins, sans-serif";
     overflow-x: hidden;
 }
 

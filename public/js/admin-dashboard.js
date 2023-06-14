@@ -52,23 +52,6 @@ function showSales() {
     xhr.send();
 }
 
-// function showDashboard() {
-//     // Make an AJAX request to fetch the content of the upcoming events page
-//     var xhr = new XMLHttpRequest();
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             // Update the content on the current page with the fetched content
-//             var response = xhr.responseText;
-//             document.querySelector(".main-content1").innerHTML = response;
-
-//             // Scroll to the top of the page
-//             window.scrollTo(0, 0);
-//         }
-//     };
-//     xhr.open("GET", "/dashboard", true);
-//     xhr.send();
-// }
-
 function showUnderstock() {
     // Make an AJAX request to fetch the content of the upcoming events page
     var xhr = new XMLHttpRequest();

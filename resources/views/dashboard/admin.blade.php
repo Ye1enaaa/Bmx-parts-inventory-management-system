@@ -61,49 +61,50 @@
     </div>
 
 
-        <br><br>
+<br><br>
 
-        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" >
-          <span class="icon text-white"><ion-icon name="file-tray-stacked"></ion-icon></span>
-          <span class="text-xl font-medium text-white">Dashboard</span>
-        </a>
+<a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" >
+  <span class="icon text-white"><ion-icon name="file-tray-stacked"></ion-icon></span>
+  <span class="text-xl font-medium text-white">Dashboard</span>
+</a>
 
-        <a href="#inventory" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showProducts()">
-          <span class="icon text-white"><ion-icon name="pricetags-outline"></ion-icon></span>
-          <span class="text-xl font-medium text-white">Inventory</span>
-        </a>
-
-
-        <a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
-            <span class="icon text-white">
-                <i class="fas fa-chart-bar"></i>
-            </span>
-            <span class="text-xl font-medium text-white">Graphs</span>
-        </a>
+<a href="#inventory" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showProducts()">
+  <span class="icon text-white"><ion-icon name="pricetags-outline"></ion-icon></span>
+  <span class="text-xl font-medium text-white">Inventory</span>
+</a>
 
 
+<a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
+    <span class="icon text-white">
+        <i class="fas fa-chart-bar"></i>
+    </span>
+    <span class="text-xl font-medium text-white">Graphs</span>
+</a>
 
 
-      <div x-data="{ open: false }" class="relative">
-        
-      <a href="#supplier" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full cursor-pointer">
-        <button @click="open = !open" >
-          <i class="icon"><ion-icon name="person"></ion-icon></i>
-          <span class="text-xl font-medium">Supplier</span>
-        </button>
-      </a> 
 
-        <div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-full bg-[#072e33] rounded-md shadow-lg">
-          
-          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showSupplierInformation()">
-            Supplier Information
-          </a>
-          <br>
-          <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showAddSupplier()">
-            Add Supplier
-          </a>
-        </div>
-    </div>
+
+<div x-data="{ open: false }" class="relative">
+  
+<a href="#supplier" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center w-full cursor-pointer">
+  <button @click="open = !open" >
+    <span class="icon"><ion-icon name="person"></ion-icon></span>
+    <span class="text-xl font-medium">Supplier</span>
+  </button>
+</a> 
+
+<div x-show="open" @click.away="open = false" class="dropdown-menu absolute right-0 mt-2 py-2 w-full bg-[#072e33] rounded-md shadow-lg">
+  
+  <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showSupplierInformation()">
+    Supplier Information
+  </a>
+  <br>
+  <a class="dropdown-item block px-4 py-2 text-white hover:bg-blue-400 text-xs" href="#" onclick="showAddSupplier()">
+    Add Supplier
+  </a>
+</div>
+</div>
+
 
     
 

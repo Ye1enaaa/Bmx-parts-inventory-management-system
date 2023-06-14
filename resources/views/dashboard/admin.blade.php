@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.css" type="text/css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+        
 
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
@@ -62,11 +62,7 @@
 
 
         <br><br>
-      <!-- 
-        <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer">
-          <i class="icon mr-2"><ion-icon name="file-tray-stacked"></ion-icon></i>
-          <span class="text-xl font-medium">Dashboard</span>
-        </a> -->
+
         <a href="/dashboard" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" >
           <span class="icon text-white"><ion-icon name="file-tray-stacked"></ion-icon></span>
           <span class="text-xl font-medium text-white">Dashboard</span>
@@ -78,12 +74,12 @@
         </a>
 
 
-<a href="#graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
-    <span class="icon text-white">
-        <i class="fas fa-chart-bar"></i>
-    </span>
-    <span class="text-xl font-medium text-white">Graphs</span>
-</a>
+        <a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
+            <span class="icon text-white">
+                <i class="fas fa-chart-bar"></i>
+            </span>
+            <span class="text-xl font-medium text-white">Graphs</span>
+        </a>
 
 
 
@@ -114,11 +110,11 @@
   </div>
 
   <div class="flex flex-col flex-1 main-content open">
-        <div>
-          @yield('top-bar')  
+    <div>
+      @yield('top-bar')  
 
           
-        </div>
+    </div>
 
 
         <br> <br> <br> 
@@ -126,14 +122,15 @@
 
     <div id="main">
 
-      <div class="dashboard">
-        <div class="box bg-gray-200 p-1 w-full">
-          <button class="openbtn" onclick="openNav()">☰</button>
-          <span id="dashboardText" class="dashboard-text font-bold text-base">Inventory System</span>
+        <div class="dashboard">
+          <div class="box bg-gray-200 p-1 w-full">
+            <button class="openbtn" onclick="openNav()">☰</button>
+            <span id="dashboardText" class="dashboard-text font-bold text-base">Inventory System</span>
+          </div>
         </div>
-      </div>
           
-        </div>   
+        
+    </div>
         <!-- Main Content -->
         <main class="main-content1">
           <br>
@@ -142,13 +139,10 @@
             @yield('content-dashboard')  
           </div>
 
-        
-
         </main>
 
           
-    </div>
-
+  
   </div>
   
     

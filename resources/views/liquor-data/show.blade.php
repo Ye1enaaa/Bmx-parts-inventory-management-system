@@ -4,17 +4,33 @@
 
 
 
-  <div class="main-liquor-data-show">
+<div class="main-liquor-data-show">
+  @php
+    $outOfStock = $product->contains('quantity', '<=', 10) || $product->contains('quantity', 0);
+  @endphp
+
+  <div class="flex items-center justify-between">
+    <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Inventory</h1>
+  </div>
+
+  @if ($outOfStock)
     <div class="flex items-center justify-between">
-      <h1 class="text-4xl font-bold mb-5 text-black ml-6">List of Inventory</h1>
+      <p class="text-red-500 text-2xl font-bold mb-2 mx-6">
+        @if ($product->contains('quantity', 0))
+          Out of Stock! Please supply as soon as Possible!!
+        @else
+          Alert!! Low Stock Level, Please supply immediately!!
+        @endif
+      </p>
     </div>
+  @endif
       
     <div class="mt-4">
       
   <div class="flex justify-end px-4">
     <button id="show-popup-btn" class="btn btn-primary items-center justify-center py-2 px-6 text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md" onclick="showPopupForm()">Add Product</button>
   </div>
-
+  
 
       <div class="overflow-auto rounded-lg shadow-2xl hidden md:block ">
         <div class="mt-4">
@@ -40,10 +56,17 @@
                   </thead>
                   <tbody class="text-black text-center divide-y divide-blue-300">
                     @foreach($product as $product)
+                    
                     <tr class="hover:underline ">
                       <td class="border px-6 py-4">{{$product->product_code}}</td>
                       <td class="border px-6 py-4">{{$product->name}}</td>
                       
+                      <!-- <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">
+  {{$product->quantity}}
+  @if ($product->quantity <= 5)
+    <span class="text-black text-sm">Out of Stock!</span>
+  @endif
+</td> -->
                       <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                       <td class="border px-6 py-4">{{$product->unit_price}}</td>
                       <!-- <td class="border px-6 py-4">{{$product->description}}</td> -->
@@ -68,16 +91,17 @@
           </div>
 
             <div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" class="w-screen">
-              <div class="box bg-green-400 p-1 ml-6 mr-6">
+              <div class="box bg-custom-color p-1 ml-6 mr-6">
+
               
               <div class="flex items-center justify-end">
               <div class="mr-96 py-2 px-6 text-black text-xl font-bold h-full">Total stock on hand: {{$totalstocks}}</div>
 
-              <a href="#understock" onclick="showUnderstock()" class="btn btn-primary items-center justify-center py-1 px-6 text-xl text-white font-bold bg-blue-500 hover:bg-blue-400 rounded-md">
+              <a href="#understock" onclick="showUnderstock()" class="btn btn-primary items-center justify-center py-1 px-6 text-xl text-white font-bold bg-black hover:bg-blue-400 rounded-md">
                 <span class="text-sm font-medium text-white">Understock</span>
               </a>
 
-              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center py-1 px-6 text-xl font-bold bg-blue-500 hover:bg-blue-400" download style="margin-left: 20px;">
+              <a href="{{ route('inventory.print') }}" class="rounded-lg mr-8 justify-center py-1 px-6 text-xl font-bold bg-black hover:bg-blue-400" download style="margin-left: 20px;">
                 <span class="text-sm font-medium text-white">Download Inventory</span>
               </a>
 
@@ -209,18 +233,8 @@
   </div>
 
      <script src="{{asset('js/admin-dashboard.js')}}"></script>
-<script>
-    document.getElementById('download-inventory-btn').addEventListener('click', function() {
-      // Code to be executed when the button is clicked
-      // Add your download logic here
-      
-      // Example: Triggering a file download
-      var downloadLink = document.createElement('a');
-      downloadLink.href = 'path/to/inventory.csv'; // Replace with the actual file path
-      downloadLink.download = 'inventory.csv'; // Replace with the desired file name
-      downloadLink.click();
-    });
-  </script>
+
+
 
 
 @endsection

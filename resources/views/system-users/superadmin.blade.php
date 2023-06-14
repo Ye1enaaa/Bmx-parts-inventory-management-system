@@ -60,10 +60,12 @@
             <i class="icon"><ion-icon name="person-add"></ion-icon></i>
             <span>Accounts</span>
         </a>
-
-        <!-- <a href="#" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center" onclick="showSales()">
-            <i class="icon"><ion-icon name="person-add"></ion-icon></i>
-            <span>Sales</span>
+        
+        <!-- <a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showSales()">
+            <span class="icon text-white">
+                <i class="fas fa-chart-bar"></i>
+            </span>
+            <span class="text-xl font-medium text-white">Graphs</span>
         </a> -->
 
 
@@ -126,7 +128,7 @@
 
         <div id="content-accounts">
           <div class="flex items-center justify-between">
-            <h1 class="p-2 flex text-6xl font-bold mb-10 text-black"><b>Accounts</b></h1>
+            <h1 class="p-2 flex text-4xl font-bold mb-10 text-black"><b>Accounts</b></h1>
           </div>
 
           <div class="mt-1">
@@ -247,7 +249,7 @@
           <div id="content-add-accounts">
             <div class="card">
               <div class="card-header">
-                <h1 class="flex text-6xl font-bold mb-10 text-black"><b>Add Account</b></h1>
+                <h1 class="flex text-4xl font-bold mb-10 text-black"><b>Add Account</b></h1>
               </div>
 
               <div class= "h-900px w-950px bg-blue-300 px-10 space-y-10 mx-auto p-11 rounded-2xl shadow-md" style="box-shadow: 0 4px 6px -1px black; background-color: gray;">

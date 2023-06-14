@@ -10,22 +10,7 @@
 
 
     <title>Stock Card</title>
-<!-- <script>
-  function filterStockCardByMonth(month) {
-    var rows = document.querySelectorAll('tbody tr');
 
-    rows.forEach(function(row) {
-      var date = row.querySelector('td:first-child').innerText;
-      var rowMonth = new Date(date).getMonth() + 1;
-
-      if (month === "" || rowMonth == month) {
-        row.style.display = 'table-row';
-      } else {
-        row.style.display = 'none';
-      }
-    });
-  }
-</script> -->
 
 
 <style>
@@ -207,7 +192,7 @@ td {
   </div>
 </div>
 
-<script>
+<!-- <script>
     function filterStockCardByMonth(month) {
         var rows = document.querySelectorAll('tbody tr');
 
@@ -222,7 +207,7 @@ td {
             }
         });
     }
-</script>
+</script> -->
 
 
 </body>

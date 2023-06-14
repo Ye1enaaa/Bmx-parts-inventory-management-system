@@ -38,24 +38,7 @@
 
 
  
-<!-- 
-  <div class="container">
-        @yield('content')
-    </div> -->
 
-
-
-  <!-- <div class="main-supplier">
-   
-    @yield('content-supplier')
-
-  </div> -->
-
-    <!-- <div class="main-sales-graphs">
-    
-    @yield('content-sales-graphs')
-
-  </div> -->
 
  
 </body>

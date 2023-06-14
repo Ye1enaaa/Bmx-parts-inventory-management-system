@@ -355,3 +355,33 @@ document.addEventListener("DOMContentLoaded", function () {
 //       }
 //     });
 // });
+
+//----------------------------------------EDITED BY JOEPHINE---------------------------\\
+
+function filterStockCardByMonth(month) {
+    var rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(function (row) {
+        var date = row.querySelector("td:first-child").innerText;
+        var rowMonth = new Date(date).getMonth() + 1;
+
+        if (month === "" || rowMonth == month) {
+            row.style.display = "table-row";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
+document
+    .getElementById("download-inventory-btn")
+    .addEventListener("click", function () {
+        // Code to be executed when the button is clicked
+        // Add your download logic here
+
+        // Example: Triggering a file download
+        var downloadLink = document.createElement("a");
+        downloadLink.href = "path/to/inventory.csv"; // Replace with the actual file path
+        downloadLink.download = "inventory.csv"; // Replace with the desired file name
+        downloadLink.click();
+    });

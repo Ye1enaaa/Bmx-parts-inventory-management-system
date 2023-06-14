@@ -3,7 +3,6 @@
 <head>
     <title>Sales Graph</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{asset('js/admin-dashboard.js')}}"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
 
     
@@ -72,8 +71,10 @@
         }
     });
 </script>
+<script src="{{asset('js/create-user.js')}}"></script>
 
-<script src="{{asset('js/admin-dashboard.js')}}"></script>
+
+<!-- <script src="{{asset('js/admin-dashboard.js')}}"></script> -->
 
 
 </body>

@@ -386,3 +386,21 @@ tbody tr:nth-child(even) {
 .custom-margin {
     margin-right: 150px;
 }
+
+.alert-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.alert-icon ion-icon {
+    font-size: 1.5rem;
+    color: #ff0000;
+}
+
+.bg-custom-color {
+    background-color: #428fb6;
+}

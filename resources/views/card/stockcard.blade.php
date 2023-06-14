@@ -10,22 +10,23 @@
 
 
     <title>Stock Card</title>
-    <script>
-        function filterStockCardByMonth(month) {
-            var rows = document.querySelectorAll('tbody tr');
+<!-- <script>
+  function filterStockCardByMonth(month) {
+    var rows = document.querySelectorAll('tbody tr');
 
-            rows.forEach(function(row) {
-                var date = row.querySelector('td:first-child').innerText;
-                var rowMonth = new Date(date).getMonth() + 1;
+    rows.forEach(function(row) {
+      var date = row.querySelector('td:first-child').innerText;
+      var rowMonth = new Date(date).getMonth() + 1;
 
-                if (month === "" || rowMonth == month) {
-                    row.style.display = 'table-row';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
+      if (month === "" || rowMonth == month) {
+        row.style.display = 'table-row';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script> -->
+
 
 <style>
     body {
@@ -129,8 +130,8 @@ td {
             <div class="flex-grow ml-20 text-lg font-bold mb-2">
 
                 <label for="monthFilter">Filter by Month:</label>
-                    <select id="monthFilter" onchange="filterStockCardByMonth(this.value)">
-                    <option value="">All Months</option>
+                  <select id="monthFilter" onchange="filterStockCardByMonth(this.value)">
+  <option value="">All Months</option>
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
@@ -205,6 +206,23 @@ td {
 
   </div>
 </div>
+
+<script>
+    function filterStockCardByMonth(month) {
+        var rows = document.querySelectorAll('tbody tr');
+
+        rows.forEach(function(row) {
+            var date = row.querySelector('td:first-child').textContent;
+            var rowMonth = new Date(date).getMonth() + 1;
+
+            if (month === "" || rowMonth == month) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 
 </body>

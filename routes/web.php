@@ -77,10 +77,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login.role');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 //Customer
-Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer');
-Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
-
-Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
+// Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer'); //comment out
+// Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
+// Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
 
 
 //supplier
@@ -92,9 +91,8 @@ Route::get('/supplier-information', [SupplierController::class, 'showSupplierInf
 Route::get('/add-supplier', [SupplierController::class, 'showAddSupplierForm']);
 Route::post('/supplier', [SupplierController::class, 'addSupplier'])->name('supplier.add');
 
-
 //Purchase
-Route::get('/purchase', [AdminController::class,'returnPurchaseView']);
+//Route::get('/purchase', [AdminController::class,'returnPurchaseView']); //comment out
 
 //Route::get('/get-price/{selectedValue}', function ($selectedValue) {
   //  $price = DB::table('products')->where('name', $selectedValue)->pluck('unit_price')->first();
@@ -108,19 +106,13 @@ Route::get('/purchase', [AdminController::class,'returnPurchaseView']);
 
 Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
 
-
 //Graphs
 Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('admin');
 
-
 Route::put('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
-
-
-
 
 // Define the route for generating and downloading the PDF
 Route::get('/convert-to-pdf/{id}', [StockCardController::class, 'convertToPDF'])->name('convertToPDF');
-
 
 //gitandog ni jopin
 Route::get('/inventory/print', 'ProductController@showPrintView')->name('inventory.print');

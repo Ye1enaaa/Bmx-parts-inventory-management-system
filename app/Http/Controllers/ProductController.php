@@ -56,11 +56,11 @@ class ProductController extends Controller
     //     return view('dashboard.create');
     // }
 
-    public function getPrice(Request $request, $selectedValue)
-    {
-        $price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
-        return response()->json(['unit_price' => $price]);
-    }
+    // public function getPrice(Request $request, $selectedValue)
+    // {
+    //     $price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
+    //     return response()->json(['unit_price' => $price]);
+    // }comment out
     //post Liquor Data
 
     public function storeData(Request $request){

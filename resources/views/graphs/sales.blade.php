@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sales Graph</title>
+    <title>Stock Out</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
     
@@ -135,7 +135,7 @@
 
 <div id="salesGraphsContent" class="flex items-center justify-between w-full">
     <div>
-        <h1 class="text-3xl font-bold mb-5 text-black ml-72">Sales Graphs</h1>
+        <h1 class="text-3xl font-bold mb-5 text-black ml-72">Stock Outs</h1>
     </div>
 </div>
 
@@ -146,22 +146,22 @@
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'line', // Change the type to 'line'
+        type: 'bar', // Change the type to 'line'
         data: {
             labels: [
-                @foreach ($salesByDay as $sale)
-                    '{{ $sale->day }}',
+                @foreach ($stockOutsPerDay as $stockouts)
+                    '{{ $stockouts->day }}',
                 @endforeach
             ],
             datasets: [{
-                label: 'Sales',
+                label: 'Stock Out',
                 data: [
-                    @foreach ($salesByDay as $sale)
-                        {{ $sale->total }},
+                    @foreach ($stockOutsPerDay as $stockouts)
+                        {{ $stockouts->total }},
                     @endforeach
                 ],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(0, 68, 137, 1)', // Blue background color
+                borderColor: 'rgba(0, 68, 137, 1)',
                 borderWidth: 1
             }]
         },

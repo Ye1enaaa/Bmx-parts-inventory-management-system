@@ -18,48 +18,48 @@ class CustomerController extends Controller
         return view('customer.customer-preview', compact('names', 'orders'));
     }
 
-    public function postCustomerOrder(Request $request){
-        $name_value=$request->input('name_value');
-        $quantity=$request->input('quantity');
-        $total_value = $request->input('total_value');
-        $order = new CustomerOrder;
-        $order -> user_id = auth()->id();
-        $order -> name = $name_value;
-        $order -> quantity = $quantity;
-        $order->total_value = $total_value;
-        $order->save();
+    // public function postCustomerOrder(Request $request){
+    //     $name_value=$request->input('name_value');
+    //     $quantity=$request->input('quantity');
+    //     $total_value = $request->input('total_value');
+    //     $order = new CustomerOrder;
+    //     $order -> user_id = auth()->id();
+    //     $order -> name = $name_value;
+    //     $order -> quantity = $quantity;
+    //     $order->total_value = $total_value;
+    //     $order->save();
 
-        $product = Product::where('name', $name_value)->first();
-        if($product -> quantity - $quantity <= 0){
-            //$product->delete();
-        }else{
-            $product->quantity -= $quantity;
-            $product->inventory_value -= $quantity * $product->unit_price;
-            $product->save();
-        }
-        //$product -> quantity -= $quantity;
-        //$product -> inventory_value -= $quantity * $product->unit_price;
-        //$product ->save();
-        //DB::table('customer_orders')->insert(['name' => $name_value, 'quantity'=>$quantity]);
-        return redirect()->back();
-    }
+    //     $product = Product::where('name', $name_value)->first();
+    //     if($product -> quantity - $quantity <= 0){
+    //         //$product->delete();
+    //     }else{
+    //         $product->quantity -= $quantity;
+    //         $product->inventory_value -= $quantity * $product->unit_price;
+    //         $product->save();
+    //     }
+    //     //$product -> quantity -= $quantity;
+    //     //$product -> inventory_value -= $quantity * $product->unit_price;
+    //     //$product ->save();
+    //     //DB::table('customer_orders')->insert(['name' => $name_value, 'quantity'=>$quantity]);
+    //     return redirect()->back();
+    // }
 
-    public function returnRecentOrderPage($id){   
-        $userorder = CustomerOrder::with('user')->findOrFail($id);
+    // public function returnRecentOrderPage($id){   
+    //     $userorder = CustomerOrder::with('user')->findOrFail($id);
 
-        //return view('dashboard.data-table',[
-          //  'user_order' => $user_order,
-        //]);
-    }
+    //     //return view('dashboard.data-table',[
+    //       //  'user_order' => $user_order,
+    //     //]);
+    // }
 
 
 public function returnSalesByData() {
-    $salesByDay = DB::table('customer_orders')
-        ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(total_value) as total'))
+    $stockOutsPerDay = DB::table('stock_cards')
+        ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(stockQuantityIssued) as total'))
         ->groupBy('day')
         ->get();
 
-    return view('graphs.sales', ['salesByDay' => $salesByDay]);
+    return view('graphs.sales', ['stockOutsPerDay' => $stockOutsPerDay]);
 
 }
 

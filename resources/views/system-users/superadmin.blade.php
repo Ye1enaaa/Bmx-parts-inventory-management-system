@@ -61,15 +61,6 @@
             <span>Accounts</span>
         </a>
         
-        <!-- <a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer" onclick="showSales()">
-            <span class="icon text-white">
-                <i class="fas fa-chart-bar"></i>
-            </span>
-            <span class="text-xl font-medium text-white">Graphs</span>
-        </a> -->
-
-
-
 
   </div>
 

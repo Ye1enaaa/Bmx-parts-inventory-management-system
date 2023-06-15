@@ -75,11 +75,11 @@ td {
 
   <form action="/convert-to-pdf/{{$stockcard->id}}" method="GET">
         @unless(isset($noPrintButton))
-        <div>
+        <!-- <div>
             <a href="javascript:history.back()" class="mr-8 ml-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 <ion-icon name="arrow-back-outline"></ion-icon> Back
             </a>
-        </div> <br>
+        </div> <br> -->
         
         <button type="submit" class="ml-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" download>
             Convert to PDF

@@ -60,13 +60,7 @@
                     <tr class="hover:underline ">
                       <td class="border px-6 py-4">{{$product->product_code}}</td>
                       <td class="border px-6 py-4">{{$product->name}}</td>
-                      
-                      <!-- <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">
-  {{$product->quantity}}
-  @if ($product->quantity <= 5)
-    <span class="text-black text-sm">Out of Stock!</span>
-  @endif
-</td> -->
+                    
                       <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                       <td class="border px-6 py-4">{{$product->unit_price}}</td>
                       <!-- <td class="border px-6 py-4">{{$product->description}}</td> -->
@@ -206,17 +200,6 @@
                   </div>
                 </div>
                 <br><br>
-
-
-                <!-- <div class="w-full mb-4">
-                  <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Description:</label>
-                  <textarea 
-                    name="description" 
-                    class="form-control mb-3 bg-gray-50 border  text-black text-sm rounded-lg focus:border-blue-500 block py-3 px-20" 
-                    cols="70" rows="7" required>
-                  </textarea>
-                </div> -->
-              
 
              <div class="flex justify-center space-x-4">
               <button type="submit" class="btn btn-success col-md-3 text-white bg-gray-900 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2">Save</button>

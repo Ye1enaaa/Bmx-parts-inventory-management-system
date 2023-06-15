@@ -73,8 +73,8 @@
   <span class="text-xl font-medium text-white">Inventory</span>
 </a>
 
-
-<a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" onclick="showSales()">
+<!-- onclick="showSales()" -->
+<a href="/graphs" class="py-2 px-4 text-white hover:bg-blue-400 flex items-center cursor-pointer tree-view-button" >
     <span class="icon text-white">
         <i class="fas fa-chart-bar"></i>
     </span>

@@ -134,6 +134,7 @@
 @section('content-dashboard')
 
 
+<div class="ml-8">
         <div class="flex flex-wrap sm:flex-nowrap ">
 
              <div class="relative">
@@ -169,21 +170,16 @@
                 </div>  
 
                 <div class="relative">
-                <div class="product-field bg-green-600 hover:bg-green-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500  shadow shadow-black" style="transform: translateZ(-30px);">
-                    <div class="icon text-white mb-2" style="float: right; ">
-      <ion-icon name="alert-circle" class="text-6xl"></ion-icon>
-
+                    <div class="product-field bg-green-600 hover:bg-green-500 rounded-lg w-80 h-40 font-serif text-2xl text-center p-10 m-4 transform perspective-500  shadow shadow-black" style="transform: translateZ(-30px);">
+                        <div class="icon text-white mb-2" style="float: right; ">
+                            <ion-icon name="alert-circle" class="text-6xl"></ion-icon>
+                    </div>
+                    @yield('product-field')        
                 </div>
-                @yield('product-field')        
-              </div>
             </div>
 
-
-        </div>
+</div>
             
-
-
-            </div>
 
 
                 <div class="ml-auto container  w-80 ">

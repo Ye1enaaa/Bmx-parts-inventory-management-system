@@ -260,15 +260,15 @@ function showEditForm(event) {
     document.getElementById("edit-form").style.display = "block";
 }
 
+function hideEditForm() {
+    document.getElementById("edit-form").style.display = "none";
+}
+
 // Add form validation here
 var form = document.getElementById("product-form");
 form.addEventListener("submit", function (event) {
     // Add validation code here
 });
-
-function hideEditForm() {
-    document.getElementById("edit-form").style.display = "none";
-}
 
 function toggleDropdown() {
     var dropdown = document.getElementById("supplierDropdown");
@@ -355,16 +355,71 @@ function filterStockCardByMonth(month) {
         }
     });
 }
+//----------------------------------------EDITED BY JOEPHINE---------------------------\\
+function downloadInventory() {
+    // Get the HTML content of the specific <div> element
+    var content = document.querySelector(".table-container").innerHTML;
 
-document
-    .getElementById("download-inventory-btn")
-    .addEventListener("click", function () {
-        // Code to be executed when the button is clicked
-        // Add your download logic here
+    // Get the "Total stock on hand" information
+    var totalStocks = document.querySelector(".mr-96").textContent.trim();
 
-        // Example: Triggering a file download
-        var downloadLink = document.createElement("a");
-        downloadLink.href = "path/to/inventory.csv"; // Replace with the actual file path
-        downloadLink.download = "inventory.csv"; // Replace with the desired file name
-        downloadLink.click();
-    });
+    // Get the title "List of Inventory"
+    var title = document.querySelector(".text-4xl").textContent.trim();
+
+    // Create the title and total stock tables with borders
+    var titleTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 20vh;'>" +
+        "<span style='font-weight: bold; font-size: 50px;'>" +
+        title +
+        "</span>" +
+        "</div>";
+
+    var totalStocksTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 5vh;'>" +
+        "<span style='font-weight: bold; font-size: 24px;'>" +
+        totalStocks +
+        "</span>" +
+        "</div>";
+
+    // Remove the "Edit" and "Stockard" columns from the table content
+    content = content
+        .replace(/<th>Edit<\/th>/, "")
+        .replace(/<th>Stockard<\/th>/, "");
+    content = content
+        .replace(/<td>Edit<\/td>/g, "")
+        .replace(/<td>Stockard<\/td>/g, "");
+
+    // Create the content table with border
+    var contentTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 50vh;'>" +
+        "<table style='border-collapse: collapse; border: 2px solid black;'>" +
+        "<tr style='border-bottom: 1px solid black;'>" +
+        "<td>" +
+        content.replace(
+            /<\/tr>/g,
+            "</tr><tr style='border-bottom: 1px solid black;'>"
+        ) +
+        "</td>" +
+        "</tr>" +
+        "</table>" +
+        "</div>";
+
+    // Create a new Blob with the combined HTML content and tables
+    var combinedContent = titleTable + totalStocksTable + contentTable;
+
+    var blob = new Blob([combinedContent], { type: "text/html" });
+
+    // Create a temporary link element to trigger the download
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "inventory.html";
+    link.style.display = "none";
+
+    // Append the link to the document and click it programmatically
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up resources
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+}

@@ -255,9 +255,24 @@ function hidePopupForm() {
 }
 
 // sa product - form ni siya
-function showEditForm(event) {
+function showEditForm(event, productId) {
     event.preventDefault();
-    document.getElementById("edit-form").style.display = "block";
+    //document.getElementById("edit-form").style.display = "block";
+    console.log('Hoi');
+    console.log(productId);
+    const product = products.find((product) => product.id === productId);
+
+  // Check if the product exists
+  if (product) {
+    // Set the values of the form fields based on the product
+    const editForm = document.getElementById('edit-form');
+    editForm.querySelector('input[name="name"]').value = product.name;
+    editForm.querySelector('input[name="unit_price"]').value = product.unit_price;
+    editForm.querySelector('input[name="quantity"]').value = product.quantity;
+
+    // Display the edit form
+    editForm.style.display = 'block';
+  }
 }
 
 function hideEditForm() {

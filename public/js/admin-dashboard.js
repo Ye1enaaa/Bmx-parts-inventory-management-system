@@ -15,18 +15,6 @@ function closeNav() {
     document.querySelector(".main-content").classList.remove("open");
 }
 
-// function showPurchase() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/purchase")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
-
 function showSales() {
     // Make an AJAX request to fetch the content of the sales graphs page
     var xhr = new XMLHttpRequest();
@@ -258,21 +246,23 @@ function hidePopupForm() {
 function showEditForm(event, productId) {
     event.preventDefault();
     //document.getElementById("edit-form").style.display = "block";
-    console.log('Hoi');
+    console.log("Hoi");
     console.log(productId);
     const product = products.find((product) => product.id === productId);
 
-  // Check if the product exists
-  if (product) {
-    // Set the values of the form fields based on the product
-    const editForm = document.getElementById('edit-form');
-    editForm.querySelector('input[name="name"]').value = product.name;
-    editForm.querySelector('input[name="unit_price"]').value = product.unit_price;
-    editForm.querySelector('input[name="quantity"]').value = product.quantity;
+    // Check if the product exists
+    if (product) {
+        // Set the values of the form fields based on the product
+        const editForm = document.getElementById("edit-form");
+        editForm.querySelector('input[name="name"]').value = product.name;
+        editForm.querySelector('input[name="unit_price"]').value =
+            product.unit_price;
+        editForm.querySelector('input[name="quantity"]').value =
+            product.quantity;
 
-    // Display the edit form
-    editForm.style.display = 'block';
-  }
+        // Display the edit form
+        editForm.style.display = "block";
+    }
 }
 
 function hideEditForm() {
@@ -303,15 +293,6 @@ function showAlertWinStock() {
     window.alert("Stock is below 10, see list!");
 }
 
-// const stocks = document.querySelectorAll('.main-liquor-data-show tbody tr');
-// stocks.forEach(stock => {
-//   const quantity = parseInt(stock.querySelector(`#checkValue${stock.dataset.productId}`).textContent);
-//   if (quantity < 5) {
-//     stock.classList.add('bg-red-500');
-//     showAlertWinStock();
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
     // Get all the table rows
     const rows = document.querySelectorAll("tbody tr");
@@ -330,29 +311,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     console.log("Hello");
 });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var stockValue = document.getElementById("checkValueData").innerText;
-//     if (parseInt(stockValue) <= 10) {
-//       var notificationDiv = document.getElementById("stock-notification");
-//       notificationDiv.classList.remove("hidden");
-//       notificationDiv.classList.add("visible");
-//     }
-// });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var stockCells = document.querySelectorAll("#checkValueData");
-//     console.log(stockCells);
-//     stockCells.forEach(function(cell) {
-//       var stockValue = parseInt(cell.innerText);
-//       if (stockValue <= 10) {
-//         var notificationDiv = document.getElementById("stock-notification");
-//         notificationDiv.classList.remove("hidden");
-//         notificationDiv.classList.add("visible");
-//         // You may also consider updating the notification message dynamically based on the product details
-//       }
-//     });
-// });
 
 //----------------------------------------EDITED BY JOEPHINE---------------------------\\
 

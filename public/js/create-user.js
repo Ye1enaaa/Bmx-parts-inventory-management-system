@@ -80,3 +80,11 @@ document.getElementById("imageInput").addEventListener("change", function () {
         fileInput.setAttribute("data-image", "");
     }
 });
+
+function confirmLogout(event) {
+    event.preventDefault();
+
+    if (confirm("Are you sure you want to logout?")) {
+        document.getElementById("logout-form").submit();
+    }
+}

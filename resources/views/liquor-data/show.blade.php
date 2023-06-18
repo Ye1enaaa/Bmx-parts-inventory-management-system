@@ -50,9 +50,10 @@
                         <th class="px-4 py-2">Price</th>
                         <!-- <th class="px-4 py-2">Description</th> -->
                         <th class="px-4 py-2">Amount</th>
+                        <th class="px-4 py-2">Damage Stocks</th>
                         <th class="px-4 py-2">QR Code</th>
                         <th class="px-4 py-2">Supplier</th>
-                        <th class="px-4 py-2">Edit</th>
+                        <!-- <th class="px-4 py-2">Edit</th> -->
                         <th class="px-4 py-2">Stock Card</th>
                         
                       </tr>
@@ -67,12 +68,19 @@
                         <td id="checkValueData" class="border px-6 py-4 {{$product->quantity <= 10 ? 'bg-red-500' : ''}}">{{$product->quantity}}</td>
                         <td class="border px-6 py-4">{{$product->unit_price}}</td>
                         <!-- <td class="border px-6 py-4">{{$product->description}}</td> -->
-                        <td class="border px-6 py-4">{{$product->inventory_value}}</td>     
+                        <td class="border px-6 py-4">{{$product->inventory_value}}</td>
+                        <td class="border px-6 py-4">
+                          @if($product->returns)
+                            {{$product->returns}}
+                          @elseif($product->returns == null)
+                            -
+                          @endif
+                        </td>      
                         <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
                         <td class="border px-6 py-4">{{$product->supplier->name}}</td>
-                        <td class="border px-6 py-4">
-                            <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event)">Edit</a>
-                        </td>
+                        <!-- <td class="border px-6 py-4">
+                            <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event, {{$product->id}})">Edit</a>
+                        </td> -->
                         <td class="border px-6 py-4">
                           <a href="#stockcard" onclick="showstockcard({{$product->id}})">
                             <span class="text-green-900">show</span>
@@ -115,7 +123,7 @@
     <div class="px-10 mx-auto p-11 rounded-2xl shadow-md hidden" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid black; padding: 10px; display: none; background-color: white; width: 50%; border-radius: 10px; box-shadow: 0 4px 6px -1px black; background-color: white;"
          id="edit-form">
               
-          <form id="product-form" method="POST" action="{{route('products.edit', $product->id)}}">
+          <form id="product-form" method="POST" action="/editprod/{{$product->id}}">
                   @csrf
                   @method('PUT')
 

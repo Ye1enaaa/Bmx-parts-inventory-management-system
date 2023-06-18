@@ -55,6 +55,12 @@ td {
     background-color: #f56565;
     color: #fff;
 }
+
+.status-return {
+    background-color: #f5c065;
+    color: #fff;
+}
+
 @media print {
     tr.bg-gray-700 th {
         background-color: #718096 !important;
@@ -144,16 +150,18 @@ td {
                 <th class="border p-2 text-center">Received from:</th>
                 <th class="border p-2 text-center">Issued to:</th>
                 <th class="border p-2 text-center">No. Received:</th>
+                <th class="border p-2 text-center">No. Returns:</th>
                 <th class="border p-2 text-center">No. Issued:</th>
                 <th class="border p-2 text-center">Balance</th>
+                <th class="border p-2 text-center">Comments</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($stockcard['stockcard'] as $data)
                 <tr>
-                <td>{{$data['created_at']->format('Y-m-d')}}</td>
+                <td>{{ $data['created_at']->format('F d, Y') }}</td>
 
-                <td class="{{ $data['status'] === 'IN' ? 'status-in' : ($data['status'] === 'OUT' ? 'status-out' : '') }}">
+                <td class="{{ $data['status'] === 'IN' ? 'status-in' : ($data['status'] === 'OUT' ? 'status-out' : ($data['status'] === 'RETURN' ? 'status-return' : '')) }}">
                      {{ $data['status'] }}
                 </td>
                 <td class="border p-2 text-center">
@@ -178,6 +186,13 @@ td {
                     @endif
                 </td>
                 <td class="border p-2 text-center">
+                    @if( $data['stockQuantityReturn'] )
+                    +{{$data['stockQuantityReturn']}}
+                    @elseif( $data['stockQuantityReturn'] == null )
+                    -
+                    @endif
+                </td>
+                <td class="border p-2 text-center">
                     @if( $data['stockQuantityIssued'] )
                     -{{$data['stockQuantityIssued']}}
                     @elseif( $data['stockQuantityIssued'] ==null )
@@ -185,6 +200,13 @@ td {
                     @endif
                 </td>
                 <td class="border p-2 text-center">{{$data['stockBalance']}}</td>
+                <td class="border p-2 text-center">
+                    @if( $data['comments'] )
+                    {{$data['comments']}}
+                    @elseif( $data['comments'] == null )
+                    -
+                    @endif
+                </td>
                 </tr>
                 @endforeach
             </tbody>

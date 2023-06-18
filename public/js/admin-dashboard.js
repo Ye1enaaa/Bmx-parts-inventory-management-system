@@ -15,18 +15,6 @@ function closeNav() {
     document.querySelector(".main-content").classList.remove("open");
 }
 
-// function showPurchase() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/purchase")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
-
 function showSales() {
     // Make an AJAX request to fetch the content of the sales graphs page
     var xhr = new XMLHttpRequest();
@@ -287,15 +275,6 @@ function confirmLogout(event) {
 function showAlertWinStock() {
     window.alert("Stock is below 10, see list!");
 }
-
-// const stocks = document.querySelectorAll('.main-liquor-data-show tbody tr');
-// stocks.forEach(stock => {
-//   const quantity = parseInt(stock.querySelector(`#checkValue${stock.dataset.productId}`).textContent);
-//   if (quantity < 5) {
-//     stock.classList.add('bg-red-500');
-//     showAlertWinStock();
-//   }
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
     // Get all the table rows

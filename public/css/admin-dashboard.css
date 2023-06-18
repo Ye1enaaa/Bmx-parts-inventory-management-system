@@ -308,11 +308,6 @@ tbody tr:nth-child(even) {
     background-color: #d3d3d3;
 }
 
-/* tbody tr:hover {
-    background-color: #dadada;
-    cursor: pointer;
-} */
-
 @keyframes moveIcon {
     from {
         transform: translateX(-10px);

@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UnderStockController;
+use App\Http\Controllers\ReturnByCustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,6 +57,9 @@ Route::get('/trydatas', [ProductController::class, 'tryDatas']);
 //-----------------------FOR STOCK IN AND OUT------------------------\\
 Route::post('/stockin' , [StaffController::class,'stockIn']);
 Route::post('/stockout' , [StaffController::class,'stockOut']);
+//-----------------------FOR RETURNS------------------------\\
+Route::post('/returninexchange' , [ReturnByCustomerController::class,'returnInExchange']);
+Route::post('/returnindamage' , [ReturnByCustomerController::class,'returnDueToDamage']);
 //-----------------------FETCH BARCODE DATA----------------------------\\
 Route::get('/qrcode/{product_code}' , [StaffController::class, 'readQrCode']);
 
@@ -64,3 +69,5 @@ Route::get('/qrcode/{product_code}' , [StaffController::class, 'readQrCode']);
 
 //-------------------------EXPERIMENTATION API-------------------------\\
 Route::get('/stockcard/{id}' , [ProductController::class,'fetchStocksWithCard']);
+Route::get('/understocklvl' , [UnderStockController::class,'returnUnderStocksAPI']);
+Route::get('/editproduct/{id}' , [ProductController::class,'edit']);

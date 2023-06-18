@@ -15,40 +15,80 @@ function closeNav() {
     document.querySelector(".main-content").classList.remove("open");
 }
 
-// function showPurchase() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/purchase")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
+function showSales() {
+    // Make an AJAX request to fetch the content of the sales graphs page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Extract the specific content from the response
+            var parser = new DOMParser();
+            var htmlDoc = parser.parseFromString(xhr.responseText, "text/html");
+            var salesGraphsContent =
+                htmlDoc.getElementById("salesGraphsContent").innerHTML;
 
-// function showSales() {
-//     var mainContent = document.querySelector(".main-content1");
-//     fetch("/graphs")
-//         .then((response) => response.text())
-//         .then((data) => {
-//             mainContent.innerHTML = data;
-//         })
-//         .catch((error) => {
-//             console.error("Error:", error);
-//         });
-// }
+            // Update the content on the current page with the fetched content
+            document.querySelector(".main-content1").innerHTML =
+                salesGraphsContent;
+
+            // Initialize the chart
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/graphs", true);
+    xhr.send();
+}
+
+function showUnderstock() {
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index/understocks", true);
+    xhr.send();
+}
+
+function showstockcard(id) {
+    // Make an AJAX request to fetch the content of the stock card page for the given id
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/stockcard/" + id, true);
+    xhr.send();
+}
 
 function showProducts() {
-    var mainContent = document.querySelector(".main-content1");
-    fetch("/index")
-        .then((response) => response.text())
-        .then((data) => {
-            mainContent.innerHTML = data;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
+    // Make an AJAX request to fetch the content of the upcoming events page
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Update the content on the current page with the fetched content
+            var response = xhr.responseText;
+            document.querySelector(".main-content1").innerHTML = response;
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+    };
+    xhr.open("GET", "/index", true);
+    xhr.send();
 }
 
 function showSupplierInformation() {
@@ -74,29 +114,6 @@ function showAddSupplier() {
             console.error("Error:", error);
         });
 }
-
-// SIDEBAR DROPDOWN
-// const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
-// const sidebar = document.getElementById("sidebar");
-
-// allDropdown.forEach((item) => {
-//     const a = item.parentElement.querySelector("a:first-child");
-//     a.addEventListener("click", function (e) {
-//         e.preventDefault();
-
-//         if (!this.classList.contains("active")) {
-//             allDropdown.forEach((i) => {
-//                 const aLink = i.parentElement.querySelector("a:first-child");
-
-//                 aLink.classList.remove("active");
-//                 i.classList.remove("show");
-//             });
-//         }
-
-//         this.classList.toggle("active");
-//         item.classList.toggle("show");
-//     });
-// });
 
 // SIDEBAR COLLAPSE
 const toggleSidebar = document.querySelector("nav .toggle-sidebar");
@@ -226,9 +243,30 @@ function hidePopupForm() {
 }
 
 // sa product - form ni siya
-function showEditForm(event) {
+function showEditForm(event, productId) {
     event.preventDefault();
-    document.getElementById("edit-form").style.display = "block";
+    //document.getElementById("edit-form").style.display = "block";
+    console.log("Hoi");
+    console.log(productId);
+    const product = products.find((product) => product.id === productId);
+
+    // Check if the product exists
+    if (product) {
+        // Set the values of the form fields based on the product
+        const editForm = document.getElementById("edit-form");
+        editForm.querySelector('input[name="name"]').value = product.name;
+        editForm.querySelector('input[name="unit_price"]').value =
+            product.unit_price;
+        editForm.querySelector('input[name="quantity"]').value =
+            product.quantity;
+
+        // Display the edit form
+        editForm.style.display = "block";
+    }
+}
+
+function hideEditForm() {
+    document.getElementById("edit-form").style.display = "none";
 }
 
 // Add form validation here
@@ -236,10 +274,6 @@ var form = document.getElementById("product-form");
 form.addEventListener("submit", function (event) {
     // Add validation code here
 });
-
-function hideEditForm() {
-    document.getElementById("edit-form").style.display = "none";
-}
 
 function toggleDropdown() {
     var dropdown = document.getElementById("supplierDropdown");
@@ -259,15 +293,6 @@ function showAlertWinStock() {
     window.alert("Stock is below 10, see list!");
 }
 
-// const stocks = document.querySelectorAll('.main-liquor-data-show tbody tr');
-// stocks.forEach(stock => {
-//   const quantity = parseInt(stock.querySelector(`#checkValue${stock.dataset.productId}`).textContent);
-//   if (quantity < 5) {
-//     stock.classList.add('bg-red-500');
-//     showAlertWinStock();
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
     // Get all the table rows
     const rows = document.querySelectorAll("tbody tr");
@@ -284,6 +309,90 @@ document.addEventListener("DOMContentLoaded", function () {
             window.alert("Stock is below 10, see list!");
         }
     });
+    console.log("Hello");
 });
 
-console.log("Buang");
+//----------------------------------------EDITED BY JOEPHINE---------------------------\\
+
+function filterStockCardByMonth(month) {
+    var rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(function (row) {
+        var date = row.querySelector("td:first-child").innerText;
+        var rowMonth = new Date(date).getMonth() + 1;
+
+        if (month === "" || rowMonth == month) {
+            row.style.display = "table-row";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+//----------------------------------------EDITED BY JOEPHINE---------------------------\\
+function downloadInventory() {
+    // Get the HTML content of the specific <div> element
+    var content = document.querySelector(".table-container").innerHTML;
+
+    // Get the "Total stock on hand" information
+    var totalStocks = document.querySelector(".mr-96").textContent.trim();
+
+    // Get the title "List of Inventory"
+    var title = document.querySelector(".text-4xl").textContent.trim();
+
+    // Create the title and total stock tables with borders
+    var titleTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 20vh;'>" +
+        "<span style='font-weight: bold; font-size: 50px;'>" +
+        title +
+        "</span>" +
+        "</div>";
+
+    var totalStocksTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 5vh;'>" +
+        "<span style='font-weight: bold; font-size: 24px;'>" +
+        totalStocks +
+        "</span>" +
+        "</div>";
+
+    // Remove the "Edit" and "Stockard" columns from the table content
+    content = content
+        .replace(/<th>Edit<\/th>/, "")
+        .replace(/<th>Stockard<\/th>/, "");
+    content = content
+        .replace(/<td>Edit<\/td>/g, "")
+        .replace(/<td>Stockard<\/td>/g, "");
+
+    // Create the content table with border
+    var contentTable =
+        "<div style='display: flex; justify-content: center; align-items: center; height: 50vh;'>" +
+        "<table style='border-collapse: collapse; border: 2px solid black;'>" +
+        "<tr style='border-bottom: 1px solid black;'>" +
+        "<td>" +
+        content.replace(
+            /<\/tr>/g,
+            "</tr><tr style='border-bottom: 1px solid black;'>"
+        ) +
+        "</td>" +
+        "</tr>" +
+        "</table>" +
+        "</div>";
+
+    // Create a new Blob with the combined HTML content and tables
+    var combinedContent = titleTable + totalStocksTable + contentTable;
+
+    var blob = new Blob([combinedContent], { type: "text/html" });
+
+    // Create a temporary link element to trigger the download
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "inventory.html";
+    link.style.display = "none";
+
+    // Append the link to the document and click it programmatically
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up resources
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+}

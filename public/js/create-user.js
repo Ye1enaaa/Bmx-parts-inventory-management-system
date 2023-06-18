@@ -25,11 +25,6 @@ function showAddAccounts() {
     document.getElementById("content-add-accounts").style.display = "block";
 }
 
-function showSales() {
-    document.getElementById("content-accounts").style.display = "none";
-    document.getElementById("content-add-accounts").style.display = "block";
-}
-
 function showEditForm(userId) {
     // hide all other edit forms
     const allForms = document.querySelectorAll(".edit-user-form");
@@ -85,3 +80,11 @@ document.getElementById("imageInput").addEventListener("change", function () {
         fileInput.setAttribute("data-image", "");
     }
 });
+
+function confirmLogout(event) {
+    event.preventDefault();
+
+    if (confirm("Are you sure you want to logout?")) {
+        document.getElementById("logout-form").submit();
+    }
+}

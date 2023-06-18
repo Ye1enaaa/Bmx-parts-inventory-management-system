@@ -12,38 +12,35 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\CustomerOrder;
 use App\Models\Supplie;
-
+use App\Models\StockCard;
 class AdminController extends Controller
 {
 
-        public function index()
+    public function index()
     {
         return view('dashboard.dashboard');
     }
-
 
     //views
     public function returnAdminLoginView(){
         return view('auth-admin.login-admin');          
     }
-    public function returnPurchaseView(){
-        $customerOrders = CustomerOrder::with('user')->get();
-        return view('purchase.purchase-order',[
-            'customerOrders' => $customerOrders
-        ]);
-    }
+
+    // public function returnPurchaseView(){
+    //     $customerOrders = CustomerOrder::with('user')->get();
+    //     return view('purchase.purchase-order',[
+    //         'customerOrders' => $customerOrders
+    //     ]);
+    // }
 
     public function returnAdminDashboardView(){
-        $count = DB::table('products')->count();
+        $count = DB::table('stock_cards')->sum('stockQuantityIssued'); // total Stock Outs
         $user = Auth::user();
-        // Retrieve the orders associated with the authenticated user and join the users table to include the user's name;
-        $customerOrders = CustomerOrder::with('user')->get();
-
-
-        $total_quantity = DB::table('products')->sum('quantity');
-        $total_inventory = DB::table('products')->sum('inventory_value');
-        $total_value = DB::table('customer_orders')->sum('total_value');
-        $total_admin = DB::table('supplies')->count();
+        $customerOrders = CustomerOrder::with('user')->get(); //Experiment
+        $total_quantity = DB::table('products')->sum('quantity'); // total stock on hand
+        $total_inventory = DB::table('products')->sum('inventory_value'); //total price of stocks
+        $total_value = DB::table('customer_orders')->sum('total_value'); //Experiment
+        $total_admin = DB::table('supplies')->count(); //count suppliers
         return view('dashboard.data-table',[
             'count' => $count,
             'customerOrders' => $customerOrders,
@@ -64,54 +61,62 @@ class AdminController extends Controller
         ]);*/
     }
 
+    public function returnStocksOutByData() {
+        $stockOutsPerDay = DB::table('stock_cards')
+            ->select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, SUM(stockQuantityIssued) as total'))
+            ->groupBy('day')
+            ->get();
+        return view('graphs.sales', ['stockOutsPerDay' => $stockOutsPerDay]);
+    }
+
     //auth
-    public function loginAdmin(Request $request){
-        $input = $request->all();
+    // public function loginAdmin(Request $request){
+    //     $input = $request->all();
 
         
-        $validate = Validator::make($input, [
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+    //     $validate = Validator::make($input, [
+    //         'email' => 'required',
+    //         'password' => 'required'
+    //     ]);
 
-        if ($validate->fails()) {
-            return response([
-                'message' => $validate->errors()->first(),
-            ], 400);
-        }
+    //     if ($validate->fails()) {
+    //         return response([
+    //             'message' => $validate->errors()->first(),
+    //         ], 400);
+    //     }
 
-        $admin = Admin::where('email', $input['email'])->first();
+    //     $admin = Admin::where('email', $input['email'])->first();
 
-        if (!$admin || !Hash::check($input['password'], $admin->password)) {
-            return response([
-                'message' => "Your email or password is incorrect. Please try again."
-            ], 401);
-        }
+    //     if (!$admin || !Hash::check($input['password'], $admin->password)) {
+    //         return response([
+    //             'message' => "Your email or password is incorrect. Please try again."
+    //         ], 401);
+    //     }
 
-        return redirect('/index');
-    }
+    //     return redirect('/index');
+    // }
 
-    public function registeradmin(Request $request)
-    {
-        //validation of fields
-        $attrs = $request->validate([
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6'
-        ]);
+    // public function registeradmin(Request $request)
+    // {
+    //     //validation of fields
+    //     $attrs = $request->validate([
+    //         'email' => 'required|email|unique:users,email',
+    //         'password' => 'required|min:6'
+    //     ]);
 
-        //create user
-        $admin = Admin::create([
-            'email'=> $attrs['email'],
-            'password'=> bcrypt($attrs['password'])
-        ]);
+    //     //create user
+    //     $admin = Admin::create([
+    //         'email'=> $attrs['email'],
+    //         'password'=> bcrypt($attrs['password'])
+    //     ]);
 
-        //return user and token
-        $token = $admin->createToken('secret')->plainTextToken;
-        return response([
-            'user'=> $admin,
-            'token' => $token
-        ]);
-    }
+    //     //return user and token
+    //     $token = $admin->createToken('secret')->plainTextToken;
+    //     return response([
+    //         'user'=> $admin,
+    //         'token' => $token
+    //     ]);
+    // }
     
     //For mobile
     public function returnDashboardMobileView(){
@@ -130,12 +135,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function returnPurchases(){
-        $customerOrders = CustomerOrder::with('user')->get();
+    // public function returnPurchases(){
+    //     $customerOrders = CustomerOrder::with('user')->get();
         
-        return response([
-            'purchaseOrder' => $customerOrders
-        ]);
-    }
+    //     return response([
+    //         'purchaseOrder' => $customerOrders
+    //     ]);
+    // }
 
 }

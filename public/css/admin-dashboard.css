@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("./fonts/poppins.ttf") format("truetype"); /* Update the font file path and format if needed */
+    /* Add additional font properties if required, such as font-weight and font-style */
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins, sans-serif";
 }
 
 .sidebar {
@@ -12,7 +16,7 @@
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 70;
+    top: 10px;
     left: 0;
     background: #121f25;
     overflow-x: hidden;
@@ -304,11 +308,6 @@ tbody tr:nth-child(even) {
     background-color: #d3d3d3;
 }
 
-/* tbody tr:hover {
-    background-color: #dadada;
-    cursor: pointer;
-} */
-
 @keyframes moveIcon {
     from {
         transform: translateX(-10px);
@@ -381,4 +380,22 @@ tbody tr:nth-child(even) {
 
 .custom-margin {
     margin-right: 150px;
+}
+
+.alert-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.alert-icon ion-icon {
+    font-size: 1.5rem;
+    color: #ff0000;
+}
+
+.bg-custom-color {
+    background-color: #428fb6;
 }

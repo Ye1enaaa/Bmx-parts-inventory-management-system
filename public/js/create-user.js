@@ -25,11 +25,6 @@ function showAddAccounts() {
     document.getElementById("content-add-accounts").style.display = "block";
 }
 
-function showSales() {
-    document.getElementById("content-accounts").style.display = "none";
-    document.getElementById("content-add-accounts").style.display = "block";
-}
-
 function showEditForm(userId) {
     // hide all other edit forms
     const allForms = document.querySelectorAll(".edit-user-form");

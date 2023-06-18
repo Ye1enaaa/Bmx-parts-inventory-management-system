@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('product_code');
             $table->float('unit_price');
             $table->integer('quantity');
+            $table->integer('returns')->nullable();
             $table->float('inventory_value');
             $table->timestamps();
 

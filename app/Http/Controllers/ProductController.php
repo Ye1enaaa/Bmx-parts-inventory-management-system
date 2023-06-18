@@ -56,11 +56,11 @@ class ProductController extends Controller
     //     return view('dashboard.create');
     // }
 
-    public function getPrice(Request $request, $selectedValue)
-    {
-        $price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
-        return response()->json(['unit_price' => $price]);
-    }
+    // public function getPrice(Request $request, $selectedValue)
+    // {
+    //     $price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
+    //     return response()->json(['unit_price' => $price]);
+    // }comment out
     //post Liquor Data
 
     public function storeData(Request $request){
@@ -173,19 +173,10 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->unit_price = $request->input('unit_price');
         $product->quantity = $request->input('quantity');
-        $product->description = $request->input('description');
+        $product->returns = $request->input('returns');
         $product->save();
 
         return redirect('/dashboard')->with('Success','Updated Successfully');
-
-        $validatedData = $request->validate([
-        'name' => 'required|max:255',
-        'unit_price' => 'required|numeric',
-        'quantity' => 'required|integer',
-        'description' => 'nullable|max:255',
-    ]);
-
-    $product->update($validatedData);
 
     }
 

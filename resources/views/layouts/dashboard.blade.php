@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
   <script src="{{asset('js/admin-dashboard.js')}}"></script>
 
 
@@ -38,24 +36,7 @@
 
 
  
-<!-- 
-  <div class="container">
-        @yield('content')
-    </div> -->
 
-
-
-  <!-- <div class="main-supplier">
-   
-    @yield('content-supplier')
-
-  </div> -->
-
-    <!-- <div class="main-sales-graphs">
-    
-    @yield('content-sales-graphs')
-
-  </div> -->
 
  
 </body>

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,12 +18,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        \App\Models\Supplie::factory()->create([
+        $currentDateTime = now()->toDateTimeString();
+        DB::table('suppliers')->insert([
             'name' => 'Test Supplier',
             'email_address' => 'testsupplier@example.ccn',
             'contact_number' => '09123334567',
-            'status' => '1',
-            'desc' => 'Test Description'
+            'address' => 'Test Address',
+            'created_at' => $currentDateTime,
+            'updated_at' => $currentDateTime,
         ]);
         \App\Models\Product::factory()->create([
              'name' => 'Test Product',

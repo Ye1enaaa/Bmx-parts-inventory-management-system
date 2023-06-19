@@ -100,6 +100,13 @@
           <div class="flex-grow ml-20">
             <h3 class="text-lg font-bold mb-2">Product Name: <span>{{$stockcard->name}}</span></h3>
             <h3 class="text-lg font-bold mb-2">Product Code: <span>{{$stockcard->product_code}}</span></h3>
+            <h3 class="text-lg font-bold mb-2">
+              @if($stockcard->returns)
+              No. of Damage Stocks: <span>{{$stockcard->returns}}</span>
+              @elseif($stockcard->returns == null)
+              No. of Damage Stocks: 
+              @endif
+            </h3>
           </div>
           <div class="flex items-end justify-end mr-32">
             <div>

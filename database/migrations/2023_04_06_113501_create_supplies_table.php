@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Schema::rename('supplies', 'suppliers');
         Schema::create('supplies', function (Blueprint $table) {
             //$table->unsignedBigInteger('id')->primary();
             $table->id();
@@ -18,8 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email_address');
             $table->string('contact_number');
-            $table->boolean('status')->default(true);
-            $table->string('desc');
+            //$table->boolean('status')->default(true);
+            $table->string('address');
             $table->timestamps();
 
             //$table->primary('suid');
@@ -35,5 +36,6 @@ return new class extends Migration
             $table->increments('id')->change();
         });*/
         Schema::dropIfExists('supplies');
+        //Schema::rename('supplies', 'suppliers');
     }
 };

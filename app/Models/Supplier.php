@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
-class Supplie extends Model
+class Supplier extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Supplie extends Model
         'email_address',
         'contact_number',
         'status',
-        'desc'
+        'address'
     ];
 
     //protected $primaryKey = 'suid';

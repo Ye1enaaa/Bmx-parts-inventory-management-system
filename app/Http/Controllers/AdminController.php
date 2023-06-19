@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Models\Product;
 use App\Models\User;
-use App\Models\CustomerOrder;
+//use App\Models\CustomerOrder;
 use App\Models\Supplie;
 use App\Models\StockCard;
 class AdminController extends Controller
@@ -26,39 +26,21 @@ class AdminController extends Controller
         return view('auth-admin.login-admin');          
     }
 
-    // public function returnPurchaseView(){
-    //     $customerOrders = CustomerOrder::with('user')->get();
-    //     return view('purchase.purchase-order',[
-    //         'customerOrders' => $customerOrders
-    //     ]);
-    // }
-
     public function returnAdminDashboardView(){
         $count = DB::table('stock_cards')->sum('stockQuantityIssued'); // total Stock Outs
         $user = Auth::user();
-        $customerOrders = CustomerOrder::with('user')->get(); //Experiment
+        //$customerOrders = CustomerOrder::with('user')->get(); //Experiment
         $total_quantity = DB::table('products')->sum('quantity'); // total stock on hand
         $total_inventory = DB::table('products')->sum('inventory_value'); //total price of stocks
-        $total_value = DB::table('customer_orders')->sum('total_value'); //Experiment
-        $total_admin = DB::table('supplies')->count(); //count suppliers
+        //$total_value = DB::table('customer_orders')->sum('total_value'); //Experiment
+        $total_admin = DB::table('suppliers')->count(); //count suppliers
         return view('dashboard.data-table',[
             'count' => $count,
-            'customerOrders' => $customerOrders,
             'total_quantity'=> $total_quantity,
             'total_inventory'=> $total_inventory,
-            'total_value' => $total_value,
             'total_admin'=> $total_admin
         ]);
 
-
-        /*$product = Product::all();
-        return view('liquor-data.show', compact('product'));
-
-        $suppliers = Supplier::all();
-
-        return view('dashboard.dashboard', [
-            'suppliers' => $suppliers
-        ]);*/
     }
 
     public function returnStocksOutByData() {
@@ -69,54 +51,6 @@ class AdminController extends Controller
         return view('graphs.sales', ['stockOutsPerDay' => $stockOutsPerDay]);
     }
 
-    //auth
-    // public function loginAdmin(Request $request){
-    //     $input = $request->all();
-
-        
-    //     $validate = Validator::make($input, [
-    //         'email' => 'required',
-    //         'password' => 'required'
-    //     ]);
-
-    //     if ($validate->fails()) {
-    //         return response([
-    //             'message' => $validate->errors()->first(),
-    //         ], 400);
-    //     }
-
-    //     $admin = Admin::where('email', $input['email'])->first();
-
-    //     if (!$admin || !Hash::check($input['password'], $admin->password)) {
-    //         return response([
-    //             'message' => "Your email or password is incorrect. Please try again."
-    //         ], 401);
-    //     }
-
-    //     return redirect('/index');
-    // }
-
-    // public function registeradmin(Request $request)
-    // {
-    //     //validation of fields
-    //     $attrs = $request->validate([
-    //         'email' => 'required|email|unique:users,email',
-    //         'password' => 'required|min:6'
-    //     ]);
-
-    //     //create user
-    //     $admin = Admin::create([
-    //         'email'=> $attrs['email'],
-    //         'password'=> bcrypt($attrs['password'])
-    //     ]);
-
-    //     //return user and token
-    //     $token = $admin->createToken('secret')->plainTextToken;
-    //     return response([
-    //         'user'=> $admin,
-    //         'token' => $token
-    //     ]);
-    // }
     
     //For mobile
     public function returnDashboardMobileView(){
@@ -124,7 +58,7 @@ class AdminController extends Controller
         $total_quantity = DB::table('products')->sum('quantity');
         $total_inventory = DB::table('products')->sum('inventory_value');
         $total_value = DB::table('customer_orders')->sum('total_value');
-        $total_admin = DB::table('supplies')->count();
+        $total_admin = DB::table('suppliers')->count();
 
         return response([
             'product_count' => $count,
@@ -135,12 +69,5 @@ class AdminController extends Controller
         ]);
     }
 
-    // public function returnPurchases(){
-    //     $customerOrders = CustomerOrder::with('user')->get();
-        
-    //     return response([
-    //         'purchaseOrder' => $customerOrders
-    //     ]);
-    // }
 
 }

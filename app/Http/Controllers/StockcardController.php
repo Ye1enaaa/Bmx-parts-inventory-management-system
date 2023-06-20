@@ -29,4 +29,12 @@ class StockcardController extends Controller
             abort(404, 'Not Found');
         }
     }
+
+    public function resetReturnValue(Request $request,$id)
+    {
+        $stockcard = Product::with('stockcard')->findOrFail($id);
+        $stockcard->returns = 0;
+        $stockcard->save();
+        return redirect()->back();
+    }
 }

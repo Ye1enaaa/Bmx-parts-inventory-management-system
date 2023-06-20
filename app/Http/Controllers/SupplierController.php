@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Supplie;
+use App\Models\Supplier;
 use Illuminate\Support\Str;
 
 
@@ -12,7 +12,7 @@ class SupplierController extends Controller
 {
     public function showSupplierInformation()
     {
-        $suppliers = Supplie::with('products')->get();
+        $suppliers = Supplier::with('products')->get();
         return view('supplier.supplier-information', compact('suppliers'));
     }
 
@@ -27,14 +27,14 @@ class SupplierController extends Controller
             'name' => 'required|string',
             'email_address' => 'required|string',
             'contact_number' => 'required|string|max:11',
-            'desc' => 'required|string'
+            'address' => 'required|string'
         ]);
 
-        $supplier = Supplie::create([
+        $supplier = Supplier::create([
             'name' => $validateData['name'],
             'email_address' => $validateData['email_address'],
             'contact_number' => $validateData['contact_number'],
-            'desc' => $validateData['desc']
+            'address' => $validateData['address']
         ]);
 
         return redirect('/dashboard');

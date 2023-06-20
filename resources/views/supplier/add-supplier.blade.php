@@ -25,8 +25,8 @@
                 type="text" name="email_address" required id="Email" placeholder="Email">
         </div>
         <div>
-            <label for="Description" class="block mb-2 text-lg font-bold dark:text-white">Address:</label>
-            <input name="desc" id="desc" placeholder="Address"
+            <label for="Address" class="block mb-2 text-lg font-bold dark:text-white">Address:</label>
+            <input name="address" id="address" placeholder="Address"
                 class="border border-gray-400 block py-2 px-4 w-full rounded focus:outline-none focus:border-blue-500"
                 required>
         </div>

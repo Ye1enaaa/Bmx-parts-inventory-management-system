@@ -15,13 +15,11 @@ return new class extends Migration
             $table->id();
             $table->boolean('disabled')->default(false); //added
             $table->string('name');
-            $table->integer('role')->default(3); //superadmin-1,admin-2,customer-3
+            $table->integer('role')->default(3);
             $table->string('email')->unique();
             $table->string('image')->nullable();
             $table->softDeletes();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

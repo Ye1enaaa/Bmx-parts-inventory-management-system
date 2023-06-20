@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StaffController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UnderStockController;
 use App\Http\Controllers\ReturnByCustomerController;
 /*
@@ -62,6 +61,17 @@ Route::post('/returninexchange' , [ReturnByCustomerController::class,'returnInEx
 Route::post('/returnindamage' , [ReturnByCustomerController::class,'returnDueToDamage']);
 //-----------------------FETCH BARCODE DATA----------------------------\\
 Route::get('/qrcode/{product_code}' , [StaffController::class, 'readQrCode']);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

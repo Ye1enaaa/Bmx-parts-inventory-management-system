@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\DB;
@@ -48,6 +46,7 @@ Route::middleware('superadmin')->group(function () {
   Route::delete('/createuser/{id}', [UserController::class, 'softDelete'])->name('softdel.user');
   // Disabling the account
   Route::patch('/createuser/{id}/disable', [UserController::class, 'disable'])->name('disable.user');
+  Route::patch('/createuser/{id}/enable', [UserController::class, 'enable'])->name('enable.user');
 });
 
 
@@ -85,6 +84,7 @@ Route::get('/convert-to-pdf/{id}', [StockCardController::class, 'convertToPDF'])
 //gitandog ni jopin
 Route::get('/inventory/print', 'ProductController@showPrintView')->name('inventory.print');
 
+Route::post('/resetDamage/{id}', [StockCardController::class, 'resetReturnValue']);
 
 
 
@@ -93,71 +93,9 @@ Route::get('/inventory/print', 'ProductController@showPrintView')->name('invento
 
 
 
-//return views/page for posting liquor
-// Route::get('/index', [ProductController::class, 'index'])->middleware('admin');
-// Route::get('/create', [ProductController::class,'returnCreateDataView']);
-// Route::get('/stockcard/{id}' , [ProductController::class, 'returnStockCard']);
-// Route::get('/dashboard/admin', [ProductController::class, 'showAdminDashboard'])->middleware('admin');
-// Route::get('/dashboard/create', [ProductController::class, 'showCreateViewInDashboard'])->middleware('admin');
-
-//post method for admin auth
-//Route::post('/admin', [AdminController::class, 'loginAdmin'])->name('login.admin');
-
-Auth::routes();
-
-//you are
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//return views/page for login admin
-//Route::get('/admins' , [AdminController::class,'returnAdminLoginView']);
+//Auth::routes();
 
 
-// //return view for creating user
-// Route::get('/createuser', [UserController::class,'returnCreateAndShowUserView'])->middleware('superadmin');
-// //post method for creating user
-// Route::post('/createuser' , [UserController::class, 'registerUser'])->name('create.user')->middleware('superadmin');
-// //edit method for user
-// Route::put('/edituser/{id}', [UserController::class,'editUser'])->name('edit.user')->middleware('superadmin');
-// //delete method for user
-// Route::delete('/createuser/{id}',[UserController::class, 'softDelete'])->name('softdel.user')->middleware('superadmin');
-
-// //Disabling the account
-// Route::patch('/createuser/{id}/disable', [UserController::class, 'disable'])->name('disable.user')->middleware('superadmin');
-
-
-
-//Customer
-// Route::get('/customer', [CustomerController::class, 'returnCustomerViewPage'])->middleware('customer'); //comment out
-// Route::post('/post-customer', [CustomerController::class, 'postCustomerOrder'])->name('customer.order');
-// Route::get('/customers/{id}', [CustomerController::class,'returnRecentOrderPage']);
-
-
-//supplier
-// Route::get('/supplier', [SupplierController::class, 'returnSupplierViewPage']);
-// Route::post('supplier' , [SupplierController::class, 'addSupplier'])->name('supplier.add');
-
-//gi tandog ni jopin
-// Route::get('/supplier-information', [SupplierController::class, 'showSupplierInformation']);
-// Route::get('/add-supplier', [SupplierController::class, 'showAddSupplierForm']);
-// Route::post('/supplier', [SupplierController::class, 'addSupplier'])->name('supplier.add');
-
-//Purchase
-//Route::get('/purchase', [AdminController::class,'returnPurchaseView']); //comment out
-
-//Route::get('/get-price/{selectedValue}', function ($selectedValue) {
-  //  $price = DB::table('products')->where('name', $selectedValue)->pluck('unit_price')->first();
-   // return response()->json(['unit_price' => $price]);
-//});
-
-//Route::get('/get-price/{selectedValue}', function ($selectedValue) {
- //   $unit_price = DB::table('products')->where('name', $selectedValue)->value('unit_price');
-  //  return response()->json(['unit_price' => $unit_price]);
-//});
-
-//Route::get('/get-price/{selectedValue}', [ProductController::class,'getPrice']);
-
-//Graphs
-//Route::get('/graphs' , [CustomerController::class, 'returnSalesByData'])->middleware('admin');
 
 
 

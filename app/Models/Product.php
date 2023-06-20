@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Overstocks;
-use App\Models\Supplie;
+//use App\Models\Overstocks;
+use App\Models\Supplier;
 class Product extends Model
 {
     use HasFactory;
@@ -21,7 +21,7 @@ class Product extends Model
     ];
 
     public function supplier(){
-        return $this->belongsTo(Supplie::class);
+        return $this->belongsTo(Supplier::class);
     }
 
     public function stockcard(){

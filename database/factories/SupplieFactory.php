@@ -21,8 +21,8 @@ class SupplieFactory extends Factory
             'name' => $this->faker->name,
             'email_address' => $this->faker->safeEmail(),
             'contact_number' => $this->faker->phoneNumber,
-            'status' => $this->faker->boolean(),
-            'desc' => $this->faker->paragraph,
+            //'status' => $this->faker->boolean(),
+            'address' => $this->faker->paragraph,
         ];
     }
 }

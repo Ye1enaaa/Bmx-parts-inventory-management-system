@@ -85,7 +85,7 @@ Route::get('/convert-to-pdf/{id}', [StockCardController::class, 'convertToPDF'])
 //gitandog ni jopin
 Route::get('/inventory/print', 'ProductController@showPrintView')->name('inventory.print');
 
-
+Route::post('/resetDamage/{id}', [StockCardController::class, 'resetReturnValue']);
 
 
 

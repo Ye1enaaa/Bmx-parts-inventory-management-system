@@ -102,11 +102,15 @@
             <h3 class="text-lg font-bold mb-2">Product Code: <span>{{$stockcard->product_code}}</span></h3>
             <h3 class="text-lg font-bold mb-2">
               @if($stockcard->returns)
-              No. of Damage Stocks: <span>{{$stockcard->returns}}</span>
+              No. of Damage Stocks: <span id ="returnsValue">{{$stockcard->returns}}</span>
               @elseif($stockcard->returns == null)
               No. of Damage Stocks: 
               @endif
             </h3>
+            <form action="/resetDamage/{{$stockcard->id}}" method="POST">
+              @csrf
+              <button type="submit" style="background-color: #f44336; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">RESET</button>
+            </form>
           </div>
           <div class="flex items-end justify-end mr-32">
             <div>
@@ -123,9 +127,9 @@
               <th class="border p-2 text-center">Date</th>
               <th class="border p-2 text-center">Status</th>
               <th class="border p-2 text-center">Received from:</th>
-              <th class="border p-2 text-center">Issued to:</th>
+              <th class="border p-2 text-center">Issued to/Return by:</th>
               <th class="border p-2 text-center">No. Received:</th>
-              <th class="border p-2 text-center">No. Returns:</th>
+              <th class="border p-2 text-center">No. Returns due to damage:</th>
               <th class="border p-2 text-center">No. Issued:</th>
               <th class="border p-2 text-center">Balance</th>
               <th class="border p-2 text-center">Comments</th>
@@ -161,7 +165,7 @@
               </td>
               <td class="border p-2 text-center">
                 @if( $data['stockQuantityReturn'] )
-                +{{$data['stockQuantityReturn']}}
+                {{$data['stockQuantityReturn']}}
                 @elseif( $data['stockQuantityReturn'] == null )
                 -
                 @endif

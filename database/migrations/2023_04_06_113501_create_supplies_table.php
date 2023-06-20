@@ -13,17 +13,12 @@ return new class extends Migration
     {
         //Schema::rename('supplies', 'suppliers');
         Schema::create('supplies', function (Blueprint $table) {
-            //$table->unsignedBigInteger('id')->primary();
             $table->id();
-            //$table->unsignedBigInteger('suid')->primary();
             $table->string('name');
             $table->string('email_address');
             $table->string('contact_number');
-            //$table->boolean('status')->default(true);
             $table->string('address');
             $table->timestamps();
-
-            //$table->primary('suid');
         });
     }
 

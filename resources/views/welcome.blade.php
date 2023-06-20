@@ -20,8 +20,7 @@
                      <img src="{{ asset('assets/pictures/bmx.png') }}" class="h-full w-full object-contain">
                   </div>
                   <div class="flex justify-end items-center mr-10 flex-1">
-                     <button class="bg-[#294D61] hover:bg-[#4c7287] text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">Login</button>                  
-                     <button class="bg-[#294D61] hover:bg-[#4c7287] text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline ml-4" onclick="location.href='/register'">Register</button>
+                     <button class="bg-[#294D61] hover:bg-[#4c7287] text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">Login</button>                  
                   </div>
                </div>
             </div>

@@ -101,7 +101,8 @@
     </div>
     <div class="data">
         <p>
-            ₱ {{$total_value}}
+            <!-- total_value -->
+            
         </p>
     </div>
 </div>

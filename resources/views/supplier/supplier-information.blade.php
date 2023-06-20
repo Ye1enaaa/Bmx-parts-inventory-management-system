@@ -28,7 +28,7 @@
                         <span>{{ $supplier->email_address }}</span>
                     </td>
                     <td class="supplier-name text-center py-3">
-                        <span>{{ $supplier->desc }}</span>
+                        <span>{{ $supplier->address }}</span>
                     </td>
                     <td class="supplier-name text-center py-3">
                         <span>{{ $supplier->created_at->format('Y-m-d') }}</span>

@@ -15,15 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('supplier_id');
-            //$table->string('description');
             $table->string('product_code');
             $table->float('unit_price');
             $table->integer('quantity');
             $table->integer('returns')->nullable();
             $table->float('inventory_value');
             $table->timestamps();
-
-            //$table->dropForeign('products_supplier_id_foreign');
             $table->foreign('supplier_id')
                 ->references('id')
                 ->on('supplies');

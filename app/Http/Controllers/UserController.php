@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     //return views
     public function returnCreateAndShowUserView(){
-        $users = User::all();
+        $roles = [2,3];
+        $users = User::whereIn('role',$roles)->get();
         return view('system-users.superadmin',['users'=>$users]);
     }
 
@@ -74,6 +75,12 @@ class UserController extends Controller
         return redirect('/createuser')->with('Success', 'User has been deleted');
     }
 
+    public function enable($id){
+        $user = User::findOrFail($id);
+        $user -> disabled = false;
+        $user->save();
+        return redirect()->back();
+    }
     public function disable($id){
         $user = User::findOrFail($id);
         $user -> disabled = true;

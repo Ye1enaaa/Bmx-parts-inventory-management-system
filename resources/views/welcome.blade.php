@@ -20,19 +20,22 @@
                      <img src="{{ asset('assets/pictures/bmx.png') }}" class="h-full w-full object-contain">
                   </div>
                   <div class="flex justify-end items-center mr-10 flex-1">
-                     <button class="bg-[#294D61] hover:bg-[#4c7287] text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">Login</button>                  
+                     <button class="bg-[#294D61] hover:bg-[#4c7287] text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" onclick="location.href='/login'">
+                     <i class="fas fa-sign-in-alt mr-2"></i> Login
+                     </button>
                   </div>
                </div>
             </div>
+            <br><br>
             <div class="content font-poppins">
                <h1>Bicycle Moto Cross Inventory Management</h1>
                <h3>Invest in BMX bike parts that are reliable and true, and watch your performance and success come shining through.</h3>
             </div>
-            <div class="flex-wrap justify-between h-16 w-full left-0 right-0 fixed bottom-0 bg-[#6DA5C0] text-black px-3 font-poppins">
+            <!-- <div class="flex-wrap justify-between h-16 w-full left-0 right-0 fixed bottom-0 bg-[#6DA5C0] text-black px-3 font-poppins">
                <div class="py-4 pb-5">
                   <h3 class="text-center">&copy; 2023 System, Inc. All rights reserved. BMX Bike Parts Inventory Management System.</h3>
                </div>
-            </div>
+            </div> -->
          </div>
       </div>
       <script>

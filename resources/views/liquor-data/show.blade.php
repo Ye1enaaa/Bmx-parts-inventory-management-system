@@ -63,7 +63,7 @@
                                         -
                                         @endif
                                     </td>
-                                    <td class="border px-6 py-4"><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl={{$product->product_code}}"> </td>
+                                    <td class="border px-6 py-4"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{$product->product_code}}"> </td>
                                     <td class="border px-6 py-4">{{$product->supplier->name}}</td>
                                     <!-- <td class="border px-6 py-4">
                                         <a href="#" class="text-blue-600 hover:underline" onclick="showEditForm(event, {{$product->id}})">Edit</a>

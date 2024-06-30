@@ -33,5 +33,5 @@ Welcome to the BMX Parts Inventory Management System! This project is a web-base
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/Ye1enaaa/bmx-parts-inventory-management-system.git
-   cd bmx-parts-inventory-management-system
+   git clone https://github.com/Ye1enaaa/Bmx-parts-inventory-management-system.git
+   cd Bmx-parts-inventory-management-system

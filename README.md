@@ -1,3 +1,37 @@
-<h3 align="left">BMX Parts Inventory Management System</h3> <br>
-<h3 align="left">Made using:</h3>
-<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a>  <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a></p>
+# BMX Parts Inventory Management System
+
+Welcome to the BMX Parts Inventory Management System! This project is a web-based application designed to manage inventory for BMX bike parts. It provides features to track stock levels, manage suppliers, and handle orders efficiently.
+
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **Inventory Management**: Track and manage BMX bike parts inventory.
+- **Supplier Management**: Add and manage supplier information.
+- **Order Management**: Create and track orders.
+- **Stock Alerts**: Receive notifications for low stock levels.
+- **User Authentication**: Secure user authentication and authorization.
+
+## Requirements
+
+- PHP >= 7.4
+- Composer
+- Laravel >= 8.0
+- MySQL or any other supported database
+- Node.js and npm (for frontend dependencies)
+
+## Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Ye1enaaa/bmx-parts-inventory-management-system.git
+   cd bmx-parts-inventory-management-system

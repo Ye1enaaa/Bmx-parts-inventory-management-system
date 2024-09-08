@@ -15,7 +15,7 @@
         "sass": "^1.56.1",
         "tailwindcss": "^3.3.2",
         "vite": "^4.5.3",
-        "webpack": "^5.86.0"
+        "webpack": "^5.94.0"
     },
     "name": "liquor-inventory-system",
     "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>",
